@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Inputs</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #223;
+            font-family: sans-serif;
+        }
+        #box {
+            position: absolute;
+            width: 350px;
+            padding: 20px;
+            top: 50vh;
+            left: 50vw;
+            transform: translate(-50%, -50%);
+            background-color: #222;
+            text-align: center;
+            filter: drop-shadow(0 0 30px #336);
+            border-radius: 5%;
+        }
+        #box h1 {
+            color: white;
+            font-weight: 500;
+        }
+        input {
+            display: block;
+            margin: 20px auto;
+            text-align: center;
+            border: 2px solid #39b;
+            border-radius: 24px;
+            background: none;
+            color: white;
+            outline: 0;
+            transition: 0.5s;
+            width: 200px;
+            padding: 14px 10px;
+        }
+        #age {
+            padding: 6px 55px 6px 65px;
+            width: 100px;
+            line-height: 32px;
+        }
+        input:hover {
+            background-color: #333;
+        }
+        input:focus {
+            border-color: #3d7;
+            width: 280px;
+        }
+        #age:focus {
+            padding: 6px 95px 6px 105px;
+        }
+        #sign-in {
+            border-color: #3d7;
+            width: auto;
+            padding: 14px 40px;
+            cursor: pointer;
+            transition: 1s;
+        }
+        #sign-in:focus {
+            background: #3d7;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+        <form action="./inputs.html">
+            <h1>Sign in</h1>
+            <input 
+                type="text"
+                id="username"
+                name="username"
+                required
+                pattern="(?!.*[0-9])(?=.*[A-Z])(?=.*[a-z]).{2,12}"
+                placeholder="Username"
+                autocomplete="off"
+                data-tooltip="Enter a username with at least one uppercase and at least one lowercase letter and no numbers and between 2 and 12 characters"
+                title=""
+                oninvalid="setTitleHandler(event), invalidHandler(event)"
+                oninput="setTitleHandler(event), instantValidation(event)"
+            />
+            <input 
+                type="password"
+                id="password"
+                name="password"
+                required
+                pattern="(?!.*[0-9])(?=.*[A-Z])(?=.*[a-z]).{2,12}"
+                placeholder="Password"
+                data-tooltip="Enter a password with at least one uppercase and at least one lowercase letter and no numbers and between 2 and 12 characters"
+                title=""
+                oninvalid="setTitleHandler(event), invalidHandler(event)"
+                oninput="setTitleHandler(event), instantValidation(event)"
+            />
+            <input 
+                type="number"
+                id="age"
+                name="age"
+                required
+                min="18"
+                max="65"
+                placeholder="Age"
+                title=""
+                oninvalid="invalidHandler(event)"
+                oninput="instantValidationNumber(event)"
+            />
+            <input 
+                type="submit"
+                id="sign-in"
+                value="Sign in"
+                onclick=""
+            />
+        </form>
+    </div>
+    <script>
+            function setTitleHandler(event) {
+                event.target.title = event.target.dataset["tooltip"];
+                setTimeout(() => {
+                    event.target.title = "";
+                }, 50);
+            };
+            function invalidHandler(event) {
+                event.target.style.borderColor = "#d44"
+            }
+            function instantValidation(event) {
+                var valid = new RegExp(event.target.getAttribute("pattern")).test(event.target.value)
+                    if (valid) {
+                        event.target.style.borderColor = ""
+                    }
+                    else {
+                        event.target.style.borderColor = "#d44"
+                    }
+            }
+            function instantValidationNumber(event) {
+                var validNum = event.target.value >= 18 & event.target.value <= 65
+                if (validNum) {
+                    event.target.style.borderColor = ""
+                }
+                else if (!validNum) {
+                    event.target.style.borderColor = "#d44"
+                }
+                console.log(validNum);
+            }
+        </script>
+</body>
+</html>

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Login Page</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #223;
+            font-family: sans-serif;
+        }
+        #buttons {
+            margin: 200px auto;
+            display: grid;
+            grid-template-columns: auto;
+            grid-column-gap: 200px;
+            grid-template-areas: 
+                "sign-up sign-in skip";
+        }
+        .box {
+            width: 350px;
+            padding: 20px;
+            top: 50vh;
+            left: 50vw;
+            width: 100%;
+            background-color: #222;
+            text-align: center;
+            filter: drop-shadow(0 0 30px #336);
+            border-radius: 5%;
+        }
+        #signInBox {
+            grid-area: sign-in;
+        }
+        #signUpBox {
+            grid-area: sign-up;
+        }
+        .box h1 {
+            color: white;
+            font-weight: 500;
+        }
+        input {
+            display: block;
+            margin: 20px auto;
+            text-align: center;
+            border: 2px solid #39b;
+            border-radius: 24px;
+            background: none;
+            color: white;
+            outline: 0;
+            transition: 0.5s;
+            width: 200px;
+            padding: 14px 10px;
+        }
+        .age {
+            padding: 6px 55px 6px 65px;
+            width: 100px;
+            line-height: 32px;
+        }
+        input:hover {
+            background-color: #333;
+        }
+        input:focus {
+            border-color: #3d7;
+            width: 280px;
+        }
+        .age:focus {
+            /* padding: 6px 95px 6px 105px; */
+            width: 200px;
+        }
+        .sign-in {
+            border-color: #3d7;
+            width: auto;
+            padding: 14px 40px;
+            cursor: pointer;
+            transition: 1s;
+        }
+        .sign-in:focus {
+            background: #3d7;
+        }
+    
+    </style>
+</head>
+
+<body>
+    <div id="logo"></div>
+    <div id="buttons">
+        <div id="signInBox" class="box">
+            <form action="./inputs.html">
+                <h1>Sign in</h1>
+                <input type="text" class="username" name="username" required pattern="(?!.*[0-9])(?=.*[A-Z])(?=.*[a-z]).{2,12}"
+                    placeholder="Username" autocomplete="off" data-tooltip="Enter a username with at least one uppercase and at least one lowercase letter and no numbers and between 2 and 12 characters"
+                    title="" oninvalid="setTitleHandler(event), invalidHandler(event)" oninput="setTitleHandler(event), instantValidation(event)" />
+                <input type="password" class="password" name="password" required pattern="(?!.*[0-9])(?=.*[A-Z])(?=.*[a-z]).{2,12}"
+                    placeholder="Password" data-tooltip="Enter a password with at least one uppercase and at least one lowercase letter and no numbers and between 2 and 12 characters"
+                    title="" oninvalid="setTitleHandler(event), invalidHandler(event)" oninput="setTitleHandler(event), instantValidation(event)" />
+                <input type="number" class="age" name="age" required min="18" max="65" placeholder="Age" title=""
+                    oninvalid="invalidHandler(event)" oninput="instantValidationNumber(event)" />
+                <input type="submit" class="sign-in" value="Sign in" onclick="" />
+            </form>
+        </div>
+        <div id="signUpBox" class="box">
+                <form action="./inputs.html">
+                    <h1>Sign up</h1>
+                    <input type="text" class="username" name="username" required pattern="(?!.*[0-9])(?=.*[A-Z])(?=.*[a-z]).{2,12}"
+                        placeholder="Username" autocomplete="off" data-tooltip="Enter a username with at least one uppercase and at least one lowercase letter and no numbers and between 2 and 12 characters"
+                        title="" oninvalid="setTitleHandler(event), invalidHandler(event)" oninput="setTitleHandler(event), instantValidation(event)" />
+                    <input type="password" class="password" name="password" required pattern="(?!.*[0-9])(?=.*[A-Z])(?=.*[a-z]).{2,12}"
+                        placeholder="Password" data-tooltip="Enter a password with at least one uppercase and at least one lowercase letter and no numbers and between 2 and 12 characters"
+                        title="" oninvalid="setTitleHandler(event), invalidHandler(event)" oninput="setTitleHandler(event), instantValidation(event)" />
+                    <input type="number" class="age" name="age" required min="18" max="65" placeholder="Age" title=""
+                        oninvalid="invalidHandler(event)" oninput="instantValidationNumber(event)" />
+                    <input type="submit" class="sign-in" value="Sign in" onclick="" />
+                </form>
+            </div>
+            <div id="skipBox" class="box">
+                    <input type="button" value="Skip"/>
+                </div>
+
+    </div>
+    <script>
+        function setTitleHandler(event) {
+            event.target.title = event.target.dataset["tooltip"];
+            setTimeout(() => {
+                event.target.title = "";
+            }, 50);
+        };
+
+        function invalidHandler(event) {
+            event.target.style.borderColor = "#d44"
+        }
+
+        function instantValidation(event) {
+            var valid = new RegExp(event.target.getAttribute("pattern")).test(event.target.value)
+            if (valid) {
+                event.target.style.borderColor = ""
+            } else {
+                event.target.style.borderColor = "#d44"
+            }
+        }
+
+        function instantValidationNumber(event) {
+            var validNum = event.target.value >= 18 & event.target.value <= 65
+            if (validNum) {
+                event.target.style.borderColor = ""
+            } else if (!validNum) {
+                event.target.style.borderColor = "#d44"
+            }
+            console.log(validNum);
+        }
+    </script>
+</body>
+
+</html>
