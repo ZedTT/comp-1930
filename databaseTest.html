@@ -23,7 +23,7 @@
     <style>
         .toyListing {
             border: 2px solid black;
-            border-radius: 5px;
+            border-radius: 10px;
             width: 50%;
             text-align: center;
             font-size: 20pt;
@@ -109,42 +109,52 @@
         var listingsContainer = document.getElementById("listingsContainer");
 
         function updateListing(ToyName, listingNumber) {
-            
-
-
-
-            var listingDataPoints = ["Price", "Age_Min", "Age_Max"];
-
             var thisListing = elm("div", listingsContainer, "", "toyListing");
 
             var title = elm("div", thisListing, "", "listingTitle");
             var price = elm("div", thisListing, "", "listingPrice");
             var ageRange = elm("div", thisListing, "", "listingAgeRange");
-            var ageMinStyle = ["display", "inline"];
-            var ageMin = elmStyle("div", ageRange, ageMinStyle, "", "listingAgeMin");
-            var ageMaxStyle = ageMinStyle;
-            var ageMax = elmStyle("div", ageRange, ageMaxStyle, "", "listingAgeMin");
+            // var ageMinStyle = ["display", "inline"];
+            // var ageMin = elmStyle("div", ageRange, ageMinStyle, "", "listingAgeMin");
+            // var ageMaxStyle = ageMinStyle;
+            // var ageMax = elmStyle("div", ageRange, ageMaxStyle, "", "listingAgeMin");
 
             title.innerText += "Listing: " + ToyName;
 
             var toys = firebase.database().ref().child("Toys");
             var thisToy = toys.child(ToyName);
+            var ageMinValue, ageMaxValue;
 
-            var priceRef = thisToy.child(listingDataPoints[0]);
-            priceRef.on('value', function (snap) {
+            var nameRef = thisToy.child("Name");
+            nameRef.on('value', function (snap) {
                 // console.log(snap.val());
                 price.innerHTML = "Price: " + snap.val();
             });
-            ageMinRef = thisToy.child(listingDataPoints[1]);
+            var priceRef = thisToy.child("Price");
+            priceRef.on('value', function (snap) {
+                // console.log(snap.val());
+                var val = "Price not available";
+                if (snap.val()){val = "Price: $" + snap.val();}
+                price.innerHTML = val;
+            });
+            ageMinRef = thisToy.child("Age_Min");
             ageMinRef.on('value', function (snap) {
                 // console.log(snap.val());
-                ageMin.innerText = "Age Range: " + snap.val() + "-";
+                var val = "";
+                if (snap.val()){val = snap.val()}
+                ageMinValue = val;
             });
-            ageMaxRef = thisToy.child(listingDataPoints[2]);
+            ageMaxRef = thisToy.child("Age_Max");
             ageMaxRef.on('value', function (snap) {
                 // console.log(snap.val());
-                ageMax.innerText = snap.val();
+                var val = "";
+                if (snap.val()){val = snap.val()}
+                ageMaxValue = val;
             });
+
+            if (ageMinValue && ageMaxValue) {
+                ageRange.innerHTML = "Age Range: " + ageMinValue + "-" + ageMaxValue;
+            } else {ageRange.innerHTML = "Age range not available";}
 
         };
 
