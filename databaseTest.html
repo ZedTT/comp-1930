@@ -160,19 +160,45 @@
 
         };
 
-        dbRef = firebase.database().ref().child("Toys");
-            dbRef.on('value', function (snap) {
-                listingsContainer.innerHTML = "";
-                snap.forEach(function(snap){
-                    let i = 0
-                    updateListing(snap.key, i)
-                    i++;
-                });
-        });
+        // function filterPrice(min, max) {
+        //         dbRef = firebase.database().ref().child("Toys");
+        //         dbRef.on('value', function (snap) {
+        //             listingsContainer.innerHTML = "";
+        //             snap.forEach(function(snap){
+        //                 price = snap.child("Price").val();
+        //                 if (price >= min && price <= max) {
+        //                     let i = 0
+        //                     updateListing(snap.key, i)
+        //                     i++;
+        //                 }
+        //             });
+        //     });
+        // };
 
-        function filter() {};
+        // filterPrice(10, 49);
 
-        filter(10, 42);
+        function filterPlus(minPrice, maxPrice, age) {
+                dbRef = firebase.database().ref().child("Toys");
+                dbRef.on('value', function (snap) {
+                    listingsContainer.innerHTML = "";
+                    snap.forEach(function(snap){
+                        price = snap.child("Price").val();
+                        ageMax = snap.child("Age_Max").val();
+                        ageMin = snap.child("Age_Min").val();
+                        if (price >= minPrice && price <= maxPrice) {
+                            let i = 0
+                            if (age >= ageMin && age <= ageMax) {
+                                let j = 0
+                                updateListing(snap.key, i)
+                                j++;
+                            }
+                            i++;
+                        }
+                    });
+            });
+        };
+
+        filterPlus(0, 100, 12);
 
     </script>
 </body>
