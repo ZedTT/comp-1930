@@ -45,6 +45,7 @@
             text-decoration: none;
 
         }
+
     </style>
 </head>
 
@@ -114,12 +115,6 @@
             var title = elm("div", thisListing, "", "listingTitle");
             var price = elm("div", thisListing, "", "listingPrice");
             var ageRange = elm("div", thisListing, "", "listingAgeRange");
-            // var ageMinStyle = ["display", "inline"];
-            // var ageMin = elmStyle("div", ageRange, ageMinStyle, "", "listingAgeMin");
-            // var ageMaxStyle = ageMinStyle;
-            // var ageMax = elmStyle("div", ageRange, ageMaxStyle, "", "listingAgeMin");
-
-            title.innerText += "Listing: " + ToyName;
 
             var toys = firebase.database().ref().child("Toys");
             var thisToy = toys.child(ToyName);
@@ -128,7 +123,14 @@
             var nameRef = thisToy.child("Name");
             nameRef.on('value', function (snap) {
                 // console.log(snap.val());
-                price.innerHTML = "Price: " + snap.val();
+                var val = ""
+                if (snap.val()){
+                    val = "Listing: " + snap.val();
+                } else {
+                    val = ToyName
+                    console.log("Name missing for " + ToyName);
+                }
+                title.innerHTML = val;
             });
             var priceRef = thisToy.child("Price");
             priceRef.on('value', function (snap) {
@@ -162,12 +164,15 @@
             dbRef.on('value', function (snap) {
                 listingsContainer.innerHTML = "";
                 snap.forEach(function(snap){
-                    console.log(snap.key);
                     let i = 0
                     updateListing(snap.key, i)
                     i++;
                 });
         });
+
+        function filter() {};
+
+        filter(10, 42);
 
     </script>
 </body>
