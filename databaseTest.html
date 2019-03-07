@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-
+    
     <script src="https://www.gstatic.com/firebasejs/5.8.5/firebase.js"></script>
     <script>
         // Initialize Firebase
@@ -21,47 +21,143 @@
         firebase.initializeApp(config);
     </script>
     <style>
-    
-    .toyListing {
-        border: 2px solid black;
-        border-radius: 5px;
-        width: 25%;
-        text-align: center;
-        font-size: 20pt;
-    }
+        .toyListing {
+            border: 2px solid black;
+            border-radius: 5px;
+            width: 50%;
+            text-align: center;
+            font-size: 20pt;
+            margin: 2rem;
+        }
 
-    .listingTitle {
+        .toyListing span {
+            text-decoration: underline;
+        }
 
-    }
+        .listingTitle {}
 
-    .listingPrice {
-        
-    }
+        .listingPrice span {
+            font-size: 7pt;
+        }
 
-    .listingAgeRange{
-        
-    }
+        .listingAgeRange span {
+            font-size: 7pt;
+            text-decoration: none;
 
-
+        }
     </style>
 </head>
+
 <body>
-    <p id="output"></p>
-    <div class = "toyListing">
-        <div class="listingTitle"></div>
-        <b>Transformers Optimus Prime</b>
-        <div class="listingPrice"></div>
-        $10.00
-        <div class="listingAgeRange"></div>
-        5-10
-    </div>
+    <div id="listingsContainer"></div>
+    <script>
+        // usage: elm("div", document.body, "myID", "myClass");
+        function elm(tag, parent, id, cssClass) {
+            var thisElm = document.createElement(tag);
+            if(id) {thisElm.setAttribute("id", id)};
+            if(cssClass) {thisElm.setAttribute("class", cssClass)};
+            parent.appendChild(thisElm);
+            return thisElm
+        };
+
+        // Adds style to an element
+        function addStyle(element, property, value) {
+            var currentStyle = element.getAttribute("style");
+            if (!currentStyle) {
+                currentStyle = ""
+            }
+            element.setAttribute("style", currentStyle + " " + property + ": " + value + ";");
+        };
+
+        // Adds style to an element. styleArray must have an even number of indexes.
+        function addArrayOfStyles(element, styleArray) {
+            var currentStyle = element.getAttribute("style");
+            if (!currentStyle) {
+                currentStyle = ""
+            }
+            for(i=0;i<styleArray.length;i++) {
+                element.setAttribute("style", currentStyle + " " + styleArray[i] + ": " + styleArray[++i] + ";");
+                currentStyle = element.getAttribute("style");
+            };
+        };
+
+
+        // Adds style to all elements in an array
+        function addStyleToArray(arrayOfElements, property, value) {
+            for (let i = 0; i < arrayOfElements.length; i++) {
+                addStyle(arrayOfElements[i], property, value);
+            };
+        };
+
+        // Adds style to all elements of a class
+        function addStyleByClass(cssClass, property, value) {
+            let cssClassArray = document.getElementsByClassName(cssClass);
+
+            addStyleToArray(cssClassArray, property, value);
+        };
+
+        function elmStyle(tag, parent, styleArray, id, cssClass) {
+            var thisElm = elm(tag, parent, id, cssClass);
+            addArrayOfStyles(thisElm, styleArray);
+            return thisElm;
+        };
+
+        var body = document.body
+    </script>
     <script>
         var listings = document.getElementsByClassName("toyListing");
-        var dbRef = firebase.database().ref().child("Toys").child("Bionicles Set");
-        dbRef.on('value',function (snap) {
-                console.log(snap.val());
-                listings[0].innerText = snap.val();
+        var listingsContainer = document.getElementById("listingsContainer");
+
+        function updateListing(ToyName, listingNumber) {
+            
+
+
+
+            var listingDataPoints = ["Price", "Age_Min", "Age_Max"];
+
+            var thisListing = elm("div", listingsContainer, "", "toyListing");
+
+            var title = elm("div", thisListing, "", "listingTitle");
+            var price = elm("div", thisListing, "", "listingPrice");
+            var ageRange = elm("div", thisListing, "", "listingAgeRange");
+            var ageMinStyle = ["display", "inline"];
+            var ageMin = elmStyle("div", ageRange, ageMinStyle, "", "listingAgeMin");
+            var ageMaxStyle = ageMinStyle;
+            var ageMax = elmStyle("div", ageRange, ageMaxStyle, "", "listingAgeMin");
+
+            title.innerText += "Listing: " + ToyName;
+
+            var toys = firebase.database().ref().child("Toys");
+            var thisToy = toys.child(ToyName);
+
+            var priceRef = thisToy.child(listingDataPoints[0]);
+            priceRef.on('value', function (snap) {
+                // console.log(snap.val());
+                price.innerHTML = "Price: " + snap.val();
             });
+            ageMinRef = thisToy.child(listingDataPoints[1]);
+            ageMinRef.on('value', function (snap) {
+                // console.log(snap.val());
+                ageMin.innerText = "Age Range: " + snap.val() + "-";
+            });
+            ageMaxRef = thisToy.child(listingDataPoints[2]);
+            ageMaxRef.on('value', function (snap) {
+                // console.log(snap.val());
+                ageMax.innerText = snap.val();
+            });
+
+        };
+
+        dbRef = firebase.database().ref().child("Toys");
+            dbRef.on('value', function (snap) {
+                listingsContainer.innerHTML = "";
+                snap.forEach(function(snap){
+                    console.log(snap.key);
+                    let i = 0
+                    updateListing(snap.key, i)
+                    i++;
+                });
+        });
 
     </script>
 </body>
