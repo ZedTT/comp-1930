@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <script src="https://www.gstatic.com/firebasejs/5.8.5/firebase.js"></script>
+    <script>
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyBwSxJojnYNo9ZFKHmO59sKVPdEhCR641A",
+            authDomain: "comp1930database.firebaseapp.com",
+            databaseURL: "https://comp1930database.firebaseio.com",
+            projectId: "comp1930database",
+            storageBucket: "comp1930database.appspot.com",
+            messagingSenderId: "908131063499"
+        };
+        firebase.initializeApp(config);
+    </script>
+</head>
+<body>
+    <p id="output"></p>
+    <script>
+        var output = document.getElementById("output");
+        var dbRef = firebase.database().ref().child("string");
+        dbRef.on(
+            'value',
+            function (snap) {
+                console.log(snap.val());
+                output.innerHTML = snap.val();
+            });
+    </script>
+</body>
+
+</html>

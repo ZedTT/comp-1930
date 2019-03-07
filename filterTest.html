@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<script>
+    var myArray = [[itemID = 1, price = 2, age = 3], [itemID = 2, price = 8, age = 8], [itemID = 3, price = 15, age = 15], [itemID = 4, price = 20, age = 11]];
+
+    function criteriaMaker(item, value, minValue, maxValue) {
+        // price > 2
+        var valid = item[1] >= minValue && item[1] <= maxValue;
+        console.log(valid);
+        return valid
+    };
+
+    function filter(arrayToSearch, criteria, value, minValue, maxValue) {
+
+        var output = [];
+
+        for(let i = 0; i < arrayToSearch.length; i++) {
+            console.log("toSearch " + arrayToSearch);
+            console.log(arrayToSearch);
+            // console.log("i")
+            // console.log(arrayToSearch[i]);
+
+            if (criteria(arrayToSearch[i], value, minValue, maxValue)) {
+                console.log("hey");
+                output += arrayToSearch[i];
+            };
+        };
+        console.log("o " + output);
+        return output;
+    };
+
+    var firstFilter = filter(myArray, criteriaMaker, 1, 2, 12);
+    var secondFilter = filter(firstFilter, criteriaMaker, 1, 2, 12);
+    
+</script>    
+</body>
+</html>
