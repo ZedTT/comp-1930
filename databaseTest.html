@@ -187,18 +187,20 @@
                         ageMin = snap.child("Age_Min").val();
                         if (price >= minPrice && price <= maxPrice) {
                             let i = 0
-                            if (age >= ageMin && age <= ageMax) {
-                                let j = 0
-                                updateListing(snap.key, i)
-                                j++;
-                            }
-                            i++;
-                        }
+                            if (age) {
+                                if (age >= ageMin && age <= ageMax) {
+                                    let j = 0
+                                    updateListing(snap.key, i);
+                                    j++;
+                                } else {console.log("nope " + ageMin + " " + ageMax)}
+                                i++;
+                            } else {updateListing(snap.key, i);}
+                        } else {console.log("rejected on price")}
                     });
             });
         };
 
-        filterPlus(0, 100, 12);
+        filterPlus(0, 100);
 
     </script>
 </body>
