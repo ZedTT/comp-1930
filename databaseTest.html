@@ -20,18 +20,48 @@
         };
         firebase.initializeApp(config);
     </script>
+    <style>
+    
+    .toyListing {
+        border: 2px solid black;
+        border-radius: 5px;
+        width: 25%;
+        text-align: center;
+        font-size: 20pt;
+    }
+
+    .listingTitle {
+
+    }
+
+    .listingPrice {
+        
+    }
+
+    .listingAgeRange{
+        
+    }
+
+
+    </style>
 </head>
 <body>
     <p id="output"></p>
+    <div class = "toyListing">
+        <div class="listingTitle"></div>
+        <b>Transformers Optimus Prime</b>
+        <div class="listingPrice"></div>
+        $
+        <div class="listingAgeRange"></div>
+    </div>
     <script>
-        var output = document.getElementById("output");
-        var dbRef = firebase.database().ref().child("string");
-        dbRef.on(
-            'value',
-            function (snap) {
+        var listings = document.getElementsByClassName("toyListing");
+        var dbRef = firebase.database().ref().child("Toys").child("Bionicles Set");
+        dbRef.on('value',function (snap) {
                 console.log(snap.val());
-                output.innerHTML = snap.val();
+                listings[0].innerText = snap.val();
             });
+
     </script>
 </body>
 
