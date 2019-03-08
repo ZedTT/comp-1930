@@ -116,7 +116,7 @@
 <body>
     <div class="header1"></div>
     <div class="header2">
-            <p>ToyShare</p>
+        <p>ToyShare</p>
     </div>
     <div class="searchBar">Search for toys....</div>
     <div id="listingsContainer"></div>
@@ -155,7 +155,6 @@
             };
         };
 
-
         // Adds style to all elements in an array
         function addStyleToArray(arrayOfElements, property, value) {
             for (let i = 0; i < arrayOfElements.length; i++) {
@@ -182,195 +181,68 @@
         var listings = document.getElementsByClassName("toyListing");
         var listingsContainer = document.getElementById("listingsContainer");
 
-        var ageMinValue;
-        var ageMaxValue;
-
-        function updateListing(ToyName, listingNumber) {
+        function createListing(snap, listingNumber) {
             var thisListing = elm("div", listingsContainer, "", "toyListing");
 
             var title = elm("div", thisListing, "", "listingTitle");
             var price = elm("div", thisListing, "", "listingPrice");
             var ageRange = elm("div", thisListing, "", "listingAgeRange");
 
-            var toys = firebase.database().ref().child("Toys");
-            var thisToy = toys.child(ToyName);
+            var thisToy = snap.key;
 
-            var nameRef = thisToy.child("Name");
-            nameRef.on('value', function (snap) {
-                // console.log(snap.val());
-                var val = ""
-                if (snap.val()) {
-                    val = "Listing: " + snap.val();
-                } else {
-                    val = ToyName
-                    console.log("Name missing for " + ToyName);
-                }
-                title.innerHTML = val;
-            });
-            var priceRef = thisToy.child("Price");
-            priceRef.on('value', function (snap) {
-                // console.log(snap.val());
-                var val = "Price not available";
-                if (snap.val()) {
-                    val = "Price: $" + snap.val();
-                }
-                price.innerHTML = val;
-            });
-            ageMinRef = thisToy.child("Age_Min");
-            console.log(ageMinRef);
-            ageMinRef.on('value', function (snap) {
-                // console.log(snap.val());
-                var val = "";
-                if (snap.val()) {
-                    val = snap.val()
-                }
-                ageMinValue = val;
-                return ageMinValue;
+            var nameVal = snap.child("Name").val();
+            var priceVal = snap.child("Price").val();
+            var ageMaxVal = snap.child("Age_Max").val();
+            var ageMinVal = snap.child("Age_Min").val();
 
-            });
+            if(nameVal){title.innerText = "Listing: " + nameVal
+            } else {title.innerText = "Error: " + thisToy}
 
+            if(priceVal != null){price.innerText = "Price: " + priceVal
+            } else {price.innerText = "Error: no pricing data"}
 
-            ageMaxRef = thisToy.child("Age_Max");
-            ageMaxRef.on('value', function (snap) {
-                // console.log(snap.val());
-                var val = "";
-                if (snap.val()) {
-                    val = snap.val()
-                }
-                ageMaxValue = val;
-                console.log(ageMaxValue);
-            });
-            console.log(ageMaxValue);
-            if (ageMinValue != null && ageMaxValue != null) {
-                ageRange.innerHTML = "Age Range: " + ageMinValue + "-" + ageMaxValue;
-            } else {
-                ageRange.innerHTML = "Age range not available";
-            }
-            ageRange.innerHTML = "Age Range: " + ageMinValue + "-" + ageMaxValue;
+            if (ageMinVal != null && ageMaxVal != null) {
+                ageRange.innerHTML = "Age Range: " + ageMinVal + "-" + ageMaxVal;
+            } else {ageRange.innerHTML = "Age range not available";}
         };
-
-        // function filterPrice(min, max) {
-        //         dbRef = firebase.database().ref().child("Toys");
-        //         dbRef.on('value', function (snap) {
-        //             listingsContainer.innerHTML = "";
-        //             snap.forEach(function(snap){
-        //                 price = snap.child("Price").val();
-        //                 if (price >= min && price <= max) {
-        //                     let i = 0
-        //                     updateListing(snap.key, i)
-        //                     i++;
-        //                 }
-        //             });
-        //     });
-        // };
-
-        // filterPrice(10, 49);
-
-        // function filterPlus(minPrice, maxPrice, age) {
-        //     dbRef = firebase.database().ref().child("Toys");
-        //     dbRef.once('value', function (snap) {
-        //         listingsContainer.innerHTML = "";
-        //         snap.forEach(function (snap) {
-        //             let i = 0
-        //             price = snap.child("Price").val();
-        //             ageMax = snap.child("Age_Max").val();
-        //             ageMin = snap.child("Age_Min").val();
-        //             if (price >= minPrice && price <= maxPrice) {
-        //                 if (age) {
-        //                     if (age >= ageMin && age <= ageMax) {
-        //                         updateListing(snap.key, i++);
-        //                     } else {
-        //                         console.log("nope " + ageMin + " " + ageMax)
-        //                     }
-        //                 } else {
-        //                     updateListing(snap.key, i++);
-        //                 }
-        //             } else {
-        //                 console.log("rejected on price")
-        //             }
-        //         });
-        //     });
-        // };
-        // filterPlus(0, 100);
-
-        // function getToyArray() {
-        //     var thisToy = []
-        //     var theseToys = []
-
-        //     dbRef = firebase.database().ref().child("Toys");
-        //     dbRef.once('value', function (snap) {
-        //         snap.forEach(function (snap) {
-        //             let i = 0
-        //             title = snap.key;
-        //             price = snap.child("Price").val();
-        //             ageMax = snap.child("Age_Max").val();
-        //             ageMin = snap.child("Age_Min").val();
-
-        //             thisToy = [title, price, ageMax, ageMin];
-
-        //             theseToys.push(thisToy);
-
-        //             // console.log(theseToys);
-        //         });
-        //     })
-        //     return theseToys;
-        // };
-        // var toyArray = getToyArray();
-
-        // function filterByMaxPrice(arrayOfToys, min, max) {
-        //     console.log(arrayOfToys);
-        //     for (i = 0; i < arrayOfToys.length; i++) {
-        //         console.log(arrayOfToys);
-        //         thisToy = arrayOfToys[x];
-        //         price = thisToy[1];
-        //         if (price >= min && price <= max) {
-        //             let i = 0
-        //             console.log("pass");
-        //             i++;
-        //         }
-        //     }
-        // }
-
-        // filterByMaxPrice(toyArray, 0, 1000);
-
-        // console.log(toyArray == [["Cars_Speedy_Gonzales", 21, 14, 6], ["Harry_Potter", 45, 15, 8], ["Hasbro_Big_Fish_In_A_Pong", 20, 10, 4], ["Miniso_Piano", 15, 13, 4], ["NBA_Figure_Set", 50, 15, 5], ["Transformers", 40, 16, 7]]);
 
         function filterPlus(minPrice, maxPrice, age) {
             dbRef = firebase.database().ref().child("Toys");
-            dbRef.once('value', function (snap) {
+            dbRef.on('value', function (snapshot) {
                 listingsContainer.innerHTML = "";
-                snap.forEach(function (snap) {
+                snapshot.forEach(function (snap) {
                     let i = 0
-                    price = snap.child("Price").val();
-                    ageMax = snap.child("Age_Max").val();
-                    ageMin = snap.child("Age_Min").val();
-                    if (price < minPrice || price > maxPrice) {
+                    priceVal = snap.child("Price").val();
+                    ageMaxVal = snap.child("Age_Max").val();
+                    ageMinVal = snap.child("Age_Min").val();
+                    if (priceVal < minPrice || priceVal > maxPrice) {
                     return;
                     }
-                    if (age < ageMin || age > ageMax) { 
+                    if (age < ageMinVal || age > ageMaxVal) { 
                     return;
                     }
-                    updateListing(snap.key, i++);
+                    createListing(snap, i++);
                 });
             });
         };
         filterPlus(0, 100);
     </script>
-    
+
     <div class="searchFilter">
-      <p><h3>Search Filters</h3>
-      Name of toy:<br/>
-      <input type="text" name="Name" placeholder="Name" pattern="[A-Za-z1-9]"/><br/><br/>
-      Price:<br/>
-      <input type="text" name="Price" placeholder="Amount" pattern="[1-9]"/><br/><br/>
-      Mininum Age:<br/>
-      <input type="number" name="Age Min" placeholder="Min Age" min="0" max="100"/><br/><br/>
-      Maximum Age:<br/>
-      <input type="number" name="Age Max" placeholder="Max Age" min="0" max="100"/><br/><br/><br/>
-      <input type="submit" name="Submit" value="Search"/>
-      </p>
+        <p>
+            <h3>Search Filters</h3>
+            Name of toy:<br />
+            <input type="text" name="Name" placeholder="Name" pattern="[A-Za-z1-9]" /><br /><br />
+            Price:<br />
+            <input type="text" name="Price" placeholder="Amount" pattern="[1-9]" /><br /><br />
+            Mininum Age:<br />
+            <input type="number" name="Age Min" placeholder="Min Age" min="0" max="100" /><br /><br />
+            Maximum Age:<br />
+            <input type="number" name="Age Max" placeholder="Max Age" min="0" max="100" /><br /><br /><br />
+            <input type="submit" name="Submit" value="Search" />
+        </p>
     </div>
-    
+
 </body>
 
 </html>
