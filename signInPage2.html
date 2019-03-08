@@ -1,22 +1,87 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Sign-In</title>
-
-    <!-- Get Firebase -->
-    <script src="https://www.gstatic.com/firebasejs/5.8.5/firebase.js"></script>
-
-    <!-- Get Firebase UI -->
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/css?family=Gloria+Hallelujah" rel="stylesheet">
+    <style>
+      html { 
+      background: url(https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Lego_dublo_arto_alanenpaa_5.JPG/1280px-Lego_dublo_arto_alanenpaa_5.JPG) no-repeat center center fixed; 
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover;
+      }
+      @media only screen and (max-width: 3000px) {
+      #headingMain {
+      text-align: center;
+      font-family: 'Gloria Hallelujah', cursive;
+      font-size: 75pt;
+      color: white;
+      text-shadow: 7px 1px black;
+      margin-bottom: 3%;
+      }
+      #firebaseui-auth-container {
+      display: block;
+      background-color: rgba(130,20,50,10);
+      }
+      div#childImage {
+      margin-top: 12%;
+      }
+      #childImage img{
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      width: 50%;
+      }
+      .hoverWrapper{
+      float: left;
+      background-color: rgb(244, 248, 255);
+      border: 8px ridge lightgreen;
+      width: 27%;
+      height: 37.7%;
+      margin-left: 15%;
+      margin-top: 2%;
+      }
+      #signUpText{
+      text-align: center;
+      font-size: 35pt;
+      font-family: 'Gloria Hallelujah', cursive;
+      margin-top: 21%;
+      }
+      .hoverWrapper:hover #firebaseui-auth-container {
+      display: block;
+      }
+      .hoverWrapper #firebaseui-auth-container {
+      display: none;
+      position: absolute;
+      background-color: rgb(244, 248, 255);
+      width: 26.6%;
+      height: 32%;
+      margin-top: -12.1%;
+      }
+      #skipButton {
+      display: block;
+      background-color: rgb(244, 248, 255);
+      border: 8px ridge lightgreen;
+      width: 27%;
+      height: 37.7%;
+      margin-left: 57%;
+      margin-top: 4.9%;
+      }
+      #skipText {
+      font-family: 'Gloria Hallelujah', cursive;
+      font-size: 35pt;
+      text-align: center;
+      margin-top: 19%;
+      }					
+      }
+      @media only screen and (max-width: 800px){
+      body {
+      display: none;
+      }
+      }
+    </style>
+    <script src="https://www.gstatic.com/firebasejs/5.8.4/firebase.js"></script>
     <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
-
-    <!-- Get Firebase CSS -->
     <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
-
-    <!-- Initialize Firebase -->
     <script>
         // Initialize Firebase
         var config = {
@@ -29,62 +94,58 @@
         };
         firebase.initializeApp(config);
     </script>
-
     <script>
-        // Initialize the FirebaseUI Widget using Firebase.
-        var ui = new firebaseui.auth.AuthUI(firebase.auth());
+      // Initialize the FirebaseUI Widget using Firebase.
+      	var ui = new firebaseui.auth.AuthUI(firebase.auth());
+      	
     </script>
-
-    <style>
-        h1 {
-            color: red;
-        }
-    </style>
-
-</head>
-
-<body>
+  </head>
+  <body>
     <!-- The surrounding HTML is left untouched by FirebaseUI.
-     Your app may use that space for branding, controls and other customizations.-->
-    <h1>Welcome to Zack's App</h1>
-    <div id="firebaseui-auth-container"></div>
+      Your app may use that space for branding, controls and other customizations.-->
+    <h1 id = "headingMain">ToyShare</h1>
+    <div class="hoverWrapper">
+      <div id="signUpText">SIGN-UP</div>
+      <div id="firebaseui-auth-container"></div>
+    </div>
+    <div id = "skipButton">
+      <div id="skipText">SKIP!</div>
+    </div>
     <div id="loader">Loading...</div>
+    <div id="childImage"> <img src = "https://requestreduce.org/images/children-playing-house-clipart-14.png" alt = "stickFig"> </div>
     <script>
-        var uiConfig = {
-            callbacks: {
-                signInSuccessWithAuthResult: function (authResult, redirectUrl) {
-                    // User successfully signed in.
-                    // Return type determines whether we continue the redirect automatically
-                    // or whether we leave that to developer to handle.
-                    return true;
-                },
-                uiShown: function () {
-                    // The widget is rendered.
-                    // Hide the loader.
-                    document.getElementById('loader').style.display = 'none';
-                }
-            },
-            // Will use popup for IDP Providers sign-in flow instead of the default, redirect.
-            signInFlow: 'popup',
-            signInSuccessUrl: './databaseTest.html',
-            signInOptions: [
-                // Leave the lines as is for the providers you want to offer your users.
-                // firebase.auth.GoogleAuthProvider.PROVIDER_ID,
-                // firebase.auth.FacebookAuthProvider.PROVIDER_ID,
-                // firebase.auth.TwitterAuthProvider.PROVIDER_ID,
-                // firebase.auth.GithubAuthProvider.PROVIDER_ID,
-                firebase.auth.EmailAuthProvider.PROVIDER_ID,
-                firebase.auth.PhoneAuthProvider.PROVIDER_ID
-            ],
-            // Terms of service url.
-            tosUrl: 'main.html',
-            // Privacy policy url.
-            privacyPolicyUrl: 'main.html'
-        };
-
-        // The start method will wait until the DOM is loaded.
-        ui.start('#firebaseui-auth-container', uiConfig);
+      var uiConfig = {
+      callbacks: {
+        signInSuccessWithAuthResult: function(authResult, redirectUrl) {
+          // User successfully signed in.
+          // Return type determines whether we continue the redirect automatically
+          // or whether we leave that to developer to handle.
+          return true;
+        },
+        uiShown: function() {
+          // The widget is rendered.
+          // Hide the loader.
+          document.getElementById('loader').style.display = 'none';
+        }
+      },
+      // Will use popup for IDP Providers sign-in flow instead of the default, redirect.
+      signInFlow: 'popup',
+      signInSuccessUrl: 'main.html',
+      signInOptions: [
+        // Leave the lines as is for the providers you want to offer your users.
+      firebase.auth.EmailAuthProvider.PROVIDER_ID,
+        firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+        firebase.auth.FacebookAuthProvider.PROVIDER_ID,
+        firebase.auth.GithubAuthProvider.PROVIDER_ID,
+      ],
+      // Terms of service url.
+      tosUrl: 'main.html',
+      // Privacy policy url.
+      privacyPolicyUrl: 'main.html'
+      };
+      	
+      	// The start method will wait until the DOM is loaded.
+      ui.start('#firebaseui-auth-container', uiConfig);
     </script>
-</body>
-
+  </body>
 </html>
