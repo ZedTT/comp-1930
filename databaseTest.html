@@ -160,23 +160,33 @@
         var body = document.body
     </script>
     <script>
+        // An array of all the listings on the page
         var listings = document.getElementsByClassName("toyListing");
+        // A locator for the container that holds the listings
         var listingsContainer = document.getElementById("listingsContainer");
 
-        function createListing(snap, listingNumber) {
-            var thisListing = elm("div", listingsContainer, "", "toyListing");
+        // this cuntion adds a single listing to the page
+        // the parameter snap is a snaphot of the database
+        // the snap in this case actually only contains a snapshot of a SINGLE toy
+        // this function is called by the filter function
+        function createListing(snap) {
 
+            // Create the html that will contain out listing and all it's information
+            var thisListing = elm("div", listingsContainer, "", "toyListing");
             var title = elm("div", thisListing, "", "listingTitle");
             var price = elm("div", thisListing, "", "listingPrice");
             var ageRange = elm("div", thisListing, "", "listingAgeRange");
 
+            // The key of the toy, used only as a back up if the name field is missing
             var thisToy = snap.key;
-
+            // Grabbbing values from the snap
             var nameVal = snap.child("Name").val();
             var priceVal = snap.child("Price").val();
             var ageMaxVal = snap.child("Age_Max").val();
             var ageMinVal = snap.child("Age_Min").val();
 
+            // check that each value exists before adding it
+            // if the value is null, display an error instead
             if(nameVal){title.innerText = "Listing: " + nameVal
             } else {title.innerText = "Error: " + thisToy}
 
@@ -188,22 +198,29 @@
             } else {ageRange.innerHTML = "Age range not available";}
         };
 
+        // this is the function that filters the page
         function filterPlus(minPrice, maxPrice, age) {
+            // this is the reference to our database, specifically the toys
             dbRef = firebase.database().ref().child("Toys");
+            // this function runs every time the database has a change
             dbRef.on('value', function (snapshot) {
+                // IMPORTANT: clear the old listings before adding updated ones 
                 listingsContainer.innerHTML = "";
+                // a loop for each toy
                 snapshot.forEach(function (snap) {
-                    let i = 0
+                    // grabbing values from the database
                     priceVal = snap.child("Price").val();
                     ageMaxVal = snap.child("Age_Max").val();
                     ageMinVal = snap.child("Age_Min").val();
+                    // the actual filters, if any of these pass, it means the filter failed, return ends the loop
                     if (priceVal < minPrice || priceVal > maxPrice) {
                     return;
                     }
                     if (age < ageMinVal || age > ageMaxVal) { 
                     return;
                     }
-                    createListing(snap, i++);
+                    // Calls the create listing function with a single toys data. We only get to this point if both filters pass
+                    createListing(snap);
                 });
             });
         };
