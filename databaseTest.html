@@ -208,10 +208,10 @@
             if(nameVal){title.innerText = "Listing: " + nameVal
             } else {title.innerText = "Error: " + thisToy}
 
-            if(priceVal != null){price.innerText = "Price: " + priceVal
+            if(priceVal || priceVal == 0){price.innerText = "Price: $" + priceVal
             } else {price.innerText = "Error: no pricing data"}
 
-            if (ageMinVal != null && ageMaxVal != null) {
+            if (ageMinVal != "" && ageMaxVal != "" && ageMinVal != null && ageMaxVal != null) {
                 ageRange.innerHTML = "Age Range: " + ageMinVal + "-" + ageMaxVal;
             } else {ageRange.innerHTML = "Age range not available";}
         };
