@@ -28,7 +28,7 @@
       : {
           default: obj
         };
-  }
+  } 
 
   var _typeof =
     typeof Symbol === 'function' && typeof Symbol.iterator === 'symbol'
@@ -592,6 +592,7 @@
       this.$element = (0, _jquery2.default)(element);
 
       if (this.$element.is('input')) {
+        // bookmark this is where it gets middle
         var value = this.$element.val();
 
         if (typeof value === 'string') {
@@ -613,13 +614,13 @@
       } else {
         this.$wrap = this.$element;
       }
-
+      
       this.options = _jquery2.default.extend(
         {},
         DEFAULTS,
         options,
-        this.$element.data(),
-        metas
+        this.$element.data(), // bookmark commented out metas
+        // metas
       );
       this.namespace = this.options.namespace;
       this.components = _jquery2.default.extend(true, {}, components);
