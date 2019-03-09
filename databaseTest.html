@@ -88,8 +88,8 @@
             margin: 1.5rem 0.75rem;
         }
 
-        .priceSliderTitle {
-            margin-bottom: 2rem;
+        .sliderTitle {
+            margin-bottom: 3rem;
         }
 
         .asRange {
@@ -150,13 +150,12 @@
                 <input type="text" name="Name" placeholder="Name" pattern="[A-Za-z1-9]" />
             </div>
             <div class="filter">
-                <div class="filterTitle priceSliderTitle">Price:</div>
-                <!-- <input type="text" name="Price" placeholder="Amount" pattern="[1-9]" /> -->
-                <input class="priceSlider" type="range" min="0" max="100" name="price" step="1" value="[0,100]" />
+                <div class="filterTitle sliderTitle">Price:</div>
+                <input class="priceSlider slider" type="range" min="0" max="100" name="price" step="1" value="[0,100]" />
             </div>
             <div class="filter">
-                <div class="filterTitle">Age</div>
-                <input type="number" name="Age Min" placeholder="Min Age" min="0" max="100"/>
+                <div class="filterTitle sliderTitle">Age</div>
+                <input class="ageSlider slider" type="range" min="0" max="20" name="age" step="1" value="[0, 20]" />
             </div>
         </div>
 
@@ -284,32 +283,41 @@
         };
         filterPlus(0, 100);
 
-        var priceSliderObject = {
-                namespace: 'asRange',
-                skin: null,
-                max: 100,
-                min: 0,
-                value: null,
-                step: 10,
-                limit: true,
-                range: true,
-                direction: 'h', // 'v' or 'h'
-                keyboard: true,
-                replaceFirst: false, // false, 'inherit', {'inherit': 'default'}
-                tip: true,
-                scale: true,
-                format(value) {
-                    return value;
-                }
-            }
+        // var priceSliderObject = {
+        //         namespace: 'asRange',
+        //         skin: null,
+        //         max: 100,
+        //         min: 0,
+        //         value: null,
+        //         step: 10,
+        //         limit: true,
+        //         range: true,
+        //         direction: 'h', // 'v' or 'h'
+        //         keyboard: true,
+        //         replaceFirst: false, // false, 'inherit', {'inherit': 'default'}
+        //         tip: true,
+        //         scale: true,
+        //         format(value) {
+        //             return value;
+        //         }
+        //     }
 
         jQuery(function($) {
             $('.priceSlider').asRange({
                 range: true,
-                tip: true,
                 value: [0, 100],
                 format(value) {
                     return "$" + value;
+                }
+            }); 
+        });
+
+        jQuery(function($) {
+            $('.ageSlider').asRange({
+                range: true,
+                value: [0, 20],
+                format(value) {
+                    return value;
                 }
             }); 
         });

@@ -593,11 +593,11 @@
 
       if (this.$element.is('input')) {
         // bookmark this is where it gets middle
-        var value = this.$element.val();
+        // var value = this.$element.val();
 
-        if (typeof value === 'string') {
-          metas.value = value.split(',');
-        }
+        // if (typeof value === 'string') {
+        //   metas.value = value.split(',');
+        // }
 
         _jquery2.default.each(['min', 'max', 'step'], function(index, key) {
           var val = parseFloat(_this2.$element.attr(key));
@@ -620,7 +620,7 @@
         DEFAULTS,
         options,
         this.$element.data(), // bookmark commented out metas
-        // metas
+        metas
       );
       this.namespace = this.options.namespace;
       this.components = _jquery2.default.extend(true, {}, components);
