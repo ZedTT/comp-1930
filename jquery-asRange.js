@@ -82,7 +82,6 @@
     replaceFirst: false, // false, 'inherit', {'inherit': 'default'}
     tip: true,
     scale: true,
-    price: false,
     format: function format(value) {
       return value;
     }
@@ -471,10 +470,6 @@
             } else {
               value = instance.options.format(value);
             }
-          }
-          // bookmark
-          if(instance.options.price) {
-            value = "$" + value;
           }
           $tip.text(value);
           return false;

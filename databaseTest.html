@@ -71,7 +71,7 @@
             text-decoration: none;
         }
 
-        .searchFilter {
+        #filtersContainer {
             width: 250px;
             height: 350px;
             border: 3px solid crimson;
@@ -82,6 +82,18 @@
             padding: 10px;
             margin-left: 15px;
             font-family: arial;
+        }
+
+        .filter {
+            margin: 1.5rem 0.75rem;
+        }
+
+        .priceSliderTitle {
+            margin-bottom: 2rem;
+        }
+
+        .asRange {
+            width: 100%;
         }
 
         .header1 {
@@ -130,6 +142,24 @@
     </div>
     <div class="searchBar">Search for toys....</div>
     <div id="listingsContainer"></div>
+
+    <div id="filtersContainer">
+            <h3>Filters</h3>
+            <div class="filter">
+                <div class="filterTitle">Name of toy:</div>
+                <input type="text" name="Name" placeholder="Name" pattern="[A-Za-z1-9]" />
+            </div>
+            <div class="filter">
+                <div class="filterTitle priceSliderTitle">Price:</div>
+                <!-- <input type="text" name="Price" placeholder="Amount" pattern="[1-9]" /> -->
+                <input class="priceSlider" type="range" min="0" max="100" name="price" step="1" />
+            </div>
+            <div class="filter">
+                <div class="filterTitle">Age</div>
+                <input type="number" name="Age Min" placeholder="Min Age" min="0" max="100" />
+            </div>
+        </div>
+
     <script>
         // usage: elm("div", document.body, "myID", "myClass");
         function elm(tag, parent, id, cssClass) {
@@ -277,29 +307,12 @@
             $('.priceSlider').asRange({
                 range: true,
                 tip: true,
-                price: true
+                format(value) {
+                    return "$" + value;
+                }
             }); 
         });
     </script>
-
-    <div class="searchFilter">
-        <div id="filtersContainer">
-            <h3>Filters</h3>
-            <div class="filter">
-                <div class="filterTitle">Name of toy:</div>
-                <input type="text" name="Name" placeholder="Name" pattern="[A-Za-z1-9]" />
-            </div>
-            <div class="filter">
-                <div class="filterTitle">Price:</div>
-                <!-- <input type="text" name="Price" placeholder="Amount" pattern="[1-9]" /> -->
-                <input class="priceSlider" type="range" min="0" max="100" name="points" step="1" />
-            </div>
-            <div class="filter">
-                <div class="filterTitle">Age</div>
-                <input type="number" name="Age Min" placeholder="Min Age" min="0" max="100" />
-            </div>
-        </div>
-    </div>
 
 </body>
 
