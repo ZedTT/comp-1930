@@ -178,7 +178,7 @@
                 </div>
                 <div class="filter">
                     <div class="filterTitle sliderTitle">Age</div>
-                    <input class="ageSlider slider" type="range" min="0" max="20" name="age" step="1" onchange="console.log('test')" />
+                    <input class="ageSlider slider" type="range" min="0" max="20" name="age" step="1" />
                 </div>
             </div>
         </div>
@@ -289,7 +289,7 @@
         };
 
         // this is the function that filters the page
-        function filterPlus(minPrice, maxPrice, age) {
+        function filterPlus(minPrice, maxPrice, minAge, maxAge) {
             // this is the reference to our database, specifically the toys
             dbRef = firebase.database().ref().child("Toys");
             // this function runs every time the database has a change
@@ -306,7 +306,7 @@
                     if (priceVal < minPrice || priceVal > maxPrice) {
                         return;
                     }
-                    if (age < ageMinVal || age > ageMaxVal) {
+                    if (maxAge < ageMinVal || minAge > ageMaxVal) {
                         return;
                     }
                     // Calls the create listing function with a single toys data. We only get to this point if both filters pass
@@ -314,7 +314,7 @@
                 });
             });
         };
-        filterPlus(0, 100);
+        filterPlus();
 
         jQuery(function ($) {
             $('.priceSlider').asRange({
@@ -334,6 +334,13 @@
                     return value;
                 }
             });
+        });
+
+        $('.slider').on('asRange::change', function (e) {
+            // on value change
+            var price = $('.priceSlider').asRange('val');
+            var age = $('.ageSlider').asRange('val');
+            filterPlus(price[0], price[1], age[0], age[1]);
         });
     </script>
 
