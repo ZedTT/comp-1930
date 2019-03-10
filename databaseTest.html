@@ -180,6 +180,7 @@
                     <div class="filterTitle sliderTitle">Age</div>
                     <input class="ageSlider slider" type="range" min="0" max="20" name="age" step="1" />
                 </div>
+                <div>sliders coutesy of https://github.com/thecreation/jquery-asRange</div>
             </div>
         </div>
     </div>
@@ -345,9 +346,21 @@
     </script>
 
     <script>
+        // search bar
+        $(document).ready(function () {
+            $(".searchBar").on("keyup", function () {
+                var value = $(this).val().toLowerCase();
+                $(".toyListing").filter(function () {
+                    $(this).toggle($(this.getElementsByClassName("listingTitle")[0]).text().split(': ')[1].toLowerCase().indexOf(value) > -1)
+                });
+            });
+        });
+    </script>
+
+    <script>
         // For testing offline only
-        if (!navigator.onLine) {    
-            for (i=0;i<5;i++) {
+        if (!navigator.onLine) {
+            for (i = 0; i < 5; i++) {
                 var thisListing = elm("div", listingsContainer, "", "toyListing");
                 var title = elm("div", thisListing, "", "listingTitle");
                 title.innerHTML = "You are offline";
@@ -355,7 +368,7 @@
                 price.innerHTML = "Price: cannot connect";
                 var ageRange = elm("div", thisListing, "", "listingAgeRange");
                 ageRange.innerHTML = "Age Range: to-firebase";
-            }            
+            }
         }
     </script>
 
