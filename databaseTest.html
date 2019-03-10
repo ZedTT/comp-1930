@@ -34,22 +34,105 @@
     <style>
 
         body {
-            background-image: url("https://d1q8kgt00fn2v8.cloudfront.net/files/uploads/2018/03/kids_playing_with-_blocks-1600x1067.jpg");
-            background-repeat: no-repeat;
-            background-size: cover;
+            /* background-image: url("https://d1q8kgt00fn2v8.cloudfront.net/files/uploads/2018/03/kids_playing_with-_blocks-1600x1067.jpg"); */
+            /* background-repeat: no-repeat; */
+            /* background-size: cover; */
             margin: 0px;
             padding: 0px;
+            grid-template-rows: /* 40px */ 80px auto;
+            display: grid;
+            grid-template-areas: 
+                /* "h1" */
+                "h2"
+                "content";
+        }
+
+        .header1 {
+            grid-area: h1;
+            width: 100%;
+            background-color: #991c1c;
+        }
+        
+        .header2 {
+            grid-area: h2;
+            width: 100%;
+            background-color: crimson;
+        }
+
+        .header2 p {
+            font-family: 'Gloria Hallelujah', cursive;
+            text-shadow: 3px 3px black;
+            font-size: 30pt;
+            color: white;
+            margin: 0;
+            margin-left: 1em;
+            line-height: calc(80px - 10px);
+        }
+
+        #content {
+            grid-area: content;
+            grid-template-rows: 200px auto;
+            grid-template-columns: 300px auto;
+            display: grid;
+            grid-template-areas: 
+                "search search"
+                "sideBar listings";
+        }
+
+        .searchBar {
+            grid-area: search;
+            width: 500px;
+            height: 30px;
+            background-color: whitesmoke;
+            border: 3px solid black;
+            border-radius: 30px;
+            margin:  auto auto auto auto;
+            text-align: center;
+            font-family: arial;
+            padding-top: 13px;
+            color: grey;
+            font-size: 18pt;
+            padding: 25px;
+        }
+
+        #filtersContainer {
+            grid-area: sideBar;
+        }
+
+        #filters {
+            border: 3px solid crimson;
+            border-radius: 5px;
+            font-size: 12pt;
+            background-color: whitesmoke;
+            padding: 10px;
+            margin-left: 15px;
+            font-family: arial;
+        }
+
+        .filter {
+            margin: 1.5rem 0.75rem;
+        }
+
+        .sliderTitle {
+            margin-bottom: 3rem;
+        }
+
+        .asRange {
+            width: 100%;
+        }
+
+        #listingsContainer {
+            grid-area: listings;
         }
 
         .toyListing {
             border: 3px solid crimson;
             border-radius: 10px;
-            width: 50%;
             text-align: center;
             font-size: 17pt;
-            margin-top: 1rem;
+            width: 80%;
+            margin: auto;
             margin-bottom: 1rem;
-            margin-left: 22rem;
             background-color: whitesmoke;
             font-family: arial;
         }
@@ -71,93 +154,35 @@
             text-decoration: none;
         }
 
-        #filtersContainer {
-            width: 250px;
-            height: 350px;
-            border: 3px solid crimson;
-            border-radius: 5px;
-            font-size: 12pt;
-            background-color: whitesmoke;
-            margin-top: -617px;
-            padding: 10px;
-            margin-left: 15px;
-            font-family: arial;
-        }
-
-        .filter {
-            margin: 1.5rem 0.75rem;
-        }
-
-        .sliderTitle {
-            margin-bottom: 3rem;
-        }
-
-        .asRange {
-            width: 100%;
-        }
-
-        .header1 {
-            width: 100%;
-            height: 40px;
-            background-color: #991c1c;
-        }
-        
-        .header2 {
-                width: 100%;
-                height: 80px;
-                background-color: crimson;
-                margin-bottom: 100px;
-        }
-      
-        .header2 p {
-            font-family: 'Gloria Hallelujah', cursive;
-            text-shadow: 3px 3px black;
-            font-size: 30pt;
-            color: white;
-            margin-top: -10px;
-            margin-left: 20px;
-        }
-
-        .searchBar {
-            width: 700px;
-            height: 30px;
-            background-color: whitesmoke;
-            border: 3px solid black;
-            border-radius: 10px;
-            margin: 0 auto;
-            margin-bottom: 100px;
-            text-align: center;
-            font-family: arial;
-            padding-top: 13px;
-            color: grey;
-        }
-
     </style>
 </head>
 
 <body>
-    <div class="header1"></div>
+    <!-- <div class="header1"></div> -->
     <div class="header2">
         <p>ToyShare</p>
     </div>
-    <div class="searchBar">Search for toys....</div>
-    <div id="listingsContainer"></div>
-
-    <div id="filtersContainer">
-            <h3>Filters</h3>
-            <div class="filter">
-                <div class="filterTitle">Name of toy:</div>
-                <input type="text" name="Name" placeholder="Name" pattern="[A-Za-z1-9]" />
-            </div>
-            <div class="filter">
-                <div class="filterTitle sliderTitle">Price:</div>
-                <input class="priceSlider slider" type="range" min="0" max="100" name="price" step="1" value="[0,100]" />
-            </div>
-            <div class="filter">
-                <div class="filterTitle sliderTitle">Age</div>
-                <input class="ageSlider slider" type="range" min="0" max="20" name="age" step="1" value="[0, 20]" />
+    <div id="content">
+        <input class="searchBar" type="search" placeholder="Search for toys...." />
+        <div id="listingsContainer"></div>
+        <div id="filtersContainer">
+            <div id="filters">
+                <h3>Filters</h3>
+                <!-- <div class="filter">
+                    <div class="filterTitle">Name of toy:</div>
+                    <input type="text" name="Name" placeholder="Name" pattern="[A-Za-z1-9]" />
+                </div> -->
+                <div class="filter">
+                    <div class="filterTitle sliderTitle">Price:</div>
+                    <input class="priceSlider slider" type="range" min="0" max="100" name="price" step="1" />
+                </div>
+                <div class="filter">
+                    <div class="filterTitle sliderTitle">Age</div>
+                    <input class="ageSlider slider" type="range" min="0" max="20" name="age" step="1" onchange="console.log('test')" />
+                </div>
             </div>
         </div>
+    </div>
 
     <script>
         // usage: elm("div", document.body, "myID", "myClass");
@@ -222,7 +247,7 @@
         // A locator for the container that holds the listings
         var listingsContainer = document.getElementById("listingsContainer");
 
-        // this cuntion adds a single listing to the page
+        // this function adds a single listing to the page
         // the parameter snap is a snaphot of the database
         // the snap in this case actually only contains a snapshot of a SINGLE toy
         // this function is called by the filter function
@@ -244,15 +269,23 @@
 
             // check that each value exists before adding it
             // if the value is null, display an error instead
-            if(nameVal){title.innerText = "Listing: " + nameVal
-            } else {title.innerText = "Error: " + thisToy}
+            if (nameVal) {
+                title.innerText = "Listing: " + nameVal
+            } else {
+                title.innerText = "Error: " + thisToy
+            }
 
-            if(priceVal || priceVal == 0){price.innerText = "Price: $" + priceVal
-            } else {price.innerText = "Error: no pricing data"}
+            if (priceVal || priceVal == 0) {
+                price.innerText = "Price: $" + priceVal
+            } else {
+                price.innerText = "Error: no pricing data"
+            }
 
             if (!!ageMinVal.toString() && !!ageMaxVal.toString()) {
                 ageRange.innerHTML = "Age Range: " + ageMinVal + "-" + ageMaxVal;
-            } else {ageRange.innerHTML = "Age range not available";}
+            } else {
+                ageRange.innerHTML = "Age range not available";
+            }
         };
 
         // this is the function that filters the page
@@ -271,10 +304,10 @@
                     ageMinVal = snap.child("Age_Min").val();
                     // the actual filters, if any of these pass, it means the filter failed, return ends the loop
                     if (priceVal < minPrice || priceVal > maxPrice) {
-                    return;
+                        return;
                     }
-                    if (age < ageMinVal || age > ageMaxVal) { 
-                    return;
+                    if (age < ageMinVal || age > ageMaxVal) {
+                        return;
                     }
                     // Calls the create listing function with a single toys data. We only get to this point if both filters pass
                     createListing(snap);
@@ -283,44 +316,40 @@
         };
         filterPlus(0, 100);
 
-        // var priceSliderObject = {
-        //         namespace: 'asRange',
-        //         skin: null,
-        //         max: 100,
-        //         min: 0,
-        //         value: null,
-        //         step: 10,
-        //         limit: true,
-        //         range: true,
-        //         direction: 'h', // 'v' or 'h'
-        //         keyboard: true,
-        //         replaceFirst: false, // false, 'inherit', {'inherit': 'default'}
-        //         tip: true,
-        //         scale: true,
-        //         format(value) {
-        //             return value;
-        //         }
-        //     }
-
-        jQuery(function($) {
+        jQuery(function ($) {
             $('.priceSlider').asRange({
                 range: true,
                 value: [0, 100],
                 format(value) {
                     return "$" + value;
                 }
-            }); 
+            });
         });
 
-        jQuery(function($) {
+        jQuery(function ($) {
             $('.ageSlider').asRange({
                 range: true,
                 value: [0, 20],
                 format(value) {
                     return value;
                 }
-            }); 
+            });
         });
+    </script>
+
+    <script>
+        // For testing offline only
+        if (!navigator.onLine) {    
+            for (i=0;i<5;i++) {
+                var thisListing = elm("div", listingsContainer, "", "toyListing");
+                var title = elm("div", thisListing, "", "listingTitle");
+                title.innerHTML = "You are offline";
+                var price = elm("div", thisListing, "", "listingPrice");
+                price.innerHTML = "Price: cannot connect";
+                var ageRange = elm("div", thisListing, "", "listingAgeRange");
+                ageRange.innerHTML = "Age Range: to-firebase";
+            }            
+        }
     </script>
 
 </body>
