@@ -289,6 +289,22 @@
             }
         };
 
+        function initializeListings() {
+            // this is the reference to our datadase, specifically the toys
+            dbRef = firebase.database().ref().child("Toys");
+            // this runs once whenever initializeListings is called and grabs the data from the database
+            dbRef.once('value', function (snapshot) {
+                listingsContainer.innerHTML = "";
+                // a loop for each toy
+                snapshot.forEach(function (snap) {
+                    createListing(snap);
+                });
+                $(listings).addClass("priceOk ageOk searchOk"); // bookmark
+            });
+        };
+        initializeListings();
+
+        // unused right now because it called the database too often
         // this is the function that filters the page
         function filterPlus(minPrice, maxPrice, minAge, maxAge) {
             // this is the reference to our database, specifically the toys
@@ -315,8 +331,10 @@
                 });
             });
         };
-        filterPlus();
+    </script>
 
+    <script>
+        // create the sliders
         jQuery(function ($) {
             $('.priceSlider').asRange({
                 range: true,
@@ -336,23 +354,58 @@
                 }
             });
         });
-
-        $('.slider').on('asRange::change', function (e) {
-            // on value change
-            var price = $('.priceSlider').asRange('val');
-            var age = $('.ageSlider').asRange('val');
-            filterPlus(price[0], price[1], age[0], age[1]);
-        });
     </script>
 
     <script>
+        // this script tag contains filters
+        // slider filters
+        $('.priceSlider').on('asRange::change', function (e) {
+            var price = $('.priceSlider').asRange('val');
+            $(".toyListing").filter(function () {
+                var listingsPrice = $(this.getElementsByClassName("listingPrice")[0]).text().split(
+                    ': $')[1];
+                if (listingsPrice >= price[0] && listingsPrice <= price[1]) {
+                    $(this).addClass("priceOk").removeClass("priceNo");
+                } else {
+                    $(this).removeClass("priceOk").addClass("priceNo");
+                };
+            });
+            $(".ageOk.searchOk.priceNo").hide();
+            $(".ageOk.searchOk.priceOk").show();
+        });
+
+        $('.ageSlider').on('asRange::change', function (e) {
+            var age = $('.ageSlider').asRange('val');
+            $(".toyListing").filter(function () {
+                var listingsAgeRange = $(this.getElementsByClassName("listingAgeRange")[0]).text().split(
+                    ': ')[1];
+                var listingsMinAge = listingsAgeRange.split('-')[0];
+                var listingsMaxAge = listingsAgeRange.split('-')[1];
+                if (listingsMinAge <= age[1] && listingsMaxAge >= age[0]) {
+                    $(this).addClass("ageOk").removeClass("ageNo");
+                } else {
+                    $(this).removeClass("ageOk").addClass("ageNo");
+                };
+            });
+            $(".priceOk.searchOk.ageNo").hide();
+            $(".priceOk.searchOk.ageOk").show();
+        });
         // search bar
         $(document).ready(function () {
             $(".searchBar").on("keyup", function () {
                 var value = $(this).val().toLowerCase();
-                $(".toyListing").filter(function () {
-                    $(this).toggle($(this.getElementsByClassName("listingTitle")[0]).text().split(': ')[1].toLowerCase().indexOf(value) > -1)
+                $(".priceOk.ageOk").filter(function () {
+                    // $(this).toggle($(this.getElementsByClassName("listingTitle")[0]).text().split(': ')[1].toLowerCase().indexOf(value) > -1);
+                    var listingTitle = $(this.getElementsByClassName("listingTitle")[0]).text().split(': ')[1];
+                    
+                    if (listingTitle.toLowerCase().indexOf(value) > -1) {
+                        $(this).addClass("searchOk").removeClass("searchNo");
+                    } else {
+                        $(this).removeClass("searchOk").addClass("searchNo");
+                    };
                 });
+                $(".ageOk.priceOk.searchNo").hide();
+                $(".ageOk.priceOk.searchOk").show();
             });
         });
     </script>
