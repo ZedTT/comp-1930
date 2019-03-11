@@ -64,19 +64,24 @@
 
         .buttons {
             background-color: rgb(244, 248, 255);
-            border: 8px ridge lightgreen;
+            border: 8px inset lightgreen;
             width: 25vw;
             height: 25vw;
             margin: 0 auto;
         }
 
-        .hoverWrapper #firebaseui-auth-container {
+        .buttons #firebaseui-auth-container {
             display: none;
             background-color: rgb(244, 248, 255);
         }
 
-        .hoverWrapper:hover #firebaseui-auth-container {
+        /* .hoverWrapper:hover #firebaseui-auth-container {
             display: block;
+        } */
+
+        .buttons:hover {
+            background-color:lightgray;
+            cursor: pointer;
         }
 
         .buttonText {
@@ -85,6 +90,9 @@
             text-align: center;
         }
 
+        /* #signUpText { */
+
+    
         /* All screens larger than 800px */
         @media only screen and (min-width: 800px) {
 
@@ -123,7 +131,7 @@
 
     <div id="container">
         <h1 id="headingMain">ToyShare</h1>
-        <div id="signUpButton" class="hoverWrapper buttons">
+        <div id="signUpButton" class="buttons">
             <div id="signUpText" class="buttonText">SIGN-UP</div>
             <div id="firebaseui-auth-container"></div>
             <div id="loader">Loading...</div>
@@ -168,6 +176,20 @@
 
         // The start method will wait until the DOM is loaded.
         ui.start('#firebaseui-auth-container', uiConfig);
+    </script>
+    <script>
+    document.getElementById('signUpButton').onclick = function() {toggleFunction()};
+
+    function toggleFunction() {
+
+    var inputForm = document.getElementById('firebaseui-auth-container');
+
+    if(inputForm.style.display == 'none'){
+        inputForm.style.display = 'block';
+    } else {
+        inputForm.style.display = 'none';
+    }
+    }
     </script>
 </body>
 
