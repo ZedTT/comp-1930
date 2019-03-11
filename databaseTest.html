@@ -255,7 +255,7 @@
         function createListing(snap) {
 
             // Create the html that will contain out listing and all it's information
-            var thisListing = elm("div", listingsContainer, "", "toyListing");
+            var thisListing = elm("div", listingsContainer, "", "toyListing ageOk priceOk searchOk");
             var title = elm("div", thisListing, "", "listingTitle");
             var price = elm("div", thisListing, "", "listingPrice");
             var ageRange = elm("div", thisListing, "", "listingAgeRange");
@@ -299,7 +299,6 @@
                 snapshot.forEach(function (snap) {
                     createListing(snap);
                 });
-                $(listings).addClass("priceOk ageOk searchOk"); // bookmark
             });
         };
         initializeListings();
