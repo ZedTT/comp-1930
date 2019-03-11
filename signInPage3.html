@@ -39,6 +39,7 @@
         #signUpButton {
             grid-area: signUp;
         }
+
         #skipButton {
             grid-area: skip;
         }
@@ -79,7 +80,7 @@
         } */
 
         .buttons:hover {
-            background-color:lightgray;
+            background-color: lightgray;
             cursor: pointer;
         }
 
@@ -91,7 +92,7 @@
 
         /* #signUpText { */
 
-    
+
         /* All screens larger than 800px */
         @media only screen and (min-width: 800px) {
 
@@ -177,18 +178,20 @@
         ui.start('#firebaseui-auth-container', uiConfig);
     </script>
     <script>
-    document.getElementById('signUpButton').onclick = function() {toggleFunction()};
+        document.getElementById('signUpButton').onclick = function () {
+            toggleFunction()
+        };
 
-    function toggleFunction() {
+        function toggleFunction() {
 
-    var inputForm = document.getElementById('firebaseui-auth-container');
+            var inputForm = document.getElementById('firebaseui-auth-container');
 
-    if(inputForm.style.display == 'none'){
-        inputForm.style.display = 'block';
-    } else {
-        inputForm.style.display = 'none';
-    }
-    }
+            if (inputForm.style.display == 'none') {
+                inputForm.style.display = 'block';
+            } else {
+                inputForm.style.display = 'none';
+            }
+        }
     </script>
 </body>
 
