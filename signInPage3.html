@@ -1,7 +1,9 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
     <link href="https://fonts.googleapis.com/css?family=Gloria+Hallelujah" rel="stylesheet">
+    <script src="JQuery.js"></script>
     <style>
         html {
             background: url(https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Lego_dublo_arto_alanenpaa_5.JPG/1280px-Lego_dublo_arto_alanenpaa_5.JPG) no-repeat center center fixed;
@@ -90,7 +92,9 @@
             text-align: center;
         }
 
-        /* #signUpText { */
+        /* #signUpText {
+            
+        } */
 
 
         /* All screens larger than 800px */
@@ -123,6 +127,7 @@
         // Initialize the FirebaseUI Widget using Firebase.
         var ui = new firebaseui.auth.AuthUI(firebase.auth());
     </script>
+    <title>Sign In</title>
 </head>
 
 <body>
@@ -178,6 +183,23 @@
         ui.start('#firebaseui-auth-container', uiConfig);
     </script>
     <script>
+        // $(() => {
+        //     $('#signUpButton').on('mouseover', showSignIn);
+        //     $('#signUpButton').on('mouseout', hideSignIn);
+        // });
+
+        // function showSignIn() {
+        //     $(this).find('#signUpText').hide(300, () => {
+        //         $(this).find('#firebaseui-auth-container').show(300);
+        //     });
+        // };
+
+        // function hideSignIn() {
+        //     $(this).find('#firebaseui-auth-container').hide(300, () => {
+        //         $(this).find('#signUpText').show(300);
+        //     });
+        // };
+
         document.getElementById('signUpButton').onclick = function () {
             toggleFunction()
         };
