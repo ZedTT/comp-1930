@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tech Mini</title>
+    <script src="https://www.gstatic.com/firebasejs/5.9.0/firebase.js"></script>
+    <script>
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyB7AlQsfqlCmu4oFdKhR2IHQ7areGJuuOw",
+            authDomain: "feb28-c3401.firebaseapp.com",
+            databaseURL: "https://feb28-c3401.firebaseio.com",
+            projectId: "feb28-c3401",
+            storageBucket: "feb28-c3401.appspot.com",
+            messagingSenderId: "318927108660"
+        };
+        firebase.initializeApp(config);
+    </script>
+    <script src="JQuery.js"></script>
+</head>
+
+<body>
+    <h1>Collection display app</h1>
+    <div id="ClickMe">Click here for something...</div>
+
+    <script>
+        document.getElementById("ClickMe").addEventListener("click", function () {
+            ShowList("team22");
+        });
+
+        function ShowList(category) {
+            var dbRef = firebase.database().ref("teams/" + category);
+            var promise = dbRef.once("value", function (snap) {
+                list = snap.val();
+            });
+            promise.then(function () {
+                DisplayList(list);
+            });
+
+            function DisplayList(list) {
+                console.log(list);
+
+                for (x in list) {
+                    var $output = $('<div/>', {
+                        id: 'myList',
+                        text: x,
+                    }).appendTo('body');
+                }
+            };
+
+
+        };
+    </script>
+</body>
+
+</html>
