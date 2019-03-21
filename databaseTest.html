@@ -284,6 +284,7 @@
             var priceVal = snap.child("Price").val();
             var ageMaxVal = snap.child("Age_Max").val();
             var ageMinVal = snap.child("Age_Min").val();
+            var picturePath = snap.child("Picture").val();
 
             // check that each value exists before adding it
             // if the value is null, display an error instead
@@ -304,6 +305,16 @@
             } else {
                 ageRange.innerHTML = "Age range not available";
             }
+
+            // create the picture for the listing
+            var picture = $('<img/>', {
+                class: 'listingPicture',
+                alt: 'picture not available',
+                src: "Pictures/" + picturePath + '.jpg',
+            }).appendTo(thisListing);
+
+            console.log(picturePath);
+
         };
 
         function initializeListings() {
