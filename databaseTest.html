@@ -39,30 +39,32 @@
             /* background-size: cover; */
             margin: 0px;
             padding: 0px;
-            grid-template-rows: /* 40px */ 80px auto;
+            grid-template-rows: /* 40px */ 80px 60px auto;
             display: grid;
             grid-template-areas: 
-                /* "h1" */
+                /*"h1"*/
                 "h2"
+                "searchBar"
                 "content";
         }
 
         .header1 {
             grid-area: h1;
             width: 100%;
+            height: 30px;
             background-color: #991c1c;
         }
         
         .header2 {
             grid-area: h2;
             width: 100%;
-            background-color: crimson;
+            background-color: #991c1c;
         }
 
         .header2 p {
             font-family: 'Gloria Hallelujah', cursive;
             text-shadow: 3px 3px black;
-            font-size: 30pt;
+            font-size: 35pt;
             color: white;
             margin: 0;
             margin-left: 1em;
@@ -70,29 +72,39 @@
         }
 
         #content {
+            padding-top: 40px;
+            background-image: url("https://d1q8kgt00fn2v8.cloudfront.net/files/uploads/2018/03/kids_playing_with-_blocks-1600x1067.jpg");
+            background-repeat: no-repeat;
             grid-area: content;
-            grid-template-rows: 200px auto;
-            grid-template-columns: 300px auto;
+            grid-template-rows: auto;
+            grid-template-columns: 250px auto 250px;
             display: grid;
             grid-template-areas: 
-                "search search"
-                "sideBar listings";
+                "sideBar listings favourites";
+        }
+
+        #searchContainer {
+            grid-area: searchBar;
+            width: 100%;
+            text-align: center;
+            background-color: crimson;
         }
 
         .searchBar {
-            grid-area: search;
+            grid-area: searchBar;
             width: 500px;
-            height: 30px;
+            height: 13px;
             background-color: whitesmoke;
-            border: 3px solid black;
+            border: 2px solid black;
             border-radius: 30px;
             margin:  auto auto auto auto;
             text-align: center;
             font-family: arial;
             padding-top: 13px;
             color: grey;
-            font-size: 18pt;
-            padding: 25px;
+            font-size: 10pt;
+            padding: 15px;
+            margin-top: 12px;
         }
 
         #filtersContainer {
@@ -123,6 +135,8 @@
 
         #listingsContainer {
             grid-area: listings;
+            overflow-y: auto;
+            height: calc(100vh - 180px);
         }
 
         .toyListing {
@@ -130,9 +144,9 @@
             border-radius: 10px;
             text-align: center;
             font-size: 17pt;
-            width: 80%;
+            width: 75%;
             margin: auto;
-            margin-bottom: 1rem;
+            margin-bottom: 2rem;
             background-color: whitesmoke;
             font-family: arial;
         }
@@ -158,12 +172,14 @@
 </head>
 
 <body>
-    <!-- <div class="header1"></div> -->
+    <!--<div class="header1"></div>-->
     <div class="header2">
         <p>ToyShare</p>
     </div>
+    <div id="searchContainer">
+        <input class="searchBar" type="search" placeholder="    Search for toys...." />
+    </div>
     <div id="content">
-        <input class="searchBar" type="search" placeholder="Search for toys...." />
         <div id="listingsContainer"></div>
         <div id="filtersContainer">
             <div id="filters">
@@ -177,11 +193,12 @@
                     <input class="priceSlider slider" type="range" min="0" max="100" name="price" step="1" />
                 </div>
                 <div class="filter">
-                    <div class="filterTitle sliderTitle">Age</div>
+                    <div class="filterTitle sliderTitle">Age:</div>
                     <input class="ageSlider slider" type="range" min="0" max="20" name="age" step="1" />
                 </div>
                 <div>sliders coutesy of <a href="https://github.com/thecreation/jquery-asRange">github.com/thecreation/</a></div>
             </div>
+            <div id="favourites"></div>
         </div>
     </div>
 
@@ -267,6 +284,7 @@
             var priceVal = snap.child("Price").val();
             var ageMaxVal = snap.child("Age_Max").val();
             var ageMinVal = snap.child("Age_Min").val();
+            var picturePath = snap.child("Picture").val();
 
             // check that each value exists before adding it
             // if the value is null, display an error instead
@@ -287,6 +305,16 @@
             } else {
                 ageRange.innerHTML = "Age range not available";
             }
+
+            // create the picture for the listing
+            var picture = $('<img/>', {
+                class: 'listingPicture',
+                alt: 'picture not available',
+                src: "Pictures/" + picturePath + '.jpg',
+            }).appendTo(thisListing);
+
+            console.log(picturePath);
+
         };
 
         function initializeListings() {

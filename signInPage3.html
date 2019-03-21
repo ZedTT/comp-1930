@@ -1,7 +1,9 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
     <link href="https://fonts.googleapis.com/css?family=Gloria+Hallelujah" rel="stylesheet">
+    <script src="JQuery.js"></script>
     <style>
         html {
             background: url(https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Lego_dublo_arto_alanenpaa_5.JPG/1280px-Lego_dublo_arto_alanenpaa_5.JPG) no-repeat center center fixed;
@@ -39,6 +41,7 @@
         #signUpButton {
             grid-area: signUp;
         }
+
         #skipButton {
             grid-area: skip;
         }
@@ -63,6 +66,7 @@
             margin: 0 auto;
         }
 
+<<<<<<< HEAD
 /* The Modal (background) */
 .modal {
   display: none; /* Hidden by default */
@@ -101,6 +105,19 @@
 
  .buttons:hover {
             background-color:lightgray;
+=======
+        .buttons #firebaseui-auth-container {
+            display: none;
+            background-color: rgb(244, 248, 255);
+        }
+
+        /* .hoverWrapper:hover #firebaseui-auth-container {
+            display: block;
+        } */
+
+        .buttons:hover {
+            background-color: lightgray;
+>>>>>>> 427d0209b4368d88232f071973fa05c7137de352
             cursor: pointer;
         }
 
@@ -110,9 +127,11 @@
             text-align: center;
         }
 
-        /* #signUpText { */
+        /* #signUpText {
+            
+        } */
 
-    
+
         /* All screens larger than 800px */
         @media only screen and (min-width: 800px) {
 
@@ -143,6 +162,7 @@
         // Initialize the FirebaseUI Widget using Firebase.
         var ui = new firebaseui.auth.AuthUI(firebase.auth());
     </script>
+    <title>Sign In</title>
 </head>
 
 <body>
@@ -189,7 +209,7 @@
             },
             // Will use popup for IDP Providers sign-in flow instead of the default, redirect.
             signInFlow: 'popup',
-            signInSuccessUrl: 'main.html',
+            signInSuccessUrl: 'databaseTest.html',
             signInOptions: [
                 // Leave the lines as is for the providers you want to offer your users.
                 firebase.auth.EmailAuthProvider.PROVIDER_ID,
@@ -198,15 +218,16 @@
                 firebase.auth.GithubAuthProvider.PROVIDER_ID,
             ],
             // Terms of service url.
-            tosUrl: 'main.html',
+            tosUrl: 'databaseTest.html',
             // Privacy policy url.
-            privacyPolicyUrl: 'main.html'
+            privacyPolicyUrl: 'databaseTest.html'
         };
 
         // The start method will wait until the DOM is loaded.
         ui.start('#firebaseui-auth-container', uiConfig);
     </script>
     <script>
+<<<<<<< HEAD
  
 
     // Get the modal
@@ -231,6 +252,39 @@ window.onclick = function(event) {
   }
 }
 
+=======
+        // $(() => {
+        //     $('#signUpButton').on('mouseover', showSignIn);
+        //     $('#signUpButton').on('mouseout', hideSignIn);
+        // });
+
+        // function showSignIn() {
+        //     $(this).find('#signUpText').hide(300, () => {
+        //         $(this).find('#firebaseui-auth-container').show(300);
+        //     });
+        // };
+
+        // function hideSignIn() {
+        //     $(this).find('#firebaseui-auth-container').hide(300, () => {
+        //         $(this).find('#signUpText').show(300);
+        //     });
+        // };
+
+        document.getElementById('signUpButton').onclick = function () {
+            toggleFunction()
+        };
+
+        function toggleFunction() {
+
+            var inputForm = document.getElementById('firebaseui-auth-container');
+
+            if (inputForm.style.display == 'none') {
+                inputForm.style.display = 'block';
+            } else {
+                inputForm.style.display = 'none';
+            }
+        }
+>>>>>>> 427d0209b4368d88232f071973fa05c7137de352
     </script>
 </body>
 
