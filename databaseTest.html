@@ -265,12 +265,19 @@
             font-family: Verdana, Geneva, Tahoma, sans-serif;
             padding: 10px; /* If padding is changed width must be changed */
             padding-left: 20px;
+
+            display: grid;
+            grid-template-areas:
+                "img ttl ttl"
+                "img prc age";
         }
 
-        .toyListing img{ 
-            width: 75%;
-            height: 50%;
-            margin-top: 10px;
+        .toyListing img{
+            grid-area: img;
+            width: auto;
+            height: 100px;
+            max-width: 200px;
+            margin: 10px;
         }
 
         .toyListing span {
@@ -278,12 +285,12 @@
         }
 
         .listingTitle {
+            grid-area: ttl;
             background-color: #f1f1f1;
             border: 1px solid #f1f1f1;
             border-radius: 5px;
             padding-left: 8px;
             margin-bottom: 18px;
-            margin-left: -8px;
             width: 100%;
             font-weight:500;
             font-size: 13pt ;
@@ -291,10 +298,12 @@
         }
 
         .listingPrice span {
+            grid-area: prc;
             font-size: 7pt;
         }
 
         .listingAgeRange span {
+            grid-area: age;
             font-size: 7pt;
             text-decoration: none;
         }
