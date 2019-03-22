@@ -110,6 +110,23 @@
             padding: 13px;
         }
 
+        .favouritesButton {
+            grid-area: right;
+            width: 70px;
+            height: 20px;
+            border-radius: 10px;
+            background-color: #212aa5;
+            border: 1px solid #212aa5;
+            color: #fbf5f3;
+            text-align: center;
+            vertical-align: middle;
+            line-height: 20px;
+            font-family: Arial;
+            font-weight: bold;
+            margin: auto auto auto auto;
+            font-size: 10pt;
+        }
+
         #filtersContainer {
             grid-area: sideBar;
             margin-left: 10%;
@@ -195,7 +212,7 @@
             grid-area: ads;
             width: 260px;
             height: 200px;
-            border: 3px solid #991c1c;
+            border: 5px solid #991c1c;
             border-radius: 5px;
             position: absolute;
         }
@@ -211,7 +228,7 @@
             width: 240px;
             height: 250px;
             padding: 10px;
-            border: 3px solid #991c1c;
+            border: 5px solid #991c1c;
             border-radius: 5px;
             margin-top: 175px;
             text-align: center;
@@ -227,7 +244,7 @@
             text-align: center;
             font-weight: bold;
             background-color: #991c1c;
-            border: 3px solid #991c1c;
+            border: 5px solid #991c1c;
             border-radius: 5px;
             margin-top: 40px;
             font-size: 15pt;
@@ -255,6 +272,7 @@
     <div class="header2">
         <div id="left"><p>Toyshare</p></div>
         <input class="searchBar" type="search" placeholder="    Search for toys...." />
+        <div class="favouritesButton">Saved</div>
     </div>
     <div id="content">
         <div id="listingsContainer"></div>
