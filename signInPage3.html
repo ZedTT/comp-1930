@@ -45,12 +45,6 @@
         #skipButton {
             grid-area: skip;
         }
-
-        #firebaseui-auth-container {
-            display: block;
-            background-color: rgba(130, 20, 50, 10);
-        }
-
         #childImage {
             margin-top: auto;
             margin-bottom: 0;
@@ -66,27 +60,67 @@
 
         .buttons {
             background-color: rgb(244, 248, 255);
-            border: 8px inset lightgreen;
+            border: 8px inset red;
             width: 25vw;
             height: 25vw;
             margin: 0 auto;
         }
 
-        .buttons #firebaseui-auth-container {
-            display: none;
-            background-color: rgb(244, 248, 255);
-        }
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
 
-        /* .hoverWrapper:hover #firebaseui-auth-container {
-            display: block;
-        } */
+/* Modal Content */
+#firebaseui-auth-container{
+  position: absolute;
+  background-color: #fefefe;
+  margin-top: 200px;
+  margin-left:35%;
+  padding: 0;
+  border: 1px solid #888;
+  width: 30%;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+  animation-name: animatetop;
+  animation-duration: 0.4s
+}
 
-        .buttons:hover {
-            background-color: lightgray;
+/* Add Animation */
+@keyframes animatetop {
+  from {top: -300px; opacity: 0}
+  to {top: 0; opacity: 1}
+}
+
+/* The Close Button */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+ .buttons:hover {
+            background-color:lightgray;
             cursor: pointer;
         }
 
-        .buttonText {
+.buttonText {
             font-family: 'Gloria Hallelujah', cursive;
             font-size: 5vw;
             text-align: center;
@@ -136,18 +170,28 @@
 
     <div id="container">
         <h1 id="headingMain">ToyShare</h1>
-        <div id="signUpButton" class="buttons">
+
+                <div id="signUpButton" class ="buttons">
+                <!-- The Modal -->
+                
+                <div id="myModal" class="modal">
+                  <!-- Modal content -->
+                  <div id = "firebaseui-auth-container">
+                        <span class="close">&times;</span>
+                    </div>
+            </div>
+
             <div id="signUpText" class="buttonText">SIGN-UP</div>
-            <div id="firebaseui-auth-container"></div>
             <div id="loader">Loading...</div>
         </div>
+
         <div id="skipButton" class="buttons">
             <div id="skipText" class="buttonText">SKIP!</div>
         </div>
         <div id="childImage"> <img src="https://requestreduce.org/images/children-playing-house-clipart-14.png" alt="stickFig">
         </div>
     </div>
-
+</div>
     <script>
         var uiConfig = {
             callbacks: {
@@ -183,37 +227,32 @@
         ui.start('#firebaseui-auth-container', uiConfig);
     </script>
     <script>
-        // $(() => {
-        //     $('#signUpButton').on('mouseover', showSignIn);
-        //     $('#signUpButton').on('mouseout', hideSignIn);
-        // });
+ 
 
-        // function showSignIn() {
-        //     $(this).find('#signUpText').hide(300, () => {
-        //         $(this).find('#firebaseui-auth-container').show(300);
-        //     });
-        // };
+    // Get the modal
+var modal = document.getElementById("myModal");
 
-        // function hideSignIn() {
-        //     $(this).find('#firebaseui-auth-container').hide(300, () => {
-        //         $(this).find('#signUpText').show(300);
-        //     });
-        // };
+// Get the button that opens the modal
+var signUpButton = document.getElementById("signUpButton");
 
-        document.getElementById('signUpButton').onclick = function () {
-            toggleFunction()
-        };
 
-        function toggleFunction() {
+var span = document.getElementsByClassName("close")[0];
+span.onclick = function() {
+  modal.style.display = "none";
+}
 
-            var inputForm = document.getElementById('firebaseui-auth-container');
+// When the user clicks on the button, open the modal 
+signUpButton.onclick = function() {
+  modal.style.display = "block";
+}
 
-            if (inputForm.style.display == 'none') {
-                inputForm.style.display = 'block';
-            } else {
-                inputForm.style.display = 'none';
-            }
-        }
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+
     </script>
 </body>
 
