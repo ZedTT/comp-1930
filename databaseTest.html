@@ -44,8 +44,7 @@
         .color-white-0 { color: #FBF5F3 }
         .color-white-1 { color: #9C8881 }
         .color-white-2 { color: #C0B3AE }
-        .color-white-3 { color: #FFFFFF }
-        .color-white-4 { color: #FFFFFF }
+        .color-white-3 { color: #FFFAF8 }
 
         .color-blue-0 { color: #93E1D9 }
         .color-blue-1 { color: #F3FEFD }
@@ -53,7 +52,7 @@
         .color-blue-3 { color: #66C6BC }
         .color-blue-4 { color: #3EA197 }
 
-        .color-orange-0 { color: #E28313 }
+        .color-orange-0 { color: #E28413 }
         .color-orange-1 { color: #FFBC6D }
         .color-orange-2 { color: #F1A142 }
         .color-orange-3 { color: #B36407 }
@@ -84,12 +83,8 @@
             /* background-size: cover; */
             margin: 0px;
             padding: 0px;
-            /* grid-template-rows: 55px auto;
-            display: grid;
-            grid-template-areas: 
-                "h2"
-                "content"; */
-            background-color: #e7e7e7
+            background-color: #F7F3F0; /* background color from the picture */
+            color: #000022;
         }
         
         .header2 {
@@ -190,9 +185,9 @@
             width: 70px;
             height: 20px;
             border-radius: 10px;
-            background-color: #212aa5;
-            border: 1px solid #212aa5;
-            color: #fbf5f3;
+            background-color: #93E1D9; /* blue 0 */
+            border: 1px solid #3EA197; /* blue 4 */
+            color: #FBF5F3; /* white 0 */
             text-align: center;
             /* vertical-align: middle; */ /* no longer needed */
             line-height: 20px;
@@ -212,7 +207,7 @@
             /* width: 20vw; */
             border-radius: 3px;
             font-size: 12pt;
-            background-color: #ffffff;
+            background-color: #FFFAF8;
             padding: 10px;
             font-family: arial;
             border: 1px solid #dad9d9;
@@ -228,6 +223,28 @@
 
         .asRange {
             width: 100%;
+        }
+
+        .asRange .asRange-selected {
+            background-color:#93E1D9; /* blue 0 */
+        }
+        .asRange .asRange-pointer .asRange-tip {
+            color: #FBF5F3;
+            background-color: #d83834;
+            border: 1px solid #DB3834;
+        }
+        .asRange .asRange-pointer .asRange-tip:before {
+            background-color:#DB3834; /* orange 0 */
+        }
+
+        .asRange .asRange-pointer {
+            background-color: #fff;
+        }
+        .asRange .asRange-pointer:before {
+            background: #3EA197; /* blue 4 */
+        }
+        .asRange .asRange-pointer:after {
+            background: #F3FEFD; /* blue 1 */
         }
 
         #listingsContainer {
@@ -338,12 +355,16 @@
             height: 28px;
             padding: 0;
         }
+
+        .dropShadow {
+            filter:drop-shadow(0px 0px 5px #EBDDD0); /* carpet color */
+        }
     </style>
 </head>
 
 <body>
     <!--<div class="header1"></div>-->
-    <div class="header2">
+    <div class="header2 dropShadow">
         <div id="left"><p>Toyshare</p></div>
         <input class="searchBar" type="search" placeholder="Search for toys...." />
         <div id="right">
@@ -352,8 +373,7 @@
         </div>
     </div>
     <div id="content">
-        <div id="listingsContainer"></div>
-        <div id="filtersContainer">
+        <div id="filtersContainer" class="dropShadow">
             <div id="filters">
                 <h3>Filters</h3>
                 <!-- <div class="filter">
@@ -371,7 +391,8 @@
                 <div>sliders coutesy of <a href="https://github.com/thecreation/jquery-asRange">github.com/thecreation/</a></div>
             </div>
         </div>
-        <div id="ads">
+        <div id="listingsContainer" class="dropShadow"></div>
+        <div id="ads" class="dropShadow">
             <div class="wasteInfo">
                 <img src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/a-mountain-of-plastic-goods-at-a-recycling-high-res-stock-photography-678799848-1529691762.jpg" alt="Toy Wasteland">
                 <p>90% of all toys on the market are made of plastic, and none of it is being recycled.<br><br>Donate today.</p>
