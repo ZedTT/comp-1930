@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>ToyShare: Canada's No.1 Toy Donation/Sell Center</title>
 
     <!-- Links for JQuery-->
     <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.css" type="text/css"
@@ -39,36 +39,41 @@
             /* background-size: cover; */
             margin: 0px;
             padding: 0px;
-            grid-template-rows: /* 40px */ 80px 60px auto;
+            grid-template-rows: /* 40px */ 55px auto;
             display: grid;
             grid-template-areas: 
                 /*"h1"*/
                 "h2"
-                "searchBar"
                 "content";
         }
 
-        .header1 {
+        /**.header1 {
             grid-area: h1;
             width: 100%;
             height: 30px;
-            background-color: #991c1c;
-        }
+            background-color: #db3a34;
+        }*/
         
         .header2 {
             grid-area: h2;
             width: 100%;
             background-color: #991c1c;
+            display: grid;
+            grid-template-rows: 55px;
+            grid-template-columns: 250px auto 250px;
+            grid-template-areas: 
+                "left middle right";
         }
 
         .header2 p {
             font-family: 'Gloria Hallelujah', cursive;
-            text-shadow: 3px 3px black;
-            font-size: 35pt;
-            color: white;
-            margin: 0;
+            text-shadow: 3px 3px #000022;
+            font-size: 23pt;
+            color: #ffeee2;
             margin-left: 1em;
-            line-height: calc(80px - 10px);
+            line-height: 55px;
+            margin-top: -3px;
+            vertical-align: middle;
         }
 
         #content {
@@ -77,45 +82,62 @@
             background-repeat: no-repeat;
             grid-area: content;
             grid-template-rows: auto;
-            grid-template-columns: 250px auto 250px;
+            grid-template-columns: 300px auto 300px;
             display: grid;
             grid-template-areas: 
-                "sideBar listings favourites";
+                "sideBar listings ads";
         }
 
-        #searchContainer {
+        /**#searchContainer {
             grid-area: searchBar;
             width: 100%;
             text-align: center;
             background-color: crimson;
-        }
+        }*/
 
         .searchBar {
-            grid-area: searchBar;
-            width: 500px;
+            grid-area: middle;
+            width: 400px;
             height: 13px;
-            background-color: whitesmoke;
-            border: 2px solid black;
+            background-color: #fbf5f3;
+            border: 2px solid #000022;
             border-radius: 30px;
-            margin:  auto auto auto auto;
+            margin: auto auto auto auto;
             text-align: center;
             font-family: arial;
-            padding-top: 13px;
             color: grey;
             font-size: 10pt;
-            padding: 15px;
-            margin-top: 12px;
+            padding: 13px;
+        }
+
+        .favouritesButton {
+            grid-area: right;
+            width: 70px;
+            height: 20px;
+            border-radius: 10px;
+            background-color: #212aa5;
+            border: 1px solid #212aa5;
+            color: #fbf5f3;
+            text-align: center;
+            vertical-align: middle;
+            line-height: 20px;
+            font-family: Arial;
+            font-weight: bold;
+            margin: auto auto auto auto;
+            font-size: 10pt;
         }
 
         #filtersContainer {
             grid-area: sideBar;
+            margin-left: 10%;
+            width: 80%;
         }
 
         #filters {
-            border: 3px solid crimson;
+            border: 3px solid #db3a34;
             border-radius: 5px;
             font-size: 12pt;
-            background-color: whitesmoke;
+            background-color: #fbf5f3;
             padding: 10px;
             margin-left: 15px;
             font-family: arial;
@@ -136,19 +158,30 @@
         #listingsContainer {
             grid-area: listings;
             overflow-y: auto;
-            height: calc(100vh - 180px);
+            height: calc(100vh - 95px);
         }
 
         .toyListing {
-            border: 3px solid crimson;
-            border-radius: 10px;
-            text-align: center;
-            font-size: 17pt;
-            width: 75%;
+            border: 2px solid #991c1c;
+            border-radius: 5px;
+            font-size: 13pt;
+            width: 71%;
             margin: auto;
             margin-bottom: 2rem;
-            background-color: whitesmoke;
+            background-color: #ffffff;
             font-family: arial;
+            padding: 10px;
+            padding-left: 20px;
+        }
+
+        .toyListing img{ 
+            width: 350px;
+            height: 225px;
+            border: 3px solid darkgrey;
+            border-radius: 5px;
+            box-shadow: 2px 2px grey;
+            margin-left: 195px;
+            margin-top: -40px;
         }
 
         .toyListing span {
@@ -156,7 +189,14 @@
         }
 
         .listingTitle {
-            background-color: crimson;
+            background-color: #ffeee2;
+            border: 1px solid #ffeee2;
+            border-radius: 5px;
+            padding-left: 8px;
+            margin-bottom: 18px;
+            margin-left: -8px;
+            width: 100%;
+            font-weight: bold;
         }
 
         .listingPrice span {
@@ -168,16 +208,71 @@
             text-decoration: none;
         }
 
+        .wasteInfoPic {
+            grid-area: ads;
+            width: 260px;
+            height: 200px;
+            border: 5px solid #991c1c;
+            border-radius: 5px;
+            position: absolute;
+        }
+
+        .wasteInfoPic img {
+            width: 260px;
+            height: 200px;
+        }
+
+        .wasteInfoTxt {
+            grid-area: ads;
+            background-color: yellow;
+            width: 240px;
+            height: 250px;
+            padding: 10px;
+            border: 5px solid #991c1c;
+            border-radius: 5px;
+            margin-top: 175px;
+            text-align: center;
+            font-size: 20pt;
+            font-weight: bold;
+        }
+
+        .learnMore {
+            grid-area: ads;
+            width: 240px;
+            height: 125px;
+            padding: 10px;
+            text-align: center;
+            font-weight: bold;
+            background-color: #991c1c;
+            border: 5px solid #991c1c;
+            border-radius: 5px;
+            margin-top: 40px;
+            font-size: 15pt;
+            color: white;
+            font-family: Arial;
+        }
+
+        .learnMoreButton {
+            width: 120px;
+            height: 30px;
+            border: 3px solid white;
+            border-radius: 50px;
+            margin: 0 auto;
+            font-size: 13pt;
+            vertical-align: middle;
+            line-height: 30px;
+            margin-top: 20px;
+        }
+
     </style>
 </head>
 
 <body>
     <!--<div class="header1"></div>-->
     <div class="header2">
-        <p>ToyShare</p>
-    </div>
-    <div id="searchContainer">
+        <div id="left"><p>Toyshare</p></div>
         <input class="searchBar" type="search" placeholder="    Search for toys...." />
+        <div class="favouritesButton">Saved</div>
     </div>
     <div id="content">
         <div id="listingsContainer"></div>
@@ -198,7 +293,17 @@
                 </div>
                 <div>sliders coutesy of <a href="https://github.com/thecreation/jquery-asRange">github.com/thecreation/</a></div>
             </div>
-            <div id="favourites"></div>
+        </div>
+        <div id="ads">
+            <div class="wasteInfoPic">
+                <img src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/a-mountain-of-plastic-goods-at-a-recycling-high-res-stock-photography-678799848-1529691762.jpg" alt="Toy Wasteland">
+            </div>
+            <div class="wasteInfoTxt">
+                <p>90% of all toys on the market are made of plastic, and none of it is being recycled.<br><br>Donate today.</p>
+            </div>
+            <div class="learnMore">Learn more on how to donate at your local ToyShare.
+                <div class="learnMoreButton">Learn More</div>
+            </div>
         </div>
     </div>
 
