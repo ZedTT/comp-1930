@@ -126,7 +126,7 @@
             display: grid;
             transform: translate(0px, 55px);
             padding-top: 40px;
-            justify-content: space-around;
+            justify-content: space-evenly;
             justify-items: center;
             grid-template-columns: 20% 50% 20%;
             grid-template-areas: 
@@ -136,7 +136,7 @@
         /* causes ads to disapear on small screens */
         @media only screen and (max-width: 1000px) {
             #content {
-                grid-template-columns: 20% 70%;
+                grid-template-columns: 25% 60%;
             }
             #ads {
                 display: none;
@@ -633,6 +633,32 @@
                 ageRange.innerHTML = "Age Range: to-firebase";
             }
         }
+    </script>
+
+    <script>
+        // make the filters move along with us as we scroll
+        // avoids "position: fixed;"
+
+        // When we scroll, call scroll function (below)
+        $(() => {
+            window.onscroll = () => {
+                scrollFunction();
+            };
+
+            function scrollFunction() {
+                // get chrome and edge to play along nicely with each other
+                var scrollVal = Math.max($('html, body').scrollTop(), ($('body').scrollTop()));
+
+                // transform the filters down by the scroll value.
+                $('#filtersContainer').css({
+                    transform: 'translate(0, ' + scrollVal + 'px)',
+                })
+
+                console.log(scrollVal);
+
+            };
+        
+        });
     </script>
 
 </body>
