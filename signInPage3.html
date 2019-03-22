@@ -66,7 +66,6 @@
             margin: 0 auto;
         }
 
-<<<<<<< HEAD
 /* The Modal (background) */
 .modal {
   display: none; /* Hidden by default */
@@ -101,23 +100,23 @@
   to {top: 0; opacity: 1}
 }
 
+/* The Close Button */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
 
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
 
  .buttons:hover {
             background-color:lightgray;
-=======
-        .buttons #firebaseui-auth-container {
-            display: none;
-            background-color: rgb(244, 248, 255);
-        }
-
-        /* .hoverWrapper:hover #firebaseui-auth-container {
-            display: block;
-        } */
-
-        .buttons:hover {
-            background-color: lightgray;
->>>>>>> 427d0209b4368d88232f071973fa05c7137de352
             cursor: pointer;
         }
 
@@ -174,10 +173,11 @@
 
                 <div id="signUpButton" class ="buttons">
                 <!-- The Modal -->
-
+                
                 <div id="myModal" class="modal">
                   <!-- Modal content -->
                   <div id = "firebaseui-auth-container">
+                        <span class="close">&times;</span>
                     </div>
             </div>
 
@@ -227,7 +227,6 @@
         ui.start('#firebaseui-auth-container', uiConfig);
     </script>
     <script>
-<<<<<<< HEAD
  
 
     // Get the modal
@@ -237,13 +236,15 @@ var modal = document.getElementById("myModal");
 var signUpButton = document.getElementById("signUpButton");
 
 
+var span = document.getElementsByClassName("close")[0];
+span.onclick = function() {
+  modal.style.display = "none";
+}
 
 // When the user clicks on the button, open the modal 
 signUpButton.onclick = function() {
   modal.style.display = "block";
 }
-
-
 
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {
@@ -252,39 +253,6 @@ window.onclick = function(event) {
   }
 }
 
-=======
-        // $(() => {
-        //     $('#signUpButton').on('mouseover', showSignIn);
-        //     $('#signUpButton').on('mouseout', hideSignIn);
-        // });
-
-        // function showSignIn() {
-        //     $(this).find('#signUpText').hide(300, () => {
-        //         $(this).find('#firebaseui-auth-container').show(300);
-        //     });
-        // };
-
-        // function hideSignIn() {
-        //     $(this).find('#firebaseui-auth-container').hide(300, () => {
-        //         $(this).find('#signUpText').show(300);
-        //     });
-        // };
-
-        document.getElementById('signUpButton').onclick = function () {
-            toggleFunction()
-        };
-
-        function toggleFunction() {
-
-            var inputForm = document.getElementById('firebaseui-auth-container');
-
-            if (inputForm.style.display == 'none') {
-                inputForm.style.display = 'block';
-            } else {
-                inputForm.style.display = 'none';
-            }
-        }
->>>>>>> 427d0209b4368d88232f071973fa05c7137de352
     </script>
 </body>
 
