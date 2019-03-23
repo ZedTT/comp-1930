@@ -132,6 +132,19 @@
                 "sideBar listings ads";
         }
 
+        /* Causes filters to go above content on small screens */
+        /* @media (max-width: 770px) {
+            #content {
+                grid-template-areas: 
+                "sideBar"
+                "listings";
+                grid-template-columns: 90%;
+            }
+            #filtersContainer {
+                width: 100%;
+            }
+        } */
+
         /* causes ads to disapear on small screens */
         @media only screen and (max-width: 1000px) {
             #content {
@@ -254,8 +267,12 @@
         #listingsContainer {
             grid-area: listings;
             /* overflow-y: auto; */
-            height: calc(100vh - 95px);
+            /* height: calc(100vh - 95px); */
             width: 100%;
+            
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            grid-gap: 25px;
         }
 
         .toyListing {
@@ -273,17 +290,24 @@
             padding-left: 10px;
 
             display: grid;
-            grid-template-areas:
+            /* grid-template-areas:
                 "img ttl ttl"
-                "img prc age";
+                "img prc age"; */
+            grid-template-areas:
+                "img img"
+                "ttl ttl"
+                "prc age";
+            height: 100%;
+            align-content: flex-end;
         }
 
         .toyListing img{
             grid-area: img;
             width: auto;
-            height: 100px;
-            max-width: 200px;
+            height: auto;
+            max-width: 100%;
             margin: 10px;
+            align-self: flex-start;
         }
 
         .toyListing span {
@@ -691,7 +715,7 @@
                     transform: 'translate(0, ' + scrollVal + 'px)',
                 })
 
-                console.log(scrollVal);
+                // console.log(scrollVal);
 
             };
         
@@ -699,9 +723,9 @@
     </script>
 
     <script>
-        // enables large images
+        // changes layout of listings
         $(function() {
-
+            
         })
     </script>
 
