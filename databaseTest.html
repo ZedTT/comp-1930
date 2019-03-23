@@ -76,6 +76,10 @@
             color: #F4EFED; /* background white darker */
         }
 
+        /* accounts for padding and border when calculating width */
+        html * {
+            box-sizing: border-box;
+        }
 
         body {
             /* background-image: url("https://d1q8kgt00fn2v8.cloudfront.net/files/uploads/2018/03/kids_playing_with-_blocks-1600x1067.jpg"); */
@@ -258,13 +262,15 @@
             border: 1px solid #dad9d9;
             border-radius: 3px;
             font-size: 10pt;
-            width: calc(100% - 30px); /* 100% minus any padding */
+            /* width: calc(100% - 30px); 100% minus any padding */
+            width: 100%; /* because of the box-sizing property applied to *, we can ignore padding */
             margin: auto;
             margin-bottom: 2rem;
             background-color: #ffffff;
             font-family: Verdana, Geneva, Tahoma, sans-serif;
-            padding: 10px; /* If padding is changed width must be changed */
-            padding-left: 20px;
+            padding: 20px; /* If padding is changed width must be changed */ /* we no longer have to worry about padding because of the box-sizing */
+            padding-right: 30px;
+            padding-left: 10px;
 
             display: grid;
             grid-template-areas:
@@ -330,8 +336,9 @@
         }
 
         .learnMore {
-            width: calc(90% - 20px);
-            height: 125px;
+            /* width: calc(90% - 20px); we no longer have to worry about subtracting padding due to box sizing */
+            width: 90%;
+            /* height: 125px; */
             padding: 10px;
             text-align: center;
             font-weight: bold;
@@ -346,7 +353,7 @@
 
         .learnMoreButton {
             width: 120px;
-            height: 30px;
+            /* height: 30px; */
             border: 3px solid white;
             border-radius: 50px;
             margin: 0 auto;
@@ -689,6 +696,13 @@
             };
         
         });
+    </script>
+
+    <script>
+        // enables large images
+        $(function() {
+
+        })
     </script>
 
 </body>
