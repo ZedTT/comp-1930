@@ -188,7 +188,7 @@
         }
 
         .searchBar:hover {
-            border: 1.5px solid #cfcfcf;
+            border: 1px solid #acacac;
         }
 
         #right {
@@ -204,15 +204,15 @@
         .favouritesButton {
             /* grid-area: right; */ /* added to parent */
             width: 70px;
-            height: 20px;
-            border-radius: 1px;
+            height: 30px;
+            border-radius: 3px;
             background-color: #991c1c; /* blue 0 */
             border: 1px solid #991c1c; /* blue 4 */
             color: #FBF5F3; /* white 0 */
             text-align: center;
             /* vertical-align: middle; */ /* no longer needed */
-            line-height: 20px;
-            font-family: Arial;
+            line-height: 30px;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
             font-weight: bold;
             margin: auto 1em; /* added minimum left and right margin */
             font-size: 10pt;
@@ -229,9 +229,13 @@
             border-radius: 3px;
             font-size: 12pt;
             background-color: #ffffff;
-            padding: 10px;
+            padding: 30px;
             font-family: arial;
             border: 1px solid #dad9d9;
+        }
+
+        #filters h3 {
+            margin: 0;
         }
 
         .filter {
@@ -309,7 +313,9 @@
         }
 
         .toyListing:hover {
-            border: 2px solid #dad9d9;
+            border: 1px solid #acacac;
+            /* padding: calc(5px - 0px) calc(30px - 0px) calc(5px - 0px) calc(10px - 0px); */
+            cursor: pointer;
         }
 
         .toyListing img{
@@ -744,13 +750,17 @@
     <script>
 // var textArray = [","","blah1","blah2"];
 function changeText(){
-    $("#message").delay(5000).animate({opacity:0},function(){
+    $("#message").delay(5500).animate({opacity:0},function(){
         $(this).html("<b>90%</b> of all toys on the market are made of plastic, and barely any is being recycled." + "<br>" + "<br>" + "Donate Today.").animate({opacity:1},function(){
-            $(this).delay(5000).animate({opacity:0},function(){
+            $(this).delay(5500).animate({opacity:0},function(){
                 $(this).html("In 2014, Americans generated about 33 million tons of plastic. The year before, only" + "<b> 9.5 </b>" + "percent of plastics were recycled.").animate({opacity:1},function(){
-                    $(this).delay(5000).animate({opacity:0},function(){
+                    $(this).delay(5500).animate({opacity:0},function(){
                         $(this).text("About 8 million tonnes of plastic enters the sea every year. We face a future with more plastic than fish by 2050.").animate({opacity:1},function(){
+                            $(this).delay(5500).animate({opacity:0},function(){
+                        $(this).text("Small pieces of plastic are eaten by fish, turtles and seabirds. Animals and birds can also become tangled up in plastic debris, leading to death").animate({opacity:1},function(){
                             changeText();                           
+                        });
+                    });                           
                         });
                     });
                 });
