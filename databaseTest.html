@@ -569,12 +569,14 @@
             var ageMaxVal = snap.child("Age_Max").val();
             var ageMinVal = snap.child("Age_Min").val();
             var picturePath = snap.child("Picture").val();
+            var descriptionVal = snap.child("Description").val();
 
             // Create the html that will contain out listing and all it's information
             var thisListing = elm("div", listingsContainer, "", "toyListing ageOk priceOk searchOk");
             var title = elm("div", thisListing, "", "listingTitle");
             var price = elm("div", thisListing, "", "listingPrice");
             var ageRange = elm("div", thisListing, "", "listingAgeRange");
+            var description = elm("div", thisListing, "", "listingAgeRange");
 
             // var thisListing = $('<div/>', {
             //     class: "toyListing ageOk priceOk searchOk"
@@ -616,6 +618,12 @@
                 ageRange.innerHTML = "Age Range: " + ageMinVal + "-" + ageMaxVal;
             } else {
                 ageRange.innerHTML = "Age range not available";
+            }
+
+            if (descriptionVal) {
+                description.innerHTML = descriptionVal;
+            } else {
+                description.innerHTML = "Try again";
             }
 
             console.log(picturePath);
