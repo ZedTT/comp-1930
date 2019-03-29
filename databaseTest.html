@@ -87,7 +87,7 @@
             /* background-size: cover; */
             margin: 0px;
             padding: 0px;
-            background-color: rgb(243, 243, 243); /**#F7F3F0; background color from the picture */
+            background-color: #f1f1f1;
             color: #000022;
         }
         
@@ -127,9 +127,9 @@
             padding-top: 40px;
             justify-content: space-evenly;
             justify-items: center;
-            grid-template-columns: 20% 50% 20%;
+            grid-template-columns: 11% 13% 42% 22% 11%;
             grid-template-areas: 
-                "sideBar listings ads";
+                "emptyLeft sideBar listings ads emptyRight";
         }
 
         /* Causes filters to go above content on small screens */
@@ -148,9 +148,17 @@
         /* causes ads to disapear on small screens */
         @media only screen and (max-width: 1000px) {
             #content {
-                grid-template-columns: 25% 60%;
+                grid-template-columns: 0% 25% 60%;
             }
             #ads {
+                display: none;
+            }
+
+            #emptyLeft {
+                display: none;
+            }
+
+            #emptyRight {
                 display: none;
             }
         }
@@ -227,11 +235,18 @@
         #filters {
             /* width: 20vw; */
             border-radius: 3px;
-            font-size: 12pt;
+            font-size: 10pt;
             background-color: #ffffff;
-            padding: 30px;
+            padding: 10px;
             font-family: arial;
             border: 1px solid #dad9d9;
+            width: 85%;
+            margin: 0 auto;
+        }
+
+        #filters span {
+            text-align: center;
+            font-size: 8pt;
         }
 
         #filters h3 {
@@ -247,7 +262,8 @@
         }
 
         .asRange {
-            width: 100%;
+            width: 80%;
+            margin: 0 auto;
         }
 
         .asRange .asRange-selected {
@@ -263,7 +279,7 @@
         }
 
         .asRange .asRange-pointer {
-            background-color: #fff;
+            background-color: #ffffff;
         }
         .asRange .asRange-pointer:before {
             background: #991c1c; /* blue 4 */
@@ -291,7 +307,7 @@
             /* width: calc(100% - 30px); 100% minus any padding */
             width: 100%; /* because of the box-sizing property applied to *, we can ignore padding */
             margin: auto;
-            margin-bottom: 2rem;
+            margin-bottom: 1rem;
             background-color: #ffffff;
             font-family: Verdana, Geneva, Tahoma, sans-serif;
             padding: 5px; /* If padding is changed width must be changed */ /* we no longer have to worry about padding because of the box-sizing */
@@ -364,19 +380,21 @@
         }
 
         .wasteInfo {
-            width: 90%;
-            border: 1px solid #dad9d9;
+            border: 1px solid #c4c4c4;
             border-radius: 3px;
-            background-color: yellow;
+            background-image: url(https://media.istockphoto.com/illustrations/abstract-yellow-watercolor-texture-background-illustration-id532126526?k=6&m=532126526&s=612x612&w=0&h=n_AGA8IEeqlMTBNoylH0y7R-1oejDXFSlRG0-sXPaeA=);
             margin: 0 auto;
-            height: 510px;
+            height: 390px;
+            width: 90%;
         }
 
         .wasteInfo p {
             text-align: center;
-            font-size: 20pt;
+            font-size: 15pt;
             font-weight: bold;
             padding: 10px;
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 0;
         }
 
         .wasteInfo img {
@@ -394,7 +412,7 @@
             background-color: #991c1c;
             border: 5px solid #991c1c;
             border-radius: 5px;
-            margin: 40px auto;
+            margin: 20px auto;
             font-size: 15pt;
             color: white;
             font-family: Arial;
@@ -411,11 +429,16 @@
             line-height: 30px;
             margin-top: 20px;
         }
+
+        .learnMoreButton:hover {
+            border: 3px solid #acacac;
+            color: #acacac;
+        }
          
          img#profileSetting{
             text-align: center;
             margin-top: 14px;
-            margin-right: 9.5px;
+            margin-right: 41.5px;
             width: 28px;
             height: 28px;
             padding: 0;
@@ -453,13 +476,13 @@
                     <div class="filterTitle sliderTitle">Age:</div>
                     <input class="ageSlider slider" type="range" min="0" max="20" name="age" step="1" />
                 </div>
-                <div>sliders coutesy of <a href="https://github.com/thecreation/jquery-asRange">github.com/thecreation/</a></div>
+                <div><span>Sliders coutesy of <a href="https://github.com/thecreation/jquery-asRange">github.com/thecreation/</a></span></div>
             </div>
         </div>
         <div id="listingsContainer" class="dropShadow"></div>
         <div id="ads" class="dropShadow">
             <div class="wasteInfo">
-                <img src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/a-mountain-of-plastic-goods-at-a-recycling-high-res-stock-photography-678799848-1529691762.jpg" alt="Toy Wasteland">
+                <img src="http://thearenaweekly.myschoolarena.com/wp-content/uploads/2018/04/doctor.jpg" alt="Kid Playing With Toy">
                 <p id = message>Global plastics consumption is predicted to grow dramatically.<br><br> Please reuse!</p>
             </div>
             <div class="learnMore">Learn more on how to donate at your local ToyShare.
@@ -577,7 +600,7 @@
             // check that each value exists before adding it
             // if the value is null, display an error instead
             if (nameVal) {
-                title.innerText = "Listing: " + nameVal
+                title.innerText = nameVal
             } else {
                 title.innerText = "Error: " + thisToy
             }
