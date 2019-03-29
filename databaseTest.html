@@ -365,7 +365,7 @@
 
         .wasteInfo {
             width: 90%;
-            border: 1px solid rgb(145, 145, 145);
+            border: 1px solid #dad9d9;
             border-radius: 3px;
             background-color: yellow;
             margin: 0 auto;
@@ -537,12 +537,6 @@
         // this function is called by the filter function
         function createListing(snap) {
 
-            // Create the html that will contain out listing and all it's information
-            var thisListing = elm("div", listingsContainer, "", "toyListing ageOk priceOk searchOk");
-            var title = elm("div", thisListing, "", "listingTitle");
-            var price = elm("div", thisListing, "", "listingPrice");
-            var ageRange = elm("div", thisListing, "", "listingAgeRange");
-
             // The key of the toy, used only as a back up if the name field is missing
             var thisToy = snap.key;
             // Grabbbing values from the snap
@@ -551,6 +545,34 @@
             var ageMaxVal = snap.child("Age_Max").val();
             var ageMinVal = snap.child("Age_Min").val();
             var picturePath = snap.child("Picture").val();
+
+            // Create the html that will contain out listing and all it's information
+            var thisListing = elm("div", listingsContainer, "", "toyListing ageOk priceOk searchOk");
+            var title = elm("div", thisListing, "", "listingTitle");
+            var price = elm("div", thisListing, "", "listingPrice");
+            var ageRange = elm("div", thisListing, "", "listingAgeRange");
+
+            // var thisListing = $('<div/>', {
+            //     class: "toyListing ageOk priceOk searchOk"
+            // });
+            // thisListing.appendTo(listingsContainer);
+            // var title = $('<div/>', {
+            //     class: "listingAgeTitle"
+            // }).appendTo(thisListing);
+            // var price = $('<div/>', {
+            //     class: "listingPrice"
+            // }).appendTo(thisListing);
+            // var ageRange = $('<div/>', {
+            //     class: "listingAgeRange"
+            // }).appendTo(thisListing);
+
+            // create the picture for the listing
+            var picture = $('<img/>', {
+                class: 'listingPicture',
+                alt: 'picture not available',
+                //can get rid of .jpg if we add jpg to all files in database
+                src: "Pictures/" + picturePath + '.jpg', 
+            }).appendTo(thisListing);
 
             // check that each value exists before adding it
             // if the value is null, display an error instead
@@ -571,14 +593,6 @@
             } else {
                 ageRange.innerHTML = "Age range not available";
             }
-
-            // create the picture for the listing
-            var picture = $('<img/>', {
-                class: 'listingPicture',
-                alt: 'picture not available',
-                //can get rid of .jpg if we add jpg to all files in database
-                src: "Pictures/" + picturePath + '.jpg', 
-            }).appendTo(thisListing);
 
             console.log(picturePath);
 
