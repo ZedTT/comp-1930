@@ -752,7 +752,7 @@
                 var value = $(this).val().toLowerCase();
                 $(".priceOk.ageOk").filter(function () {
                     // $(this).toggle($(this.getElementsByClassName("listingTitle")[0]).text().split(': ')[1].toLowerCase().indexOf(value) > -1);
-                    var listingTitle = $(this.getElementsByClassName("listingTitle")[0]).text().split(': ')[1];
+                    var listingTitle = $(this.getElementsByClassName("listingTitle")[0]).text();
                     
                     if (listingTitle.toLowerCase().indexOf(value) > -1) {
                         $(this).addClass("searchOk").removeClass("searchNo");
