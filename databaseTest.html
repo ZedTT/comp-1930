@@ -87,7 +87,7 @@
             /* background-size: cover; */
             margin: 0px;
             padding: 0px;
-            background-color: #f1f1f1;
+            background-color: #dae0e6;
             color: #000022;
         }
         
@@ -112,7 +112,7 @@
         .header2 p {
             font-family: 'Gloria Hallelujah', cursive;
             font-size: 25pt;
-            color: #991c1c;
+            color: #ff4500;/* color: #991c1c; */
             margin-left: 1em;
             margin-right: 1em; /*added right margin for when things get close */
             line-height: 55px;
@@ -196,7 +196,7 @@
         }
 
         .searchBar:hover {
-            border: 1px solid #acacac;
+            border: 1px solid #0079d3;
         }
 
         #right {
@@ -214,8 +214,8 @@
             width: 70px;
             height: 30px;
             border-radius: 3px;
-            background-color: #991c1c; /* blue 0 */
-            border: 1px solid #991c1c; /* blue 4 */
+            background-color: rgb(0,121,211); /* blue 0 */
+            border: 1px solid rgb(0,121, 211); /* blue 4 */
             color: #FBF5F3; /* white 0 */
             text-align: center;
             /* vertical-align: middle; */ /* no longer needed */
@@ -267,22 +267,22 @@
         }
 
         .asRange .asRange-selected {
-            background-color:#991c1c; /* blue 0 */
+            background-color: #0079d3; /* blue 0 */
         }
         .asRange .asRange-pointer .asRange-tip {
             color: #FBF5F3;
-            background-color: #991c1c;
-            border: 1px solid #991c1c;
+            background-color: #0079d3;
+            border: 1px solid #0079d3;
         }
         .asRange .asRange-pointer .asRange-tip:before {
-            background-color:#991c1c; /* orange 0 #DB3834*/
+            background-color:#0079d3; /* orange 0 #DB3834*/
         }
 
         .asRange .asRange-pointer {
             background-color: #ffffff;
         }
         .asRange .asRange-pointer:before {
-            background: #991c1c; /* blue 4 */
+            background: #0079d3; /* blue 4 */
         }
         .asRange .asRange-pointer:after {
             background: #F3FEFD; /* blue 1 */
@@ -381,7 +381,7 @@
 
         .wasteInfo {
             border: 1px solid #c4c4c4;
-            border-radius: 3px;
+            border-radius: 5px;
             /** background-image: url(https://media.istockphoto.com/illustrations/abstract-yellow-watercolor-texture-background-illustration-id532126526?k=6&m=532126526&s=612x612&w=0&h=n_AGA8IEeqlMTBNoylH0y7R-1oejDXFSlRG0-sXPaeA=); */
             background-color: yellow;
             margin: 0 auto;
@@ -435,6 +435,12 @@
             border: 3px solid #acacac;
             color: #acacac;
         }
+
+        .ecoCityAd1 {
+            width: 90%;
+            height: 300px;
+            background-color: black;
+        }
          
          img#profileSetting{
             text-align: center;
@@ -454,7 +460,7 @@
 <body>
     <!--<div class="header1"></div>-->
     <div class="header2 dropShadow">
-        <div id="left"><p>Toyshare</p></div>
+        <div id="left"><p>ToyShare</p></div>
         <input class="searchBar" type="search" placeholder="Search for toys...." />
         <div id="right">
             <div class="favouritesButton">Saved</div>
@@ -489,6 +495,7 @@
             <div class="learnMore">Learn more on how to donate at your local ToyShare.
                 <div class="learnMoreButton" onclick="location.href='https://www.reddit.com/';" style="cursor:pointer;">Learn More</div>
             </div>
+            <div class="ecoCityAd1"></div>
         </div>
     </div>
 
