@@ -32,7 +32,6 @@
     </script>
     <link href="https://fonts.googleapis.com/css?family=Gloria+Hallelujah" rel="stylesheet">
     <style>
-
         /*
          * #fbf5f3
          * #93e1d8
@@ -41,39 +40,100 @@
          * #000022 
          */
 
-        .color-white-0 { color: #FBF5F3 }
-        .color-white-1 { color: #9C8881 }
-        .color-white-2 { color: #C0B3AE }
-        .color-white-3 { color: #FFFAF8 }
+        .color-white-0 {
+            color: #FBF5F3
+        }
 
-        .color-blue-0 { color: #93E1D9 }
-        .color-blue-1 { color: #F3FEFD }
-        .color-blue-2 { color: #C4F4EF }
-        .color-blue-3 { color: #66C6BC }
-        .color-blue-4 { color: #3EA197 }
+        .color-white-1 {
+            color: #9C8881
+        }
 
-        .color-orange-0 { color: #E28413 }
-        .color-orange-1 { color: #FFBC6D }
-        .color-orange-2 { color: #F1A142 }
-        .color-orange-3 { color: #B36407 }
-        .color-orange-4 { color: #8C4C00 }
+        .color-white-2 {
+            color: #C0B3AE
+        }
 
-        .color-red-0 { color: #DB3834 }
-        .color-red-1 { color: #FF8B88 }
-        .color-red-2 { color: #F15E5A }
-        .color-red-3 { color: #B71B17 }
-        .color-red-4 { color: #900603 }
+        .color-white-3 {
+            color: #FFFAF8
+        }
 
-        .color-black-0 { color: #000022 }
-        
+        .color-blue-0 {
+            color: #93E1D9
+        }
+
+        .color-blue-1 {
+            color: #F3FEFD
+        }
+
+        .color-blue-2 {
+            color: #C4F4EF
+        }
+
+        .color-blue-3 {
+            color: #66C6BC
+        }
+
+        .color-blue-4 {
+            color: #3EA197
+        }
+
+        .color-orange-0 {
+            color: #E28413
+        }
+
+        .color-orange-1 {
+            color: #FFBC6D
+        }
+
+        .color-orange-2 {
+            color: #F1A142
+        }
+
+        .color-orange-3 {
+            color: #B36407
+        }
+
+        .color-orange-4 {
+            color: #8C4C00
+        }
+
+        .color-red-0 {
+            color: #DB3834
+        }
+
+        .color-red-1 {
+            color: #FF8B88
+        }
+
+        .color-red-2 {
+            color: #F15E5A
+        }
+
+        .color-red-3 {
+            color: #B71B17
+        }
+
+        .color-red-4 {
+            color: #900603
+        }
+
+        .color-black-0 {
+            color: #000022
+        }
+
         #colors {
-            color: #fbf5f3; /* background */
-            color: #93e1d8; /* */
-            color: #e28413; /* */
-            color: #db3a34; /* */
-            color: #000022; /* */
+            color: #fbf5f3;
+            /* background */
+            color: #93e1d8;
+            /* */
+            color: #e28413;
+            /* */
+            color: #db3a34;
+            /* */
+            color: #000022;
+            /* */
 
-            color: #F4EFED; /* background white darker */
+            color: #F4EFED;
+            /* background white darker */
         }
 
         /* accounts for padding and border when calculating width */
@@ -87,10 +147,11 @@
             /* background-size: cover; */
             margin: 0px;
             padding: 0px;
-            background-color: rgb(243, 243, 243); /**#F7F3F0; background color from the picture */
+            background-color: rgb(243, 243, 243);
+            /**#F7F3F0; background color from the picture */
             color: #000022;
         }
-        
+
         .header2 {
             width: 100%;
             background-color: #ffffff;
@@ -98,7 +159,7 @@
             grid-template-rows: 55px;
             grid-template-columns: min-content minmax(auto, 400px) min-content;
             justify-content: space-between;
-            grid-template-areas: 
+            grid-template-areas:
                 "left middle right";
             position: fixed;
             z-index: 1;
@@ -114,7 +175,8 @@
             font-size: 25pt;
             color: #991c1c;
             margin-left: 1em;
-            margin-right: 1em; /*added right margin for when things get close */
+            margin-right: 1em;
+            /*added right margin for when things get close */
             line-height: 55px;
             margin-top: -3px;
             font-weight: bolder;
@@ -128,7 +190,7 @@
             justify-content: space-evenly;
             justify-items: center;
             grid-template-columns: 20% 50% 20%;
-            grid-template-areas: 
+            grid-template-areas:
                 "sideBar listings ads";
         }
 
@@ -150,6 +212,7 @@
             #content {
                 grid-template-columns: 25% 60%;
             }
+
             #ads {
                 display: none;
             }
@@ -157,10 +220,10 @@
 
         /* causes profile Image to disapear on small screens */
         @media only screen and (max-width: 1000px) {
-           #right {
-               margin-left: -30px;
-           }
-        }   
+            #right {
+                margin-left: -30px;
+            }
+        }
 
         /**#searchContainer {
             grid-area: searchBar;
@@ -171,8 +234,11 @@
 
         .searchBar {
             grid-area: middle;
-            width: 100%; /* Width will fill the grid area if less than max width */
-            max-width: 400px; /* The 400 needs to be max-width or we get horizontal scrolling */ /* not neccessary at all because grid-template-columns of parent limits this to 400px now, anyways */
+            width: 100%;
+            /* Width will fill the grid area if less than max width */
+            max-width: 400px;
+            /* The 400 needs to be max-width or we get horizontal scrolling */
+            /* not neccessary at all because grid-template-columns of parent limits this to 400px now, anyways */
             height: 13px;
             background-color: #f7f7f7;
             border: 1px solid #cfcfcf;
@@ -196,25 +262,33 @@
             width: min-content;
             grid-area: right;
             height: 100%;
-            display: grid; /* vertical align */
+            display: grid;
+            /* vertical align */
             grid-template-columns: repeat(2, auto);
-            justify-self: center; /* could be end */
+            justify-self: center;
+            /* could be end */
         }
 
         .favouritesButton {
-            /* grid-area: right; */ /* added to parent */
+            /* grid-area: right; */
+            /* added to parent */
             width: 70px;
             height: 30px;
             border-radius: 3px;
-            background-color: #991c1c; /* blue 0 */
-            border: 1px solid #991c1c; /* blue 4 */
-            color: #FBF5F3; /* white 0 */
+            background-color: #991c1c;
+            /* blue 0 */
+            border: 1px solid #991c1c;
+            /* blue 4 */
+            color: #FBF5F3;
+            /* white 0 */
             text-align: center;
-            /* vertical-align: middle; */ /* no longer needed */
+            /* vertical-align: middle; */
+            /* no longer needed */
             line-height: 30px;
             font-family: Verdana, Geneva, Tahoma, sans-serif;
             font-weight: bold;
-            margin: auto 1em; /* added minimum left and right margin */
+            margin: auto 1em;
+            /* added minimum left and right margin */
             font-size: 10pt;
             margin-left: 60px;
         }
@@ -222,6 +296,7 @@
         #filtersContainer {
             grid-area: sideBar;
             /* position: fixed; */
+            transition: 0.5s;
         }
 
         #filters {
@@ -251,25 +326,33 @@
         }
 
         .asRange .asRange-selected {
-            background-color:#991c1c; /* blue 0 */
+            background-color: #991c1c;
+            /* blue 0 */
         }
+
         .asRange .asRange-pointer .asRange-tip {
             color: #FBF5F3;
             background-color: #991c1c;
             border: 1px solid #991c1c;
         }
+
         .asRange .asRange-pointer .asRange-tip:before {
-            background-color:#991c1c; /* orange 0 #DB3834*/
+            background-color: #991c1c;
+            /* orange 0 #DB3834*/
         }
 
         .asRange .asRange-pointer {
             background-color: #fff;
         }
+
         .asRange .asRange-pointer:before {
-            background: #991c1c; /* blue 4 */
+            background: #991c1c;
+            /* blue 4 */
         }
+
         .asRange .asRange-pointer:after {
-            background: #F3FEFD; /* blue 1 */
+            background: #F3FEFD;
+            /* blue 1 */
         }
 
         #listingsContainer {
@@ -277,7 +360,7 @@
             /* overflow-y: auto; */
             /* height: calc(100vh - 95px); */
             width: 100%;
-            
+
             /* display: grid; */
             /* grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); */
             /* grid-template-rows: repeat(auto-fill, 1fr); */
@@ -289,12 +372,15 @@
             border-radius: 3px;
             font-size: 10pt;
             /* width: calc(100% - 30px); 100% minus any padding */
-            width: 100%; /* because of the box-sizing property applied to *, we can ignore padding */
+            width: 100%;
+            /* because of the box-sizing property applied to *, we can ignore padding */
             margin: auto;
             margin-bottom: 2rem;
             background-color: #ffffff;
             font-family: Verdana, Geneva, Tahoma, sans-serif;
-            padding: 5px; /* If padding is changed width must be changed */ /* we no longer have to worry about padding because of the box-sizing */
+            padding: 5px;
+            /* If padding is changed width must be changed */
+            /* we no longer have to worry about padding because of the box-sizing */
             padding-right: 30px;
             padding-left: 10px;
 
@@ -318,7 +404,7 @@
             cursor: pointer;
         }
 
-        .toyListing img{
+        .toyListing img {
             grid-area: img;
             object-fit: contain;
             max-width: 90%;
@@ -341,9 +427,9 @@
             margin-top: 10px;
             margin-bottom: 18px;
             width: 100%;
-            font-weight:500;
-            font-size: 13pt ;
-            height: 25px;
+            font-weight: 500;
+            font-size: 13pt;
+            /* height: 25px; */
             font-family: Verdana, Geneva, Tahoma, sans-serif;
         }
 
@@ -365,18 +451,20 @@
 
         .wasteInfo {
             width: 90%;
-            border: 1px solid #dad9d9;
+            border: 2px solid #dad9d9;
             border-radius: 3px;
             background-color: yellow;
             margin: 0 auto;
-            height: 510px;
+            height: 560px;
         }
 
         .wasteInfo p {
             text-align: center;
             font-size: 20pt;
             font-weight: bold;
-            padding: 10px;
+            padding: 20px;
+            font-family: Arial;
+            text-align: left;
         }
 
         .wasteInfo img {
@@ -411,8 +499,8 @@
             line-height: 30px;
             margin-top: 20px;
         }
-         
-         img#profileSetting{
+
+        img#profileSetting {
             text-align: center;
             margin-top: 14px;
             margin-right: 9.5px;
@@ -422,7 +510,8 @@
         }
 
         .dropShadow {
-            filter:drop-shadow(0px 0px 5px #EBDDD0); /* carpet color */
+            filter: drop-shadow(0px 0px 5px #EBDDD0);
+            /* carpet color */
         }
     </style>
 </head>
@@ -430,11 +519,15 @@
 <body>
     <!--<div class="header1"></div>-->
     <div class="header2 dropShadow">
-        <div id="left"><p>Toyshare</p></div>
+        <div id="left">
+            <p>Toyshare</p>
+        </div>
         <input class="searchBar" type="search" placeholder="Search for toys...." />
         <div id="right">
             <div class="favouritesButton">Saved</div>
-            <div class="profileButton"><img src = "http://www.sclance.com/pngs/person-icon-png/person_icon_png_1008739.png" alt="profileSetting" id="profileSetting"></div>
+            <div class="profileButton"><img
+                    src="http://www.sclance.com/pngs/person-icon-png/person_icon_png_1008739.png" alt="profileSetting"
+                    id="profileSetting"></div>
         </div>
     </div>
     <div id="content">
@@ -453,14 +546,16 @@
                     <div class="filterTitle sliderTitle">Age:</div>
                     <input class="ageSlider slider" type="range" min="0" max="20" name="age" step="1" />
                 </div>
-                <div>sliders coutesy of <a href="https://github.com/thecreation/jquery-asRange">github.com/thecreation/</a></div>
+                <div>sliders coutesy of <a
+                        href="https://github.com/thecreation/jquery-asRange">github.com/thecreation/</a></div>
             </div>
         </div>
         <div id="listingsContainer" class="dropShadow"></div>
         <div id="ads" class="dropShadow">
             <div class="wasteInfo">
-                <img src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/a-mountain-of-plastic-goods-at-a-recycling-high-res-stock-photography-678799848-1529691762.jpg" alt="Toy Wasteland">
-                <p id = message>Global plastics consumption is predicted to grow dramatically.<br><br> Please reuse!</p>
+                <img src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/a-mountain-of-plastic-goods-at-a-recycling-high-res-stock-photography-678799848-1529691762.jpg"
+                    alt="Toy Wasteland">
+                <p id=message>Global plastics consumption is predicted to grow dramatically.<br><br> Please reuse!</p>
             </div>
             <div class="learnMore">Learn more on how to donate at your local ToyShare.
                 <div class="learnMoreButton">Learn More</div>
@@ -571,7 +666,7 @@
                 class: 'listingPicture',
                 alt: 'picture not available',
                 //can get rid of .jpg if we add jpg to all files in database
-                src: "Pictures/" + picturePath + '.jpg', 
+                src: "Pictures/" + picturePath + '.jpg',
             }).appendTo(thisListing);
 
             // check that each value exists before adding it
@@ -596,6 +691,14 @@
 
             console.log(picturePath);
 
+            var heart = $("<button/>", {
+                class: "fav-btn"
+            }).html("").appendTo(title).css({
+                display: "inline-block",
+                height: "12pt",
+                float: "right",
+            });
+
         };
 
         function initializeListings() {
@@ -612,6 +715,26 @@
         };
         initializeListings();
 
+    </script>
+
+    <script>
+        // Favorite Button - Heart
+        $('.favme').click(function () {
+            $(this).toggleClass('active');
+        });
+
+        /* when a user clicks, toggle the 'is-animating' class */
+        $(".favme").on('click touchstart', function () {
+            $(this).toggleClass('is_animating');
+        });
+
+        /*when the animation is over, remove the class*/
+        $(".favme").on('animationend', function () {
+            $(this).toggleClass('is_animating');
+        });
+    </script>
+
+    <script>
         // unused right now because it called the database too often
         // this is the function that filters the page
         function filterPlus(minPrice, maxPrice, minAge, maxAge) {
@@ -685,8 +808,9 @@
         $('.ageSlider').on('asRange::change', function (e) {
             var age = $('.ageSlider').asRange('val');
             $(".toyListing").filter(function () {
-                var listingsAgeRange = $(this.getElementsByClassName("listingAgeRange")[0]).text().split(
-                    ': ')[1];
+                var listingsAgeRange = $(this.getElementsByClassName("listingAgeRange")[0]).text()
+                    .split(
+                        ': ')[1];
                 var listingsMinAge = listingsAgeRange.split('-')[0];
                 var listingsMaxAge = listingsAgeRange.split('-')[1];
                 if (listingsMinAge <= age[1] && listingsMaxAge >= age[0]) {
@@ -704,8 +828,9 @@
                 var value = $(this).val().toLowerCase();
                 $(".priceOk.ageOk").filter(function () {
                     // $(this).toggle($(this.getElementsByClassName("listingTitle")[0]).text().split(': ')[1].toLowerCase().indexOf(value) > -1);
-                    var listingTitle = $(this.getElementsByClassName("listingTitle")[0]).text().split(': ')[1];
-                    
+                    var listingTitle = $(this.getElementsByClassName("listingTitle")[0]).text()
+                        .split(': ')[1];
+
                     if (listingTitle.toLowerCase().indexOf(value) > -1) {
                         $(this).addClass("searchOk").removeClass("searchNo");
                     } else {
@@ -757,42 +882,56 @@
                 // console.log(scrollVal);
 
             };
-        
+
         });
     </script>
 
     <script>
-// var textArray = [","","blah1","blah2"];
-function changeText(){
-    $("#message").delay(5500).animate({opacity:0},function(){
-        $(this).html("<b>90%</b> of all toys on the market are made of plastic, and barely any is being recycled." + "<br>" + "<br>" + "Donate Today.").animate({opacity:1},function(){
-            $(this).delay(5500).animate({opacity:0},function(){
-                $(this).html("In 2014, Americans generated about 33 million tons of plastic. The year before, only" + "<b> 9.5 </b>" + "percent of plastics were recycled.").animate({opacity:1},function(){
-                    $(this).delay(5500).animate({opacity:0},function(){
-                        $(this).text("About 8 million tonnes of plastic enters the sea every year. We face a future with more plastic than fish by 2050.").animate({opacity:1},function(){
-                            $(this).delay(5500).animate({opacity:0},function(){
-                        $(this).text("Small pieces of plastic are eaten by fish, turtles and seabirds. Animals and birds can also become tangled up in plastic debris, leading to death").animate({opacity:1},function(){
-                            changeText();                           
-                        });
-                    });                           
+        // var textArray = [","","blah1","blah2"];
+        function changeText() {
+            $("#message").delay(5500).animate({
+                opacity: 0
+            }, function () {
+                $(this).html(
+                    "<b>90%</b> of all toys on the market are made of plastic, and barely any is being recycled." +
+                    "<br>" + "<br>" + "Donate Today.").animate({
+                    opacity: 1
+                }, function () {
+                    $(this).delay(5500).animate({
+                        opacity: 0
+                    }, function () {
+                        $(this).html(
+                            "In 2014, Americans generated about 33 million tons of plastic. The year before, only" +
+                            "<b> 9.5 </b>" + "percent of plastics were recycled.").animate({
+                            opacity: 1
+                        }, function () {
+                            $(this).delay(5500).animate({
+                                opacity: 0
+                            }, function () {
+                                $(this).text(
+                                    "About 8 million tonnes of plastic enters the sea every year. We face a future with more plastic than fish by 2050."
+                                ).animate({
+                                    opacity: 1
+                                }, function () {
+                                    $(this).delay(5500).animate({
+                                        opacity: 0
+                                    }, function () {
+                                        $(this).text(
+                                            "Small pieces of plastic are eaten by fish, turtles and seabirds. Animals and birds can also become tangled up in plastic debris, leading to death"
+                                        ).animate({
+                                            opacity: 1
+                                        }, function () {
+                                            changeText
+                                                ();
+                                        });
+                                    });
+                                });
+                            });
                         });
                     });
                 });
             });
-        });
-    });
-};
+        };
 
-changeText();
+        changeText();
     </script>
-
-    <script>
-        // changes layout of listings
-        $(function() {
-            
-        })
-    </script>
-
-</body>
-
-</html>
