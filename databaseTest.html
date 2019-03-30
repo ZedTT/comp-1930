@@ -172,7 +172,8 @@
         .header2 p {
             font-family: 'Gloria Hallelujah', cursive;
             font-size: 25pt;
-            color: #ff4500;/* color: #991c1c; */
+            color: #ff4500;
+            /* color: #991c1c; */
             margin-left: 1em;
             margin-right: 1em;
             /*added right margin for when things get close */
@@ -189,7 +190,7 @@
             justify-content: space-evenly;
             justify-items: center;
             grid-template-columns: 11% 13% 42% 22% 11%;
-            grid-template-areas: 
+            grid-template-areas:
                 "emptyLeft sideBar listings ads emptyRight";
         }
 
@@ -282,9 +283,12 @@
             width: 70px;
             height: 30px;
             border-radius: 3px;
-            background-color: rgb(0,121,211); /* blue 0 */
-            border: 1px solid rgb(0,121, 211); /* blue 4 */
-            color: #FBF5F3; /* white 0 */
+            background-color: rgb(0, 121, 211);
+            /* blue 0 */
+            border: 1px solid rgb(0, 121, 211);
+            /* blue 4 */
+            color: #FBF5F3;
+            /* white 0 */
             text-align: center;
             /* vertical-align: middle; */
             /* no longer needed */
@@ -338,7 +342,8 @@
         }
 
         .asRange .asRange-selected {
-            background-color: #0079d3; /* blue 0 */
+            background-color: #0079d3;
+            /* blue 0 */
         }
 
         .asRange .asRange-pointer .asRange-tip {
@@ -348,7 +353,8 @@
         }
 
         .asRange .asRange-pointer .asRange-tip:before {
-            background-color:#0079d3; /* orange 0 #DB3834*/
+            background-color: #0079d3;
+            /* orange 0 #DB3834*/
         }
 
         .asRange .asRange-pointer {
@@ -356,7 +362,8 @@
         }
 
         .asRange .asRange-pointer:before {
-            background: #0079d3; /* blue 4 */
+            background: #0079d3;
+            /* blue 4 */
         }
 
         .asRange .asRange-pointer:after {
@@ -530,7 +537,7 @@
             height: auto;
             border-radius: 5px;
         }
-         
+
         img#profileSetting {
             text-align: center;
             margin-top: 14px;
@@ -584,13 +591,20 @@
         <div id="listingsContainer" class="dropShadow"></div>
         <div id="ads" class="dropShadow">
             <div class="wasteInfo">
-                <img src="http://thearenaweekly.myschoolarena.com/wp-content/uploads/2018/04/doctor.jpg" alt="Kid Playing With Toy">
-                <p id = message>Global plastics consumption is predicted to grow dramatically.<br><br> Please reuse!</p>
+                <img src="http://thearenaweekly.myschoolarena.com/wp-content/uploads/2018/04/doctor.jpg"
+                    alt="Kid Playing With Toy">
+                <div id="message">
+                    <p>Global plastics consumption is predicted to grow dramatically.</p>
+                    <p>Please reuse!</p>
+                </div>
             </div>
             <div class="learnMore">Learn more on how to donate at your local ToyShare.
-                <div class="learnMoreButton" onclick="location.href='https://www.reddit.com/';" style="cursor:pointer;">Learn More</div>
+                <div class="learnMoreButton" onclick="location.href='https://www.reddit.com/';" style="cursor:pointer;">
+                    Learn More</div>
             </div>
-            <div class="ecoCityAd1"><a href="http://ecocity2019.com/" target="blank"><img src="http://ecocity2019.com/wp-content/uploads/2018/09/ecocity_web_logo.png" alt="Dead Fish"></a> </div>
+            <div class="ecoCityAd1"><a href="http://ecocity2019.com/" target="blank"><img
+                        src="http://ecocity2019.com/wp-content/uploads/2018/09/ecocity_web_logo.png"
+                        alt="Dead Fish"></a> </div>
         </div>
     </div>
 
@@ -753,7 +767,6 @@
             });
         };
         initializeListings();
-
     </script>
 
     <script>
@@ -868,7 +881,7 @@
                 $(".priceOk.ageOk").filter(function () {
                     // $(this).toggle($(this.getElementsByClassName("listingTitle")[0]).text().split(': ')[1].toLowerCase().indexOf(value) > -1);
                     var listingTitle = $(this.getElementsByClassName("listingTitle")[0]).text();
-                        // .split(': ')[1];
+                    // .split(': ')[1];
 
                     if (listingTitle.toLowerCase().indexOf(value) > -1) {
                         $(this).addClass("searchOk").removeClass("searchNo");
@@ -927,52 +940,94 @@
 
     <script>
         // var textArray = [","","blah1","blah2"];
-        function changeText() {
+        // function changeText() {
+        //     $("#message").delay(5500).animate({
+        //         opacity: 0
+        //     }, function () {
+        //         $(this).html(
+        //             "<b>90%</b> of all toys on the market are made of plastic, and barely any is being recycled." +
+        //             "<br>" + "<br>" + "Donate Today.").animate({
+        //             opacity: 1
+        //         }, function () {
+        //             $(this).delay(5500).animate({
+        //                 opacity: 0
+        //             }, function () {
+        //                 $(this).html(
+        //                     "In 2014, Americans generated about 33 million tons of plastic. The year before, only" +
+        //                     "<b> 9.5 </b>" + "percent of plastics were recycled.").animate({
+        //                     opacity: 1
+        //                 }, function () {
+        //                     $(this).delay(5500).animate({
+        //                         opacity: 0
+        //                     }, function () {
+        //                         $(this).text(
+        //                             "About 8 million tonnes of plastic enters the sea every year. We face a future with more plastic than fish by 2050."
+        //                         ).animate({
+        //                             opacity: 1
+        //                         }, function () {
+        //                             $(this).delay(5500).animate({
+        //                                 opacity: 0
+        //                             }, function () {
+        //                                 $(this).text(
+        //                                     "Small pieces of plastic are eaten by fish, turtles and seabirds. Animals and birds can also become tangled up in plastic debris, leading to death"
+        //                                 ).animate({
+        //                                     opacity: 1
+        //                                 }, function () {
+        //                                     changeText
+        //                                         ();
+        //                                 });
+        //                             });
+        //                         });
+        //                     });
+        //                 });
+        //             });
+        //         });
+        //     });
+        // };
+
+        // changeText();
+
+        // Define an array of all the text we want to cycle through
+        // Used by changeText2, which cycles through text on the sidebar
+        var infoArray = [
+            "<b>90%</b> of all toys on the market are made of plastic, and barely any is being recycled.</p>" +
+            "<p>Donate Today.",
+            "In 2014, Americans generated about 33 million tons of plastic. The year before, only" +
+            "<b> 9.5 </b>" + "percent of plastics were recycled.",
+            "About 8 million tonnes of plastic enters the sea every year. We face a future with more plastic than fish by 2050.",
+            "Small pieces of plastic are eaten by fish, turtles and seabirds. Animals and birds can also become tangled up in plastic debris, leading to death",
+            "Global plastics consumption is predicted to grow dramatically.</p>" + "<p>Please reuse!"
+        ];
+
+        // Keeps track of where we are in the loop
+        var changeTextI = 0;
+
+        function changeText2() {
+            // identify our target div and set a delay
             $("#message").delay(5500).animate({
+                // Fade out
                 opacity: 0
+                // Then...
             }, function () {
+                // display the next piece of text from the array in the div
                 $(this).html(
-                    "<b>90%</b> of all toys on the market are made of plastic, and barely any is being recycled." +
-                    "<br>" + "<br>" + "Donate Today.").animate({
+                    "<p>" + infoArray[changeTextI] + "</p>").animate({
+                    // Fade back in with the new text
                     opacity: 1
                 }, function () {
-                    $(this).delay(5500).animate({
-                        opacity: 0
-                    }, function () {
-                        $(this).html(
-                            "In 2014, Americans generated about 33 million tons of plastic. The year before, only" +
-                            "<b> 9.5 </b>" + "percent of plastics were recycled.").animate({
-                            opacity: 1
-                        }, function () {
-                            $(this).delay(5500).animate({
-                                opacity: 0
-                            }, function () {
-                                $(this).text(
-                                    "About 8 million tonnes of plastic enters the sea every year. We face a future with more plastic than fish by 2050."
-                                ).animate({
-                                    opacity: 1
-                                }, function () {
-                                    $(this).delay(5500).animate({
-                                        opacity: 0
-                                    }, function () {
-                                        $(this).text(
-                                            "Small pieces of plastic are eaten by fish, turtles and seabirds. Animals and birds can also become tangled up in plastic debris, leading to death"
-                                        ).animate({
-                                            opacity: 1
-                                        }, function () {
-                                            changeText
-                                                ();
-                                        });
-                                    });
-                                });
-                            });
-                        });
-                    });
+                    // If we still have more text to loop through,
+                    // add one to our variable and start again.
+                    // Else restart at 0 then start again.
+                    if (changeTextI < infoArray.length - 1) {
+                        changeTextI++;
+                    } else {
+                        changeTextI = 0;
+                    }
+                    changeText2();
                 });
             });
-        };
-
-changeText();
+        }
+        changeText2();
     </script>
 
     <!-- <script> <div onclick="g</script>
