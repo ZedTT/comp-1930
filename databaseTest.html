@@ -551,6 +551,9 @@
             filter: drop-shadow(0px 0px 5px #EBDDD0);
             /* carpet color */
         }
+        #date_time {
+            margin-top: 12px;
+        }
     </style>
 </head>
 
@@ -566,6 +569,9 @@
             <div class="profileButton"><img
                     src="http://www.sclance.com/pngs/person-icon-png/person_icon_png_1008739.png" alt="profileSetting"
                     id="profileSetting"></div>
+                    <div></div>
+                    <div id="date_time"></div>
+
         </div>
     </div>
     <div id="content">
@@ -1029,6 +1035,34 @@
         }
         changeText2();
     </script>
+
+    <script>
+    function date_time(id) {
+            date = new Date;
+            year = date.getFullYear();
+            month = date.getMonth();
+            months = new Array('January', 'February', 'March', 'April', 'May', 'June', 'Jully', 'August', 'September', 'October', 'November', 'December');
+            d = date.getDate();
+            day = date.getDay();
+            days = new Array('Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday');
+            h = date.getHours();
+                
+            m = date.getMinutes();
+            if (m < 10) {
+                m = '0' + m;
+            }
+            s = date.getSeconds();
+            if (s < 10) {
+                s = '0' + s;
+            }
+        result = '' + days[day] + ' ' + months[month] + ' ' + d + ' ' + year + ' ' + (h) + ':' + m + ':' + s;
+        document.getElementById(id).innerHTML = result;
+        setTimeout('date_time("' + id + '");', '1000');
+        return true;
+        }
+        window.onload = date_time('date_time');
+        
+        </script>
 
     <!-- <script> <div onclick="g</script>
 
