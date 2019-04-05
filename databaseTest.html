@@ -574,9 +574,11 @@
             /* carpet color */
         }
         #date_time {
-            margin-top: 12px;
             font-family: 'IBM Plex Sans', sans-serif;
             font-size: 10pt;
+			position: fixed;
+            margin-left: 90vw;
+            margin-top: 88.9vh;
         }
         #toyShareLogo {
             width: 55px;
@@ -595,12 +597,44 @@
             font-size: 16pt;
             font-weight: 800;
         }
+        .profileButton img:hover {
+            cursor: pointer;
+            opacity: 0.7;
+        }
+
+        .fav-btn {
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            /* left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%); */
+            background:   url(http://www.capgunmedia.co/favorites-button.png) no-repeat;
+            background-position: 0 0;
+            cursor: pointer;
+            animation: favorites 1s steps(28);
+        }
+        .fav-btn:hover {
+            background-position: -2800px 0;
+            transition: background 0s steps(1);
+        }
+        @keyframes favorites {
+            0% {
+                background-position: 0 0;
+            }
+            100% {
+                background-position: -2800px 0;
+            }
+        }
+
     </style>
 </head>
 
 <body>
     <div class="header2 dropShadow">
         <div id="left">
+            <p>Toyshare</p>
+            <div class="fav-btn"></div>
             <a href="databaseTest.html">
             <img src="toyShareLogopng.png" alt="toyShareLogo" id="toyShareLogo">
             <h1 id="toyShareText">ToyShare</h1>
@@ -609,15 +643,15 @@
         <input class="searchBar" type="search" placeholder="Search for toys...." />
         <div id="right">
             <div class="favouritesButton">Saved</div>
-            <div class="profileButton"><img
-                    src="https://teambodyproject.com/wp-content/uploads/2019/01/profile-icon.png" alt="profileSetting"
+            <div class="profileButton">
+                <img src="https://teambodyproject.com/wp-content/uploads/2019/01/profile-icon.png" alt="profileSetting"
                     id="profileSetting"></div>
                     <div></div>
-                    <div id="date_time"></div>
-
         </div>
     </div>
     <div id="content">
+            <div id="date_time"></div>
+
         <div id="filtersContainer" class="dropShadow">
             <div id="filters">
                 <h3>Filters</h3>
@@ -793,12 +827,26 @@
 
             console.log(picturePath);
 
-            var heart = $("<button/>", {
-                class: "fav-btn"
+            // var heart = $("<button/>", {
+            //     class: "afav-btn"
+            // }).html("").appendTo(title).css({
+            //     display: "inline-block",
+            //     height: "12pt",
+            //     float: "right",
+            // });
+
+            var $favContainer = $("<div/>", {
+                class: "afav-btn"
             }).html("").appendTo(title).css({
                 display: "inline-block",
-                height: "12pt",
-                float: "right",
+                height: '12pt',
+                float: 'right',
+            });
+
+            var star = $("<button/>", {
+                class: "fav-btn"
+            }).html("").appendTo($favContainer).css({
+                outline: 0
             });
 
         };
@@ -1098,7 +1146,7 @@
             if (s < 10) {
                 s = '0' + s;
             }
-        result = '' + days[day] + ', ' + months[month] + ' ' + d + ', ' + year + ' ' + (h) + ':' + m + ':' + s;
+        result = '' + days[day] + ', ' + months[month] + ' ' + d + ', ' + year + '<br>PST: ' + (h) + ':' + m + ':' + s;
         document.getElementById(id).innerHTML = result;
         setTimeout('date_time("' + id + '");', '1000');
         return true;
@@ -1106,17 +1154,3 @@
         window.onload = date_time('date_time');
         
         </script>
-
-    <!-- <script> <div onclick="g</script>
-
-    <script>
-        // changes layout of listings
-        $(function() {
-            
-        })
-    </script>
-
-</body>
-
-        changeText();
-    </script> -->
