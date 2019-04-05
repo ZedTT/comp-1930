@@ -147,8 +147,8 @@
             font-family: 'IBM Plex Sans', sans-serif;
             font-weight: bold;
             font-size: 10pt;
-            padding: 0px 77px 30px 42px;
-            margin-left: 10px;
+            padding: 0px 77px 30px 41px;
+            margin-left: -60px;
             margin-right: 10px;
             margin-top: 12px;
             position: absolute;
@@ -161,8 +161,8 @@
         }
 
         .profileButton {
-            margin-left: 145px;
-            margin-top: 13px;
+            margin-left: 75px;
+            margin-top: 14px;
             position: absolute;
         }
         
@@ -179,7 +179,7 @@
 
         .messageButton {
             position: absolute;
-            margin-left: -40px;
+            margin-left: -100px;
             margin-top: 14px;
         }
         .messageButton img {
@@ -189,6 +189,32 @@
         .messageButton img:hover {
             opacity: 0.8;
             cursor: pointer;
+        }
+
+        #logOutButton {
+            display: inline-block;
+            width: 70px;
+            height: 30px;
+            border-radius: 3px;
+            background-color: rgb(255, 69, 0);
+            border: 1px solid  rgb(255, 69, 0);
+            color: #FBF5F3;
+            text-align: center;
+            line-height: 30px;
+            font-family: 'IBM Plex Sans', sans-serif;
+            font-weight: bold;
+            font-size: 10pt;
+            padding: 0px 10px 30px 10px;
+            margin-left: 120px;
+            margin-right: 10px;
+            margin-top: 12px;
+            position: absolute;
+        }
+
+        #logOutButton:hover {
+            opacity: 0.8;
+            cursor: pointer;
+
         }
 
         #filtersContainer {
