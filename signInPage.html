@@ -59,7 +59,7 @@
 				height: 48px;
 				margin-top: 20%;
 				margin-left: 18px;
-				margin-bottom: 8px;
+				margin-bottom: 5px;
 			}
 			
 			#signUp {
@@ -78,20 +78,21 @@
 				cursor: pointer;
 			}
 			
-			#skip {
+			#login {
 				text-decoration: none;
 				color: white;
 				font-size: 9pt;
 				line-height: 7px;
-				padding: 10px 58px 10px 58px;
+				padding: 15px 52px 15px 52px;
 				background-color: rgb(0, 121, 211);
 				border-radius: 4px;
 				letter-spacing: 0.5px;
-				font-weight: 600;
+				font-weight: 400;
 			}
 			
-			#skip:hover {
-				background-color: rgb(51, 148, 220)
+			#login:hover {
+        background-color: rgb(51, 148, 220);
+        cursor: pointer;
 			}
 			
 			#signUpMargin {
@@ -99,10 +100,17 @@
 				margin-bottom: 55px;
 			}
 			
-			#skipMargin {
-				margin-left: 25px;
+			#loginMargin {
+        margin-left: 25px;
 			}
-			
+      
+      div input {
+        display: block;
+        padding: 14px 205px 14px 15px;
+        margin-bottom: 10px;
+        border-radius: 4px;
+        border: 1px solid lightgrey;;
+      }
 			#signUpText {
 				font-size: 15pt;
 				margin-left: 25px;
@@ -110,7 +118,7 @@
 				font-weight: 500;
 			}
 			
-			#skipText {
+			#loginText {
 				font-size: 15pt;
 				margin-left: 25px;
 				margin-bottom: 25px;
@@ -156,7 +164,11 @@
 				bottom: 0;
 				right: 0;
 				border: 0;
-			}
+      }
+      
+      #user_div{
+        margin-left: 25px;
+      }
     </style>
 		
 		
@@ -206,12 +218,21 @@
 				<div id="loader">Loading...</div>
 			</div>
 			
-			
-			<h1 id="skipText">Skip</h1>
-			<div id="skipMargin">
-				<a id="skip" href="databaseTest.html">SKIP</a>
-			</div>
+      <h1 id="loginText">Login</h1>
+      <div id="loginMargin">
+      <div id="login_div" class="main-div">
+          <input type="email" placeholder="Email..." id="email_field"> 
+        <input type="password" placeholder="Password..." id="password_field">
+        <button id="login" onclick="login()">LOGIN</button>
+      </div>
+    </div>
+      <div id="user_div" class="loggedin-div">
+          <h3>Welcome User</h3>
+          <p id="user_para">Welcome to ToyShare. You're currently logged in.</p>
+          <button onclick="logout()">Logout</button>
+        </div>
 
+        
 			<div id="date_time"></div>
 			
 		</div>
@@ -302,7 +323,55 @@
         window.onload = date_time('date_time');
         
         </script>
+<script>
+firebase.auth().onAuthStateChanged(function(user) {
+  if (user) {
+    // User is signed in.
 
-	
+    document.getElementById("user_div").style.display = "block";
+    document.getElementById("login_div").style.display = "none";
+
+    var user = firebase.auth().currentUser;
+
+    if(user != null){
+
+      var email_id = user.email;
+      document.getElementById("user_para").innerHTML = "Welcome User : " + email_id;
+
+    }
+
+  } else {
+    // No user is signed in.
+
+    document.getElementById("user_div").style.display = "none";
+    document.getElementById("login_div").style.display = "block";
+
+  }
+});
+
+function login(){
+
+  var userEmail = document.getElementById("email_field").value;
+  var userPass = document.getElementById("password_field").value;
+
+  firebase.auth().signInWithEmailAndPassword(userEmail, userPass).catch(function(error) {
+    // Handle Errors here.
+    var errorCode = error.code;
+    var errorMessage = error.message;
+
+    window.alert("Error : " + errorMessage);
+
+    // ...
+  });
+
+}
+firebase.auth().onAuthStateChanged(user => {
+  if(user) {
+    window.location = 'databaseTest.html'; //After successful login, user will be redirected to databaseTest.html
+  }
+});
+
+</script>
+
 </body>
 </html>

@@ -33,7 +33,7 @@
         firebase.initializeApp(config);
     </script>
     <link href="https://fonts.googleapis.com/css?family=Gloria+Hallelujah" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="/public/css/style.css">
+    <link rel="stylesheet" type="text/css" href="public/css/style.css">
     <style></style>
 </head>
 
@@ -54,6 +54,7 @@
                 <img src="https://teambodyproject.com/wp-content/uploads/2019/01/profile-icon.png" alt="profileSetting"
                     id="profileSetting"></div>
                 </div>
+             <button onclick="logout()" id="logOutButton">Logout</button>
         </div>
     </div>
     <div id="content">
@@ -532,4 +533,15 @@
         }
         changeText2();
     </script>
+<script>
+    
+function logout(){
+    firebase.auth().signOut();
+    firebase.auth().onAuthStateChanged(user => {
+  if(!user) {
+    window.location = 'signInPage.html'; //After successful logout, user will be redirected to signInPage.html
+  }
+});
+  }
+</script>
 
