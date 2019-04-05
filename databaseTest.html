@@ -1,28 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>ToyShare: Canada's No.1 Toy Donation/Sell Center</title>
 
-    <!-- Links for JQuery-->
-    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.css" type="text/css"
-        media="all" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" type="text/javascript"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js" type="text/javascript"></script> -->
     <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans" rel="stylesheet">
     <link rel="icon" href="toyShareLogopng.png">
 
     <link rel="stylesheet" href="css/asRange.css">
     <script src="JQuery.js"></script>
     <script src="jquery-asRange.js"></script>
-
+    
     <script src="https://www.gstatic.com/firebasejs/5.8.5/firebase.js"></script>
     <script>
         // Initialize Firebase
-        var config = { //hello
+        var config = { 
             apiKey: "AIzaSyBwSxJojnYNo9ZFKHmO59sKVPdEhCR641A",
             authDomain: "comp1930database.firebaseapp.com",
             databaseURL: "https://comp1930database.firebaseio.com",
@@ -61,10 +55,6 @@
         <div id="filtersContainer" class="dropShadow">
             <div id="filters">
                 <h3>Filters</h3>
-                <!-- <div class="filter">
-                    <div class="filterTitle">Name of toy:</div>
-                    <input type="text" name="Name" placeholder="Name" pattern="[A-Za-z1-9]" />
-                </div> -->
                 <div class="filter">
                     <div class="filterTitle sliderTitle">Price:</div>
                     <input class="priceSlider slider" type="range" min="0" max="100" name="price" step="1" />
@@ -183,20 +173,6 @@
             var ageRange = elm("div", thisListing, "", "listingAgeRange");
             var description = elm("div", thisListing, "", "description");
 
-            // var thisListing = $('<div/>', {
-            //     class: "toyListing ageOk priceOk searchOk"
-            // });
-            // thisListing.appendTo(listingsContainer);
-            // var title = $('<div/>', {
-            //     class: "listingAgeTitle"
-            // }).appendTo(thisListing);
-            // var price = $('<div/>', {
-            //     class: "listingPrice"
-            // }).appendTo(thisListing);
-            // var ageRange = $('<div/>', {
-            //     class: "listingAgeRange"
-            // }).appendTo(thisListing);
-
             // create the picture for the listing
             var picture = $('<img/>', {
                 class: 'listingPicture',
@@ -232,14 +208,6 @@
             }
 
             console.log(picturePath);
-
-            // var heart = $("<button/>", {
-            //     class: "afav-btn"
-            // }).html("").appendTo(title).css({
-            //     display: "inline-block",
-            //     height: "12pt",
-            //     float: "right",
-            // });
 
             var $favContainer = $("<div/>", {
                 class: "afav-btn"

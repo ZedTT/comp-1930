@@ -1,106 +1,3 @@
-/*
-         * #fbf5f3
-         * #93e1d8
-         * #e28413
-         * #db3a34
-         * #000022 
-         */
-
-        .color-white-0 {
-            color: #FBF5F3
-        }
-
-        .color-white-1 {
-            color: #9C8881
-        }
-
-        .color-white-2 {
-            color: #C0B3AE
-        }
-
-        .color-white-3 {
-            color: #FFFAF8
-        }
-
-        .color-blue-0 {
-            color: #93E1D9
-        }
-
-        .color-blue-1 {
-            color: #F3FEFD
-        }
-
-        .color-blue-2 {
-            color: #C4F4EF
-        }
-
-        .color-blue-3 {
-            color: #66C6BC
-        }
-
-        .color-blue-4 {
-            color: #3EA197
-        }
-
-        .color-orange-0 {
-            color: #E28413
-        }
-
-        .color-orange-1 {
-            color: #FFBC6D
-        }
-
-        .color-orange-2 {
-            color: #F1A142
-        }
-
-        .color-orange-3 {
-            color: #B36407
-        }
-
-        .color-orange-4 {
-            color: #8C4C00
-        }
-
-        .color-red-0 {
-            color: #DB3834
-        }
-
-        .color-red-1 {
-            color: #FF8B88
-        }
-
-        .color-red-2 {
-            color: #F15E5A
-        }
-
-        .color-red-3 {
-            color: #B71B17
-        }
-
-        .color-red-4 {
-            color: #900603
-        }
-
-        .color-black-0 {
-            color: #000022
-        }
-
-        #colors {
-            color: #fbf5f3;
-            /* background */
-            color: #93e1d8;
-            /* */
-            color: #e28413;
-            /* */
-            color: #db3a34;
-            /* */
-            color: #000022;
-            /* */
-
-            color: #F4EFED;
-            /* background white darker */
-        }
 
         /* accounts for padding and border when calculating width */
         html * {
@@ -109,8 +6,6 @@
 
         body {
             /* background-image: url("https://d1q8kgt00fn2v8.cloudfront.net/files/uploads/2018/03/kids_playing_with-_blocks-1600x1067.jpg"); */
-            /* background-repeat: no-repeat; */
-            /* background-size: cover; */
             margin: 0px;
             padding: 0px;
             background-color: #dae0e6;
@@ -140,10 +35,8 @@
             font-family: 'Gloria Hallelujah', cursive;
             font-size: 25pt;
             color: #ff4500;
-            /* color: #991c1c; */
             margin-left: 1em;
             margin-right: 1em;
-            /*added right margin for when things get close */
             line-height: 55px;
             margin-top: -3px;
             font-weight: bolder;
@@ -160,19 +53,6 @@
             grid-template-areas:
                 "emptyLeft sideBar listings ads emptyRight";
         }
-
-        /* Causes filters to go above content on small screens */
-        /* @media (max-width: 770px) {
-            #content {
-                grid-template-areas: 
-                "sideBar"
-                "listings";
-                grid-template-columns: 90%;
-            }
-            #filtersContainer {
-                width: 100%;
-            }
-        } */
 
         /* causes ads to disapear on small screens */
         @media only screen and (max-width: 1000px) {
@@ -199,13 +79,6 @@
                 margin-left: -30px;
             }
         }
-
-        /**#searchContainer {
-            grid-area: searchBar;
-            width: 100%;
-            text-align: center;
-            background-color: crimson;
-        }*/
 
         .searchBar {
             grid-area: middle;
@@ -275,14 +148,12 @@
             margin-left: 145px;
             margin-top: 13px;
             position: absolute;
-            }
+        }
         
         img#profileSetting {
-            
             width: 32.5px;
             height: 28.8px;
             padding: 0;
-            
         }
 
         .profileButton img:hover {
@@ -302,17 +173,14 @@
         .messageButton img:hover {
             opacity: 0.8;
             cursor: pointer;
-
         }
 
         #filtersContainer {
             grid-area: sideBar;
-            /* position: fixed; */
             transition: 0.25s;
         }
 
         #filters {
-            /* width: 20vw; */
             border-radius: 3px;
             font-size: 10pt;
             background-color: #ffffff;
@@ -347,7 +215,6 @@
 
         .asRange .asRange-selected {
             background-color: #0079d3;
-            /* blue 0 */
         }
 
         .asRange .asRange-pointer .asRange-tip {
@@ -358,7 +225,6 @@
 
         .asRange .asRange-pointer .asRange-tip:before {
             background-color: #0079d3;
-            /* orange 0 #DB3834*/
         }
 
         .asRange .asRange-pointer {
@@ -367,31 +233,21 @@
 
         .asRange .asRange-pointer:before {
             background: #0079d3;
-            /* blue 4 */
         }
 
         .asRange .asRange-pointer:after {
             background: #F3FEFD;
-            /* blue 1 */
         }
 
         #listingsContainer {
             grid-area: listings;
-            /* overflow-y: auto; */
-            /* height: calc(100vh - 95px); */
             width: 100%;
-
-            /* display: grid; */
-            /* grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); */
-            /* grid-template-rows: repeat(auto-fill, 1fr); */
-            /* grid-gap: 25px; */
         }
 
         .toyListing {
             border: 1px solid #dad9d9;
             border-radius: 3px;
             font-size: 8pt;
-            /* width: calc(100% - 30px); 100% minus any padding */
             width: 100%;
             /* because of the box-sizing property applied to *, we can ignore padding */
             margin: auto;
@@ -407,17 +263,12 @@
                 "img des des";
             grid-template-columns: 320px 1fr 1fr;
             grid-template-rows: 30px 30px 1fr;
-            /* grid-template-areas:
-                "img img"
-                "ttl ttl"
-                "prc age"; */
             height: 250px;
             align-content: flex-end;
         }
 
         .toyListing:hover {
             border: 1px solid #acacac;
-            /* padding: calc(5px - 0px) calc(30px - 0px) calc(5px - 0px) calc(10px - 0px); */
             cursor: pointer;
         }
 
@@ -430,10 +281,8 @@
             object-fit: contain;
             max-width: 100%;
             height: 100%;
-            /* max-height: 100%; */
             padding-left: 30px;
             align-self: flex-start;
-            /* background-color: #0079d3; */
         }
 
         .description {
@@ -488,7 +337,6 @@
         .wasteInfo {
             border: 1px solid #c4c4c4;
             border-radius: 5px;
-            /** background-image: url(https://media.istockphoto.com/illustrations/abstract-yellow-watercolor-texture-background-illustration-id532126526?k=6&m=532126526&s=612x612&w=0&h=n_AGA8IEeqlMTBNoylH0y7R-1oejDXFSlRG0-sXPaeA=); */
             background-color: yellow;
             margin: 0 auto;
             height: 390px;
@@ -496,7 +344,6 @@
         }
 
         .wasteInfo p {
-            /* text-align: center; */
             font-size: 15pt;
             font-weight: bold;
             text-align: left;
@@ -511,9 +358,7 @@
         }
 
         .learnMore {
-            /* width: calc(90% - 20px); we no longer have to worry about subtracting padding due to box sizing */
             width: 90%;
-            /* height: 125px; */
             padding: 10px;
             text-align: center;
             font-weight: bold;
@@ -528,7 +373,6 @@
 
         .learnMoreButton {
             width: 120px;
-            /* height: 30px; */
             border: 3px solid white;
             border-radius: 50px;
             margin: 0 auto;
@@ -559,7 +403,6 @@
         }
         .dropShadow {
             filter: drop-shadow(0px 0px 5px #EBDDD0);
-            /* carpet color */
         }
 
         #toyShareLogo {
@@ -580,8 +423,6 @@
             font-weight: 800;
         }
         
-
-        
         .fav-btn {
             width: 100px;
             height: 100px;
@@ -593,10 +434,12 @@
             cursor: pointer;
             animation: favorites 1s steps(28);
         }
+
         .fav-btn:hover {
             background-position: -2800px 0;
             transition: background 0s steps(1);
         }
+
         @keyframes favorites {
             0% {
                 background-position: 0 0;
