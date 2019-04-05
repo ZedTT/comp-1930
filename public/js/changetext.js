@@ -1,3 +1,5 @@
+// Define an array of all the text we want to cycle through
+// Used by changeText2, which cycles through text on the sidebar
 var infoArray = [
     "<b>90%</b> of all toys on the market are made of plastic, and barely any is being recycled.</p>" +
     "<p>Donate Today.",

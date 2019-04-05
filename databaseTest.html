@@ -1,455 +1,150 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>ToyShare: Canada's No.1 Toy Donation/Sell Center</title>
+<b lang="en">
 
-    <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans" rel="stylesheet">
-    <link rel="icon" href="toyShareLogopng.png">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>ToyShare: Canada's No.1 Toy Donation/Sell Center</title>
 
-    <link rel="stylesheet" href="css/asRange.css">
-    <script src="JQuery.js"></script>
-    <script src="jquery-asRange.js"></script>
-    
-    <script src="https://www.gstatic.com/firebasejs/5.8.5/firebase.js"></script>
-    <script>
-        // Initialize Firebase
-        var config = { 
-            apiKey: "AIzaSyBwSxJojnYNo9ZFKHmO59sKVPdEhCR641A",
-            authDomain: "comp1930database.firebaseapp.com",
-            databaseURL: "https://comp1930database.firebaseio.com",
-            projectId: "comp1930database",
-            storageBucket: "comp1930database.appspot.com",
-            messagingSenderId: "908131063499"
-        };
-        firebase.initializeApp(config);
-    </script>
-    <link href="https://fonts.googleapis.com/css?family=Gloria+Hallelujah" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="public/css/style.css">
-    <style></style>
-</head>
+        <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans" rel="stylesheet">
+        <link rel="icon" href="toyShareLogopng.png">
 
-<body>
-    <div class="header2 dropShadow">
-        <div id="left">
-            <a href="databaseTest.html">
-            <img src="toyShareLogopng.png" alt="toyShareLogo" id="toyShareLogo">
-            <h1 id="toyShareText">ToyShare</h1>
-        </a>
-        </div>
-        <input class="searchBar" type="search" placeholder="Search for toys...." />
-        <div id="right">
-            <div id="buttons">
-            <div class="messageButton"><img src="https://static.thenounproject.com/png/367821-200.png" alt="msgButton"></div>
-            <div class="favouritesButton">Saved</div>
-            <div class="profileButton">
-                <img src="https://teambodyproject.com/wp-content/uploads/2019/01/profile-icon.png" alt="profileSetting"
-                    id="profileSetting"></div>
+        <link rel="stylesheet" href="css/asRange.css">
+        <script src="JQuery.js"></script>
+        <script src="jquery-asRange.js"></script>
+
+        <script src="https://www.gstatic.com/firebasejs/5.8.5/firebase.js"></script>
+        <script>
+            // Initialize Firebase
+            var config = {
+                apiKey: "AIzaSyBwSxJojnYNo9ZFKHmO59sKVPdEhCR641A",
+                authDomain: "comp1930database.firebaseapp.com",
+                databaseURL: "https://comp1930database.firebaseio.com",
+                projectId: "comp1930database",
+                storageBucket: "comp1930database.appspot.com",
+                messagingSenderId: "908131063499"
+            };
+            firebase.initializeApp(config);
+        </script>
+        <link href="https://fonts.googleapis.com/css?family=Gloria+Hallelujah" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="public/css/style.css">
+        <style></style>
+    </head>
+
+    <body>
+        <div class="header2 dropShadow">
+            <div id="left">
+                <a href="databaseTest.html">
+                    <img src="toyShareLogopng.png" alt="toyShareLogo" id="toyShareLogo">
+                    <h1 id="toyShareText">ToyShare</h1>
+                </a>
+            </div>
+            <input class="searchBar" type="search" placeholder="Search for toys...." />
+            <div id="right">
+                <div id="buttons">
+                    <div class="messageButton"><img src="https://static.thenounproject.com/png/367821-200.png"
+                            alt="msgButton"></div>
+                    <div class="favouritesButton">Saved</div>
+                    <div class="profileButton">
+                        <img src="https://teambodyproject.com/wp-content/uploads/2019/01/profile-icon.png"
+                            alt="profileSetting" id="profileSetting"></div>
                 </div>
-        </div>
-    </div>
-    <div id="content">
-
-        <div id="filtersContainer" class="dropShadow">
-            <div id="filters">
-                <h3>Filters</h3>
-                <div class="filter">
-                    <div class="filterTitle sliderTitle">Price:</div>
-                    <input class="priceSlider slider" type="range" min="0" max="100" name="price" step="1" />
-                </div>
-                <div class="filter">
-                    <div class="filterTitle sliderTitle">Age:</div>
-                    <input class="ageSlider slider" type="range" min="0" max="20" name="age" step="1" />
-                </div>
-                <div>sliders coutesy of <a
-                        href="https://github.com/thecreation/jquery-asRange">github.com/thecreation/</a></div>
             </div>
         </div>
-        <div id="listingsContainer" class="dropShadow"></div>
-        <div id="ads" class="dropShadow">
-            <div class="wasteInfo">
-                <img src="http://thearenaweekly.myschoolarena.com/wp-content/uploads/2018/04/doctor.jpg"
-                    alt="Kid Playing With Toy">
-                <div id="message">
-                    <p>Global plastics consumption is predicted to grow dramatically.</p>
-                    <p>Please reuse!</p>
+        <div id="content">
+
+            <div id="filtersContainer" class="dropShadow">
+                <div id="filters">
+                    <h3>Filters</h3>
+                    <div class="filter">
+                        <div class="filterTitle sliderTitle">Price:</div>
+                        <input class="priceSlider slider" type="range" min="0" max="100" name="price" step="1" />
+                    </div>
+                    <div class="filter">
+                        <div class="filterTitle sliderTitle">Age:</div>
+                        <input class="ageSlider slider" type="range" min="0" max="20" name="age" step="1" />
+                    </div>
+                    <div>sliders coutesy of <a
+                            href="https://github.com/thecreation/jquery-asRange">github.com/thecreation/</a></div>
                 </div>
             </div>
-            <div class="learnMore">Learn more on how to donate at your local ToyShare.
-                <div class="learnMoreButton" onclick="location.href='https://www.reddit.com/';" style="cursor:pointer;">
-                    Learn More</div>
+            <div id="listingsContainer" class="dropShadow"></div>
+            <div id="ads" class="dropShadow">
+                <div class="wasteInfo">
+                    <img src="http://thearenaweekly.myschoolarena.com/wp-content/uploads/2018/04/doctor.jpg"
+                        alt="Kid Playing With Toy">
+                    <div id="message">
+                        <p>Global plastics consumption is predicted to grow dramatically.</p>
+                        <p>Please reuse!</p>
+                    </div>
+                </div>
+                <div class="learnMore">Learn more on how to donate at your local ToyShare.
+                    <div class="learnMoreButton" onclick="location.href='https://www.reddit.com/';"
+                        style="cursor:pointer;">
+                        Learn More</div>
+                </div>
+                <div class="ecoCityAd1"><a href="http://ecocity2019.com/" target="blank"><img
+                            src="http://ecocity2019.com/wp-content/uploads/2018/09/ecocity_web_logo.png"
+                            alt="Dead Fish"></a> </div>
             </div>
-            <div class="ecoCityAd1"><a href="http://ecocity2019.com/" target="blank"><img
-                        src="http://ecocity2019.com/wp-content/uploads/2018/09/ecocity_web_logo.png"
-                        alt="Dead Fish"></a> </div>
         </div>
-    </div>
 
-    <script>
-        // usage: elm("div", document.body, "myID", "myClass");
-        function elm(tag, parent, id, cssClass) {
-            var thisElm = document.createElement(tag);
-            if (id) {
-                thisElm.setAttribute("id", id);
-            };
-            if (cssClass) {
-                thisElm.setAttribute("class", cssClass);
-            };
-            parent.appendChild(thisElm);
-            return thisElm
-        };
+        <script src="public/js/domlibrary.js"></script>
 
-        // Adds style to an element
-        function addStyle(element, property, value) {
-            var currentStyle = element.getAttribute("style");
-            if (!currentStyle) {
-                currentStyle = ""
-            }
-            element.setAttribute("style", currentStyle + " " + property + ": " + value + ";");
-        };
+        <script src="public/js/initializeListings.js"></script>
 
-        // Adds style to an element. styleArray must have an even number of indexes.
-        function addArrayOfStyles(element, styleArray) {
-            var currentStyle = element.getAttribute("style");
-            if (!currentStyle) {
-                currentStyle = ""
-            }
-            for (i = 0; i < styleArray.length; i++) {
-                element.setAttribute("style", currentStyle + " " + styleArray[i] + ": " + styleArray[++i] + ";");
-                currentStyle = element.getAttribute("style");
-            };
-        };
-
-        // Adds style to all elements in an array
-        function addStyleToArray(arrayOfElements, property, value) {
-            for (let i = 0; i < arrayOfElements.length; i++) {
-                addStyle(arrayOfElements[i], property, value);
-            };
-        };
-
-        // Adds style to all elements of a class
-        function addStyleByClass(cssClass, property, value) {
-            let cssClassArray = document.getElementsByClassName(cssClass);
-
-            addStyleToArray(cssClassArray, property, value);
-        };
-
-        function elmStyle(tag, parent, styleArray, id, cssClass) {
-            var thisElm = elm(tag, parent, id, cssClass);
-            addArrayOfStyles(thisElm, styleArray);
-            return thisElm;
-        };
-
-        var body = document.body
-    </script>
-    <script>
-        // An array of all the listings on the page
-        var listings = document.getElementsByClassName("toyListing");
-        // A locator for the container that holds the listings
-        var listingsContainer = document.getElementById("listingsContainer");
-
-        // this function adds a single listing to the page
-        // the parameter snap is a snaphot of the database
-        // the snap in this case actually only contains a snapshot of a SINGLE toy
-        // this function is called by the filter function
-        function createListing(snap) {
-
-            // The key of the toy, used only as a back up if the name field is missing
-            var thisToy = snap.key;
-            // Grabbbing values from the snap
-            var nameVal = snap.child("Name").val();
-            var priceVal = snap.child("Price").val();
-            var ageMaxVal = snap.child("Age_Max").val();
-            var ageMinVal = snap.child("Age_Min").val();
-            var picturePath = snap.child("Picture").val();
-            var descriptionVal = snap.child("Description").val();
-
-            // Create the html that will contain out listing and all it's information
-            var thisListing = elm("div", listingsContainer, "", "toyListing ageOk priceOk searchOk");
-            var title = elm("div", thisListing, "", "listingTitle");
-            var price = elm("div", thisListing, "", "listingPrice");
-            var ageRange = elm("div", thisListing, "", "listingAgeRange");
-            var description = elm("div", thisListing, "", "description");
-
-            // create the picture for the listing
-            var picture = $('<img/>', {
-                class: 'listingPicture',
-                alt: 'picture not available',
-                //can get rid of .jpg if we add jpg to all files in database
-                src: "Pictures/" + picturePath + '.jpg',
-            }).appendTo(thisListing);
-
-            // check that each value exists before adding it
-            // if the value is null, display an error instead
-            if (nameVal) {
-                title.innerText = nameVal
-            } else {
-                title.innerText = "Error: " + thisToy
-            }
-
-            if (priceVal || priceVal == 0) {
-                price.innerText = "Price: $" + priceVal
-            } else {
-                price.innerText = "Error: no pricing data"
-            }
-
-            if (!!ageMinVal.toString() && !!ageMaxVal.toString()) {
-                ageRange.innerHTML = "Age Range: " + ageMinVal + "-" + ageMaxVal;
-            } else {
-                ageRange.innerHTML = "Age range not available";
-            }
-
-            if (descriptionVal) {
-                description.innerHTML = "Description: <br>" + descriptionVal;
-            } else {
-                description.innerHTML = "Description: <br>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.";
-            }
-
-            console.log(picturePath);
-
-            var $favContainer = $("<div/>", {
-                class: "afav-btn"
-            }).html("").appendTo(title).css({
-                display: "inline-block",
-                height: '12pt',
-                float: 'right',
+        <script>
+            // an example for future usage - currently doesn't do anything
+            // Favorite Button - Heart
+            $('.favme').click(function () {
+                $(this).toggleClass('active');
             });
 
-            var star = $("<button/>", {
-                class: "fav-btn"
-            }).html("").appendTo($favContainer).css({
-                outline: 0
+            /* when a user clicks, toggle the 'is-animating' class */
+            $(".favme").on('click touchstart', function () {
+                $(this).toggleClass('is_animating');
             });
 
-        };
+            /*when the animation is over, remove the class*/
+            $(".favme").on('animationend', function () {
+                $(this).toggleClass('is_animating');
+            });
+        </script>
 
-        function initializeListings() {
-            // this is the reference to our datadase, specifically the toys
-            dbRef = firebase.database().ref().child("Toys");
-            // this runs once whenever initializeListings is called and grabs the data from the database
-            dbRef.once('value', function (snapshot) {
-                listingsContainer.innerHTML = "";
-                // a loop for each toy
-                snapshot.forEach(function (snap) {
-                    createListing(snap);
+        <script>
+            // unused right now because it called the database too often
+            // this is the function that filters the page
+            function filterPlus(minPrice, maxPrice, minAge, maxAge) {
+                // this is the reference to our database, specifically the toys
+                dbRef = firebase.database().ref().child("Toys");
+                // this function runs every time the database has a change
+                dbRef.on('value', function (snapshot) {
+                    // IMPORTANT: clear the old listings before adding updated ones 
+                    listingsContainer.innerHTML = "";
+                    // a loop for each toy
+                    snapshot.forEach(function (snap) {
+                        // grabbing values from the database
+                        priceVal = snap.child("Price").val();
+                        ageMaxVal = snap.child("Age_Max").val();
+                        ageMinVal = snap.child("Age_Min").val();
+                        // the actual filters, if any of these pass, it means the filter failed, return ends the loop
+                        if (priceVal < minPrice || priceVal > maxPrice) {
+                            return;
+                        }
+                        if (maxAge < ageMinVal || minAge > ageMaxVal) {
+                            return;
+                        }
+                        // Calls the create listing function with a single toys data. We only get to this point if both filters pass
+                        createListing(snap);
+                    });
                 });
-            });
-        };
-        initializeListings();
-    </script>
-
-    <script>
-        // Favorite Button - Heart
-        $('.favme').click(function () {
-            $(this).toggleClass('active');
-        });
-
-        /* when a user clicks, toggle the 'is-animating' class */
-        $(".favme").on('click touchstart', function () {
-            $(this).toggleClass('is_animating');
-        });
-
-        /*when the animation is over, remove the class*/
-        $(".favme").on('animationend', function () {
-            $(this).toggleClass('is_animating');
-        });
-    </script>
-
-    <script>
-        // unused right now because it called the database too often
-        // this is the function that filters the page
-        function filterPlus(minPrice, maxPrice, minAge, maxAge) {
-            // this is the reference to our database, specifically the toys
-            dbRef = firebase.database().ref().child("Toys");
-            // this function runs every time the database has a change
-            dbRef.on('value', function (snapshot) {
-                // IMPORTANT: clear the old listings before adding updated ones 
-                listingsContainer.innerHTML = "";
-                // a loop for each toy
-                snapshot.forEach(function (snap) {
-                    // grabbing values from the database
-                    priceVal = snap.child("Price").val();
-                    ageMaxVal = snap.child("Age_Max").val();
-                    ageMinVal = snap.child("Age_Min").val();
-                    // the actual filters, if any of these pass, it means the filter failed, return ends the loop
-                    if (priceVal < minPrice || priceVal > maxPrice) {
-                        return;
-                    }
-                    if (maxAge < ageMinVal || minAge > ageMaxVal) {
-                        return;
-                    }
-                    // Calls the create listing function with a single toys data. We only get to this point if both filters pass
-                    createListing(snap);
-                });
-            });
-        };
-    </script>
-
-    <script>
-        // create the sliders
-        jQuery(function ($) {
-            $('.priceSlider').asRange({
-                range: true,
-                value: [0, 100],
-                format(value) {
-                    return "$" + value;
-                }
-            });
-        });
-
-        jQuery(function ($) {
-            $('.ageSlider').asRange({
-                range: true,
-                value: [0, 20],
-                format(value) {
-                    return value;
-                }
-            });
-        });
-    </script>
-
-    <script>
-        // this script tag contains filters
-        // slider filters
-        $('.priceSlider').on('asRange::change', function (e) {
-            var price = $('.priceSlider').asRange('val');
-            $(".toyListing").filter(function () {
-                var listingsPrice = $(this.getElementsByClassName("listingPrice")[0]).text().split(
-                    ': $')[1];
-                if (listingsPrice >= price[0] && listingsPrice <= price[1]) {
-                    $(this).addClass("priceOk").removeClass("priceNo");
-                } else {
-                    $(this).removeClass("priceOk").addClass("priceNo");
-                };
-            });
-            $(".ageOk.searchOk.priceNo").hide();
-            $(".ageOk.searchOk.priceOk").show();
-        });
-
-        $('.ageSlider').on('asRange::change', function (e) {
-            var age = $('.ageSlider').asRange('val');
-            $(".toyListing").filter(function () {
-                var listingsAgeRange = $(this.getElementsByClassName("listingAgeRange")[0]).text()
-                    .split(
-                        ': ')[1];
-                var listingsMinAge = listingsAgeRange.split('-')[0];
-                var listingsMaxAge = listingsAgeRange.split('-')[1];
-                if (listingsMinAge <= age[1] && listingsMaxAge >= age[0]) {
-                    $(this).addClass("ageOk").removeClass("ageNo");
-                } else {
-                    $(this).removeClass("ageOk").addClass("ageNo");
-                };
-            });
-            $(".priceOk.searchOk.ageNo").hide();
-            $(".priceOk.searchOk.ageOk").show();
-        });
-        // search bar
-        $(document).ready(function () {
-            $(".searchBar").on("keyup", function () {
-                var value = $(this).val().toLowerCase();
-                $(".priceOk.ageOk").filter(function () {
-                    // $(this).toggle($(this.getElementsByClassName("listingTitle")[0]).text().split(': ')[1].toLowerCase().indexOf(value) > -1);
-                    var listingTitle = $(this.getElementsByClassName("listingTitle")[0]).text();
-                    // .split(': ')[1];
-
-                    if (listingTitle.toLowerCase().indexOf(value) > -1) {
-                        $(this).addClass("searchOk").removeClass("searchNo");
-                    } else {
-                        $(this).removeClass("searchOk").addClass("searchNo");
-                    };
-                });
-                $(".ageOk.priceOk.searchNo").hide();
-                $(".ageOk.priceOk.searchOk").show();
-            });
-        });
-    </script>
-
-    <script>
-        // For testing offline only
-        // If the browser is offline, creates test listings to help with development
-        // This code should be removed before production, but theoretically it would never be shown unless firebase is down and our website is not
-        if (!navigator.onLine) {
-            for (i = 0; i < 5; i++) {
-                var thisListing = elm("div", listingsContainer, "", "toyListing");
-                var title = elm("div", thisListing, "", "listingTitle");
-                title.innerHTML = "You are offline";
-                var price = elm("div", thisListing, "", "listingPrice");
-                price.innerHTML = "Price: cannot connect";
-                var ageRange = elm("div", thisListing, "", "listingAgeRange");
-                ageRange.innerHTML = "Age Range: to-firebase";
-            }
-        }
-    </script>
-
-    <script>
-        // make the filters move along with us as we scroll
-        // avoids "position: fixed;"
-
-        // When we scroll, call scroll function (below)
-        $(() => {
-            window.onscroll = () => {
-                scrollFunction();
             };
+        </script>
+        <script src="public/js/sliderFilters.js"></script>
+        <script src="public/js/offlinetest.js"></script>
+        <script src="public/js/fixfilters.js"></script>
+        <script src="public/js/changetext.js"></script>
+    </body>
 
-            function scrollFunction() {
-                // get chrome and edge to play along nicely with each other
-                var scrollVal = Math.max($('html, body').scrollTop(), ($('body').scrollTop()));
-
-                // transform the filters down by the scroll value.
-                $('#filtersContainer').css({
-                    transform: 'translate(0, ' + scrollVal + 'px)',
-                })
-
-                // console.log(scrollVal);
-
-            };
-
-        });
-    </script>
-
-    <script>
-        // Define an array of all the text we want to cycle through
-        // Used by changeText2, which cycles through text on the sidebar
-        var infoArray = [
-            "<b>90%</b> of all toys on the market are made of plastic, and barely any is being recycled.</p>" +
-            "<p>Donate Today.",
-            "In 2014, Americans generated about 33 million tons of plastic. The year before, only" +
-            "<b> 9.5 </b>" + "percent of plastics were recycled.",
-            "About 8 million tonnes of plastic enters the sea every year. We face a future with more plastic than fish by 2050.",
-            "Small pieces of plastic are eaten by fish, turtles and seabirds. Animals and birds can also become tangled up in plastic debris, leading to death",
-            "Global plastics consumption is predicted to grow dramatically.</p>" + "<p>Please reuse!"
-        ];
-
-        // Keeps track of where we are in the loop
-        var changeTextI = 0;
-
-        function changeText2() {
-            // identify our target div and set a delay
-            $("#message").delay(5500).animate({
-                // Fade out
-                opacity: 0
-                // Then...
-            }, function () {
-                // display the next piece of text from the array in the div
-                $(this).html(
-                    "<p>" + infoArray[changeTextI] + "</p>").animate({
-                    // Fade back in with the new text
-                    opacity: 1
-                }, function () {
-                    // If we still have more text to loop through,
-                    // add one to our variable and start again.
-                    // Else restart at 0 then start again.
-                    if (changeTextI < infoArray.length - 1) {
-                        changeTextI++;
-                    } else {
-                        changeTextI = 0;
-                    }
-                    changeText2();
-                });
-            });
-        }
-        changeText2();
-    </script>
-
+    </html>
