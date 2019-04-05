@@ -269,41 +269,36 @@
         }
 
         #right {
-            max-width: 250px;
+            max-width: 550px;
             width: min-content;
             grid-area: right;
             height: 100%;
-            display: grid;
-            /* vertical align */
-            grid-template-columns: repeat(2, auto);
             justify-self: center;
-            /* could be end */
+        }
+   
+        #buttons {
+            position: relative;
+            width: 200px;
         }
 
         .favouritesButton {
-            /* grid-area: right; */
-            /* added to parent */
+            display: inline-block;
             width: 70px;
             height: 30px;
             border-radius: 3px;
             background-color: rgb(0, 121, 211);
-            /* blue 0 */
             border: 1px solid rgb(0, 121, 211);
-            /* blue 4 */
             color: #FBF5F3;
-            /* white 0 */
             text-align: center;
-            /* vertical-align: middle; */
-            /* no longer needed */
             line-height: 30px;
             font-family: 'IBM Plex Sans', sans-serif;
             font-weight: bold;
-            margin: auto 1em;
-            /* added minimum left and right margin */
             font-size: 10pt;
-            margin-left: 60px;
-            margin-top: 11px;
-            padding: 0px 65px 30px 35px;
+            padding: 0px 77px 30px 42px;
+            margin-left: 10px;
+            margin-right: 10px;
+            margin-top: 12px;
+            position: absolute;
         }
 
         .favouritesButton:hover {
@@ -311,6 +306,41 @@
             cursor: pointer;
 
         }
+
+        .profileButton {
+            margin-left: 145px;
+            margin-top: 13px;
+            position: absolute;
+            }
+        
+        img#profileSetting {
+            
+            width: 32.5px;
+            height: 28.8px;
+            padding: 0;
+            
+        }
+
+        .profileButton img:hover {
+            cursor: pointer;
+            opacity: 0.7;
+        }
+
+        .messageButton {
+            position: absolute;
+            margin-left: -40px;
+            margin-top: 14px;
+        }
+        .messageButton img {
+            width: 28px;
+        }
+
+        .messageButton img:hover {
+            opacity: 0.8;
+            cursor: pointer;
+
+        }
+
         #filtersContainer {
             grid-area: sideBar;
             /* position: fixed; */
@@ -564,16 +594,6 @@
             height: auto;
             border-radius: 5px;
         }
-        
-        img#profileSetting {
-            margin-bottom: -2px;
-            margin-top: 13.5px;
-            margin-right: 8px;
-            width: 32.5px;
-            height: 28.8px;
-            padding: 0;
-        }
-
         .dropShadow {
             filter: drop-shadow(0px 0px 5px #EBDDD0);
             /* carpet color */
@@ -596,11 +616,9 @@
             font-size: 16pt;
             font-weight: 800;
         }
-        .profileButton img:hover {
-            cursor: pointer;
-            opacity: 0.7;
-        }
+        
 
+        
         .fav-btn {
             width: 100px;
             height: 100px;
@@ -624,14 +642,13 @@
                 background-position: -2800px 0;
             }
         }
-
+     
     </style>
 </head>
 
 <body>
     <div class="header2 dropShadow">
         <div id="left">
-            <!-- <p>Toyshare</p> -->
             <a href="databaseTest.html">
             <img src="toyShareLogopng.png" alt="toyShareLogo" id="toyShareLogo">
             <h1 id="toyShareText">ToyShare</h1>
@@ -639,11 +656,13 @@
         </div>
         <input class="searchBar" type="search" placeholder="Search for toys...." />
         <div id="right">
+            <div id="buttons">
+            <div class="messageButton"><img src="https://static.thenounproject.com/png/367821-200.png" alt="msgButton"></div>
             <div class="favouritesButton">Saved</div>
             <div class="profileButton">
                 <img src="https://teambodyproject.com/wp-content/uploads/2019/01/profile-icon.png" alt="profileSetting"
                     id="profileSetting"></div>
-                    <div></div>
+                </div>
         </div>
     </div>
     <div id="content">
