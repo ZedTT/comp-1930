@@ -562,9 +562,11 @@
             /* carpet color */
         }
         #date_time {
-            margin-top: 12px;
             font-family: 'IBM Plex Sans', sans-serif;
             font-size: 10pt;
+			position: fixed;
+            margin-left: 90vw;
+            margin-top: 88.9vh;
         }
         #toyShareLogo {
             width: 55px;
@@ -605,11 +607,11 @@
                 <img src="https://teambodyproject.com/wp-content/uploads/2019/01/profile-icon.png" alt="profileSetting"
                     id="profileSetting"></div>
                     <div></div>
-                    <div id="date_time"></div>
-
         </div>
     </div>
     <div id="content">
+            <div id="date_time"></div>
+
         <div id="filtersContainer" class="dropShadow">
             <div id="filters">
                 <h3>Filters</h3>
@@ -1090,7 +1092,7 @@
             if (s < 10) {
                 s = '0' + s;
             }
-        result = '' + days[day] + ', ' + months[month] + ' ' + d + ', ' + year + ' ' + (h) + ':' + m + ':' + s;
+        result = '' + days[day] + ', ' + months[month] + ' ' + d + ', ' + year + '<br>PST: ' + (h) + ':' + m + ':' + s;
         document.getElementById(id).innerHTML = result;
         setTimeout('date_time("' + id + '");', '1000');
         return true;
