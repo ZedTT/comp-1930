@@ -51,7 +51,6 @@
                 </div>
              <button onclick="logout()" id="logOutButton">Logout</button>
         </div>
-<<<<<<< HEAD
         <div class="barDiv">
             <div id="filtersContainer" class="dropShadow">
                 <div id="filters">
@@ -66,22 +65,6 @@
                     </div>
                     <div>sliders coutesy of <a
                             href="https://github.com/thecreation/jquery-asRange">github.com/thecreation/</a></div>
-=======
-    </div>
-    <div id="content">
-
-        <div id="filtersContainer" class="dropShadow">
-            <div id="filters">
-                <h3>Filters</h3>
-                
-                <div class="filter">
-                    <div class="filterTitle sliderTitle">Price:</div>
-                    <input class="priceSlider slider" type="range" min="0" max="100" name="price" step="1" />
-                </div>
-                <div class="filter">
-                    <div class="filterTitle sliderTitle">Age:</div>
-                    <input class="ageSlider slider" type="range" min="0" max="20" name="age" step="1" />
->>>>>>> 5f7313d90840c02d944c1f98ffa757924d8ce6a0
                 </div>
             </div>
         </div>
@@ -196,20 +179,6 @@
             var ageRange = elm("div", thisListing, "", "listingAgeRange");
             var description = elm("div", thisListing, "", "description");
 
-            // var thisListing = $('<div/>', {
-            //     class: "toyListing ageOk priceOk searchOk"
-            // });
-            // thisListing.appendTo(listingsContainer);
-            // var title = $('<div/>', {
-            //     class: "listingAgeTitle"
-            // }).appendTo(thisListing);
-            // var price = $('<div/>', {
-            //     class: "listingPrice"
-            // }).appendTo(thisListing);
-            // var ageRange = $('<div/>', {
-            //     class: "listingAgeRange"
-            // }).appendTo(thisListing);
-
             // create the picture for the listing
             var picture = $('<img/>', {
                 class: 'listingPicture',
@@ -245,14 +214,6 @@
             }
 
             console.log(picturePath);
-
-            // var heart = $("<button/>", {
-            //     class: "afav-btn"
-            // }).html("").appendTo(title).css({
-            //     display: "inline-block",
-            //     height: "12pt",
-            //     float: "right",
-            // });
 
             var $favContainer = $("<div/>", {
                 class: "afav-btn"
@@ -455,54 +416,6 @@
     </script>
 
     <script>
-        // var textArray = [","","blah1","blah2"];
-        // function changeText() {
-        //     $("#message").delay(5500).animate({
-        //         opacity: 0
-        //     }, function () {
-        //         $(this).html(
-        //             "<b>90%</b> of all toys on the market are made of plastic, and barely any is being recycled." +
-        //             "<br>" + "<br>" + "Donate Today.").animate({
-        //             opacity: 1
-        //         }, function () {
-        //             $(this).delay(5500).animate({
-        //                 opacity: 0
-        //             }, function () {
-        //                 $(this).html(
-        //                     "In 2014, Americans generated about 33 million tons of plastic. The year before, only" +
-        //                     "<b> 9.5 </b>" + "percent of plastics were recycled.").animate({
-        //                     opacity: 1
-        //                 }, function () {
-        //                     $(this).delay(5500).animate({
-        //                         opacity: 0
-        //                     }, function () {
-        //                         $(this).text(
-        //                             "About 8 million tonnes of plastic enters the sea every year. We face a future with more plastic than fish by 2050."
-        //                         ).animate({
-        //                             opacity: 1
-        //                         }, function () {
-        //                             $(this).delay(5500).animate({
-        //                                 opacity: 0
-        //                             }, function () {
-        //                                 $(this).text(
-        //                                     "Small pieces of plastic are eaten by fish, turtles and seabirds. Animals and birds can also become tangled up in plastic debris, leading to death"
-        //                                 ).animate({
-        //                                     opacity: 1
-        //                                 }, function () {
-        //                                     changeText
-        //                                         ();
-        //                                 });
-        //                             });
-        //                         });
-        //                     });
-        //                 });
-        //             });
-        //         });
-        //     });
-        // };
-
-        // changeText();
-
         // Define an array of all the text we want to cycle through
         // Used by changeText2, which cycles through text on the sidebar
         var infoArray = [
