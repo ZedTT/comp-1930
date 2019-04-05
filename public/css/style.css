@@ -221,24 +221,33 @@
             grid-area: bar;
         }
 
+        h3 {
+            display: inline-block;
+        }
+
         #filters {
             font-size: 8pt;
             background-color: #ffffff;
             font-family: arial;
             border: 1px solid #dad9d9;
-            width: 49%;
+            width: 100%;
+            display: inline-block;
         }
 
         .filter {
-            margin: 0;
+            display: inline-block;
+            padding: 0px 50px 0px 50px;
         }
 
         .sliderTitle {
             margin-bottom: 0;
+            display: inline-block;
         }
 
         .asRange {
             width: 200px;
+            display: inline-block;
+            margin-left: 10px;
         }
 
         .asRange .asRange-selected {
