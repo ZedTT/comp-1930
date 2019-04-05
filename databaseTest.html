@@ -554,6 +554,32 @@
         #date_time {
             margin-top: 12px;
         }
+
+        .fav-btn {
+            width: 100px;
+            height: 100px;
+            /* position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%); */
+            background:   url(http://www.capgunmedia.co/favorites-button.png) no-repeat;
+            background-position: 0 0;
+            cursor: pointer;
+            animation: favorites 1s steps(28);
+        }
+        .fav-btn:hover {
+            background-position: -2800px 0;
+            transition: background 1s steps(28);
+        }
+        @keyframes favorites {
+            0% {
+                background-position: 0 0;
+            }
+            100% {
+                background-position: -2800px 0;
+            }
+        }
+
     </style>
 </head>
 
@@ -562,6 +588,7 @@
     <div class="header2 dropShadow">
         <div id="left">
             <p>Toyshare</p>
+            <div class="fav-btn"></div>
         </div>
         <input class="searchBar" type="search" placeholder="Search for toys...." />
         <div id="right">
@@ -750,12 +777,26 @@
 
             console.log(picturePath);
 
-            var heart = $("<button/>", {
-                class: "fav-btn"
+            // var heart = $("<button/>", {
+            //     class: "afav-btn"
+            // }).html("").appendTo(title).css({
+            //     display: "inline-block",
+            //     height: "12pt",
+            //     float: "right",
+            // });
+
+            var $favContainer = $("<div/>", {
+                class: "afav-btn"
             }).html("").appendTo(title).css({
                 display: "inline-block",
-                height: "12pt",
-                float: "right",
+                height: '12pt',
+                float: 'right',
+            });
+
+            var star = $("<button/>", {
+                class: "fav-btn"
+            }).html("").appendTo($favContainer).css({
+                outline: 0
             });
 
         };
@@ -1063,17 +1104,3 @@
         window.onload = date_time('date_time');
         
         </script>
-
-    <!-- <script> <div onclick="g</script>
-
-    <script>
-        // changes layout of listings
-        $(function() {
-            
-        })
-    </script>
-
-</body>
-
-        changeText();
-    </script> -->
