@@ -92,12 +92,12 @@ font-family: 'IBM Plex Sans', sans-serif;
 				background-color: rgb(51, 148, 220)
 			}
 			
-			.signUpMargin {
+			#signUpMargin {
 				margin-left: 25px;
 				margin-bottom: 55px;
 			}
 			
-			.skipMargin {
+			#skipMargin {
 				margin-left: 25px;
 			}
 			
@@ -194,7 +194,7 @@ font-family: 'IBM Plex Sans', sans-serif;
 				</div>
 			
 			<h1 id="signUpText">Sign Up</h1>
-			<div class="signUpMargin">
+			<div id="signUpMargin">
 				<a id="signUp">SIGN UP</a>
 				<div id="myModal" class="modal">
           <!-- Modal content -->
@@ -206,7 +206,7 @@ font-family: 'IBM Plex Sans', sans-serif;
 			
 			
 			<h1 id="skipText">Skip</h1>
-			<div class="skipMargin">
+			<div id="skipMargin">
 				<a id="skip" href="databaseTest.html">SKIP</a>
 			</div>
 
@@ -215,6 +215,7 @@ font-family: 'IBM Plex Sans', sans-serif;
 		</div>
 	</div>
 
+	
 	<script>
       var uiConfig = {
           callbacks: {
@@ -249,14 +250,14 @@ font-family: 'IBM Plex Sans', sans-serif;
       // The start method will wait until the DOM is loaded.
       ui.start('#firebaseui-auth-container', uiConfig);
     </script>
-	
-	
-	<script>
+
+    <script>
       // Get the modal
       var modal = document.getElementById("myModal");
       
       // Get the button that opens the modal
-      var signUpButton = document.getElementsByClassName("signUp");
+      var signUpButton = document.getElementById("signUpMargin");
+      
       
       // When the user clicks on the button, open the modal 
       signUpButton.onclick = function() {
@@ -268,7 +269,8 @@ font-family: 'IBM Plex Sans', sans-serif;
       if (event.target == modal) {
       modal.style.display = "none";
       }
-      }  
+      }
+      
     </script>
 	
 	 <script>
