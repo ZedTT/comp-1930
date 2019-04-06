@@ -8,7 +8,7 @@
             margin: 0px;
             padding: 0px;
             background-color: #dae0e6;
-            color: #000022;
+            color: black;
         }
 
         #header {
@@ -25,74 +25,27 @@
             z-index: 1;
         }
 
-        .barDiv {
-            grid-area: bar;
-            border-top: 0px solid #eeeeee;
-        }
-
-        #banner {
-            padding-top: 15px;
-            width: 100%;
-            height: 550px;
-        }
-
-        #banner img {
-            width: 100%;
-            height: 100%;
-        }
-
         #left {
             width: 100%;
-            padding-left: 20px;
+            padding-left: 5%;
+        }
+
+        #toyShareLogo {
+            width: 55px;
+            height: 45px;
+            margin-top: 4px;
         }
 
         #toyShareLogoText {
-            position: absolute;
-            top:0;
+            top: 0;
             left: 0;
+            position: absolute;
             margin-top: 10px;
             margin-left: 80px;
             font-family: 'IBM Plex Sans', sans-serif;
             font-size: 18pt;
             font-weight: 800;
             color: black;
-        }
-
-        #content {
-            display: grid;
-            transform: translate(0px, 55px);
-            padding-top: 40px;
-            justify-content: space-evenly;
-            justify-items: center;
-            grid-template-columns: 5% 12% 49% 22% 11%;
-            grid-template-areas:
-                "emptyLeft sideBar listings ads emptyRight";
-        }
-
-        /* causes ads to disapear on small screens */
-        @media only screen and (max-width: 1000px) {
-            #content {
-                grid-template-columns: 0% 25% 60%;
-            }
-
-            #ads {
-                display: none;
-            }
-
-            #emptyLeft {
-                display: none;
-            }
-
-            #emptyRight {
-                display: none;
-            }
-        }
-
-        /* causes profile Image to disapear on small screens */
-        @media only screen and (max-width: 1000px) {
-            #right {
-                margin-left: -30px;
-            }
         }
 
         .searchBar {
@@ -119,22 +72,20 @@
         .searchBar:hover {
             border: 1px solid #0079d3;
         }
-
+        
         #right {
-            max-width: 550px;
-            width: min-content;
+            width: 100%;
             grid-area: right;
             height: 100%;
-            justify-self: right;
-        }
-   
-        #buttons {
-            position: relative;
-            width: 200px;
+            display: grid;
+            grid-template-areas:
+                "empty messenger star facebook loggout paddingRight";
+            grid-template-rows: 100%;
+            grid-template-columns: 35% 15% 15% 15% 15% 5%;
         }
 
         .favouritesButton {
-            display: inline-block;
+            grid-area: star;
             width: 70px;
             height: 30px;
             border-radius: 3px;
@@ -146,29 +97,24 @@
             font-family: 'IBM Plex Sans', sans-serif;
             font-weight: bold;
             font-size: 10pt;
-            padding: 0px 77px 30px 41px;
-            margin-left: -60px;
-            margin-right: 10px;
-            margin-top: 12px;
-            position: absolute;
+            padding: 0px 10px 30px 10px;
+            margin: auto auto auto auto;
         }
 
         .favouritesButton:hover {
             background-color: rgb(51, 148, 220);
             cursor: pointer;
-
         }
 
         .profileButton {
-            margin-left: 75px;
-            margin-top: 14px;
-            position: absolute;
+            grid-area: facebook;
+            margin: 9px 0 0 18px;
         }
         
         img#profileSetting {
+            margin-top: 4px;
             width: 32.5px;
             height: 28.8px;
-            padding: 0;
         }
 
         .profileButton img:hover {
@@ -177,11 +123,11 @@
         }
 
         .messageButton {
-            position: absolute;
-            margin-left: -100px;
-            margin-top: 14px;
+            grid-area: messenger;
+            margin: auto auto auto auto;
         }
         .messageButton img {
+            margin-top: 4px;
             width: 28px;
         }
 
@@ -191,7 +137,7 @@
         }
 
         #logOutButton {
-            display: inline-block;
+            grid-area: loggout;
             width: 70px;
             height: 30px;
             border-radius: 3px;
@@ -204,16 +150,39 @@
             font-weight: bold;
             font-size: 10pt;
             padding: 0px 10px 30px 10px;
-            margin-left: 120px;
-            margin-right: 10px;
-            margin-top: 12px;
-            position: absolute;
+            margin: auto auto auto auto;
         }
 
         #logOutButton:hover {
             opacity: 0.8;
             cursor: pointer;
+        }
 
+        .barDiv {
+            grid-area: bar;
+            border-top: 0px solid #eeeeee;
+        }
+
+        #banner {
+            padding-top: 15px;
+            width: 100%;
+            height: 550px;
+        }
+
+        #banner img {
+            width: 100%;
+            height: 100%;
+        }
+
+        #content {
+            display: grid;
+            transform: translate(0px, 55px);
+            padding-top: 40px;
+            justify-content: space-evenly;
+            justify-items: center;
+            grid-template-columns: 5% 12% 49% 22% 11%;
+            grid-template-areas:
+                "emptyLeft sideBar listings ads emptyRight";
         }
 
         #filtersContainer {
@@ -438,12 +407,6 @@
             border-radius: 5px;
         }
 
-        #toyShareLogo {
-            width: 55px;
-            height: 45px;
-            margin-top: 4px;
-        }
-        
         .fav-btn {
             width: 100px;
             height: 100px;
@@ -469,3 +432,30 @@
                 background-position: -2800px 0;
             }
         }
+
+        /* causes ads to disapear on small screens */
+        @media only screen and (max-width: 1000px) {
+            #content {
+                grid-template-columns: 0% 25% 60%;
+            }
+
+            #ads {
+                display: none;
+            }
+
+            #emptyLeft {
+                display: none;
+            }
+
+            #emptyRight {
+                display: none;
+            }
+        }
+
+        /* causes profile Image to disapear on small screens */
+        @media only screen and (max-width: 1000px) {
+            #right {
+                margin-left: -30px;
+            }
+        }
+
