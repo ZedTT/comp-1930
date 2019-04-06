@@ -5,14 +5,13 @@
         }
 
         body {
-            /* background-image: url("https://d1q8kgt00fn2v8.cloudfront.net/files/uploads/2018/03/kids_playing_with-_blocks-1600x1067.jpg"); */
             margin: 0px;
             padding: 0px;
             background-color: #dae0e6;
             color: #000022;
         }
 
-        .header2 {
+        #header {
             width: 100%;
             background-color: #ffffff;
             display: grid;
@@ -28,10 +27,11 @@
 
         .barDiv {
             grid-area: bar;
-            border-top: 1px solid #e9e9e9;
+            border-top: 0px solid #eeeeee;
         }
 
         #banner {
+            padding-top: 15px;
             width: 100%;
             height: 550px;
         }
@@ -42,21 +42,20 @@
         }
 
         #left {
-            max-width: 250px;
-            width: min-content;
-            text-decoration: none;
+            width: 100%;
+            padding-left: 20px;
         }
 
-        .header2 p {
-            font-family: 'Gloria Hallelujah', cursive;
-            font-size: 25pt;
-            color: #ff4500;
-            margin-left: 1em;
-            margin-right: 1em;
-            line-height: 55px;
-            margin-top: -3px;
-            font-weight: bolder;
-            vertical-align: middle;
+        #toyShareLogoText {
+            position: absolute;
+            top:0;
+            left: 0;
+            margin-top: 10px;
+            margin-left: 80px;
+            font-family: 'IBM Plex Sans', sans-serif;
+            font-size: 18pt;
+            font-weight: 800;
+            color: black;
         }
 
         #content {
@@ -438,27 +437,11 @@
             height: auto;
             border-radius: 5px;
         }
-        .dropShadow {
-            filter: drop-shadow(0px 0px 5px #EBDDD0);
-        }
 
         #toyShareLogo {
             width: 55px;
             height: 45px;
-            margin-top: 3px;
-            margin-left: 14px;
-
-        }
-        #toyShareText {
-            position: absolute;
-            top:0;
-            left: 0;
-            margin-top: 10px;
-            margin-left: 70px;
-            font-family: 'IBM Plex Sans', sans-serif;
-            font-size: 18pt;
-            font-weight: 800;
-            color: black;
+            margin-top: 4px;
         }
         
         .fav-btn {

@@ -33,11 +33,11 @@
 </head>
 
 <body>
-    <div class="header2 dropShadow">
+    <div id="header">
         <div id="left">
             <a href="databaseTest.html">
             <img src="toyShareLogopng.png" alt="toyShareLogo" id="toyShareLogo">
-            <h1 id="toyShareText">ToyShare</h1>
+            <h1 id="toyShareLogoText">ToyShare</h1>
         </a>
         </div>
         <input class="searchBar" type="search" placeholder="Search for toys...." />
@@ -52,7 +52,7 @@
              <button onclick="logout()" id="logOutButton">Logout</button>
         </div>
         <div class="barDiv">
-            <div id="filtersContainer" class="dropShadow">
+            <div id="filtersContainer">
                 <div id="filters">
                     <h3>Filters</h3>
                     <div class="filter">
@@ -63,8 +63,6 @@
                         <div class="filterTitle sliderTitle">Age:</div>
                         <input class="ageSlider slider" type="range" min="0" max="20" name="age" step="1" />
                     </div>
-                    <div>sliders coutesy of <a
-                            href="https://github.com/thecreation/jquery-asRange">github.com/thecreation/</a></div>
                 </div>
             </div>
         </div>
