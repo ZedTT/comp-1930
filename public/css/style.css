@@ -284,7 +284,7 @@
             transform: translate(0px, 55px);
             justify-content: space-evenly;
             justify-items: center;
-            grid-template-columns: 15% 50% 20% 15%;
+            grid-template-columns: 14% 50% 20% 14%;
             grid-template-areas:
                 "emptyLeft listings ads emptyRight";
             margin-top: -45px;
@@ -426,7 +426,7 @@
             border: 1px solid #c4c4c4;
             border-radius: 3px;
             background-color: yellow;
-            margin: 0 auto 10px auto;
+            margin: 0 auto 20px auto;
             height: 390px;
             width: 90%;
         }
@@ -453,7 +453,7 @@
             background-color: #991c1c;
             border: 5px solid #991c1c;
             border-radius: 3px;
-            margin: 0 auto 10px auto;
+            margin: 0 auto 20px auto;
             font-size: 15pt;
             color: white;
             font-family: Arial;
@@ -478,7 +478,7 @@
         .ecoCityAd1 {
             width: 90%;
             height: auto;
-            margin: 0 auto 10px auto;
+            margin: 0 auto 20px auto;
             background-color: white;
             border: 1px solid white;
             border-radius: 3px;
@@ -493,7 +493,7 @@
         .redCrossAd {
             width: 90%;
             height: auto;
-            margin: 0 auto 10px auto;
+            margin: 0 auto 20px auto;
         }
 
         .redCrossAd img {
@@ -504,7 +504,7 @@
         .bcitAd {
             width: 90%;
             height: auto;
-            margin: 0 auto 10px auto;
+            margin: 0 auto 20px auto;
         }
 
         .bcitAd img {
