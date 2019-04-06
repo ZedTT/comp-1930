@@ -287,7 +287,7 @@
             grid-template-columns: 15% 50% 20% 15%;
             grid-template-areas:
                 "emptyLeft listings ads emptyRight";
-            margin-top: -35px;
+            margin-top: -45px;
         }
 
         #listingsContainer {
@@ -311,9 +311,10 @@
             grid-template-areas:
                 "img ttl ttl"
                 "img prc age"
-                "img des des";
+                "img des des"
+                "img date saver";
             grid-template-columns: 320px 1fr 1fr;
-            grid-template-rows: 30px 30px 1fr;
+            grid-template-rows: 33px 30px 162px 1fr;
             height: 250px;
             align-content: flex-end;
         }
@@ -344,6 +345,13 @@
             padding-right: 10px;
         }
 
+        .date {
+            grid-area: date;
+            color: black;
+            padding-left: 15px;
+            font-size: 8pt;
+        }
+
         .listingTitle {
             grid-area: ttl;
             background-color: #f1f1f1;
@@ -351,7 +359,7 @@
             font-weight: 500;
             font-size: 10pt;
             font-family: Verdana, Geneva, Tahoma, sans-serif;
-            line-height: 30px;
+            line-height: 33px;
             vertical-align: middle;
             padding-left: 15px;
         }
@@ -381,6 +389,34 @@
             text-decoration: none;
         }
 
+        .fav-btn {
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            right: 460px;
+            transform: translate(0, -34px);
+            background:   url(http://www.capgunmedia.co/favorites-button.png) no-repeat;
+            background-position: 0 0;
+            cursor: pointer;
+            animation: favorites 1s steps(28);
+            grid-area: title;
+            border: 0;
+        }
+
+        .fav-btn:hover {
+            background-position: -2800px 0;
+            transition: background 0s steps(1);
+        }
+
+        @keyframes favorites {
+            0% {
+                background-position: 0 0;
+            }
+            100% {
+                background-position: -2800px 0;
+            }
+        }
+
         #ads {
             grid-area: ads;
             justify-content: center;
@@ -388,7 +424,7 @@
 
         .wasteInfo {
             border: 1px solid #c4c4c4;
-            border-radius: 5px;
+            border-radius: 3px;
             background-color: yellow;
             margin: 0 auto 10px auto;
             height: 390px;
@@ -416,7 +452,7 @@
             font-weight: bold;
             background-color: #991c1c;
             border: 5px solid #991c1c;
-            border-radius: 5px;
+            border-radius: 3px;
             margin: 0 auto 10px auto;
             font-size: 15pt;
             color: white;
@@ -435,8 +471,8 @@
         }
 
         .learnMoreButton:hover {
-            border: 4px solid white;
-            font-size: 14pt;
+            border: 3px solid #e9da0e;
+            color: #e9da0e;
         }
 
         .ecoCityAd1 {
@@ -445,39 +481,35 @@
             margin: 0 auto 10px auto;
             background-color: white;
             border: 1px solid white;
-            border-radius: 5px;
+            border-radius: 3px;
         }
 
         .ecoCityAd1 img {
             width: 100%;
             height: auto;
-            border-radius: 5px;
+            border-radius: 3px;
         }
 
-        .fav-btn {
-            width: 100px;
-            height: 100px;
-            position: absolute;
-            right: -30px;
-            transform: translate(0, -37.5px);
-            background:   url(http://www.capgunmedia.co/favorites-button.png) no-repeat;
-            background-position: 0 0;
-            cursor: pointer;
-            animation: favorites 1s steps(28);
+        .redCrossAd {
+            width: 90%;
+            height: auto;
+            margin: 0 auto 10px auto;
         }
 
-        .fav-btn:hover {
-            background-position: -2800px 0;
-            transition: background 0s steps(1);
+        .redCrossAd img {
+            width: 100%;
+            border-radius: 3px;
         }
 
-        @keyframes favorites {
-            0% {
-                background-position: 0 0;
-            }
-            100% {
-                background-position: -2800px 0;
-            }
+        .bcitAd {
+            width: 90%;
+            height: auto;
+            margin: 0 auto 10px auto;
+        }
+
+        .bcitAd img {
+            width: 100%;
+            border-radius: 3px;
         }
 
         /* causes ads to disapear on small screens */

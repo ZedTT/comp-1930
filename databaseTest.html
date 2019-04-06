@@ -91,10 +91,13 @@
             </div>
             <div class="ecoCityAd1"><a href="http://ecocity2019.com/" target="blank"><img
                         src="http://ecocity2019.com/wp-content/uploads/2018/09/ecocity_web_logo.png"
-                        alt="Dead Fish"></a></div>
+                        alt="Dead Fish"></a>
+            </div>
+            <div class="redCrossAd"><a href="https://donate.redcross.ca/page/22054/donate/1?ea.client.id=1951&ea.campaign.id=56787gclid=Cj0KCQjwnKHlBRDLARIsAMtMHDGxeGWl__vVJsAgp6k0Bqq27MXxe8p1ECBCKZRV3C-diJxqhCjTI28aAv44EALw_wcB" target="blank"><img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/6f2ec7bd-e524-470f-a48b-0caad9aec3cb/dapk0t-82a0005f-fc5e-4f27-b32a-accf1b32c2af.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzZmMmVjN2JkLWU1MjQtNDcwZi1hNDhiLTBjYWFkOWFlYzNjYlwvZGFwazB0LTgyYTAwMDVmLWZjNWUtNGYyNy1iMzJhLWFjY2YxYjMyYzJhZi5qcGcifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6ZmlsZS5kb3dubG9hZCJdfQ.MNTB_gkoOLgdHzsmJL7pW6JwsJVfldgs7oDonbUiPOQ" alt="Red Cross"></a>
+            </div>
+            <div class="bcitAd"><a href="https://commons.bcit.ca/news/2017/02/a-new-brand-platform-for-a-complex-world/" target="blank"><img src="https://commons.bcit.ca/news/files/2017/02/BCIT-Brand-Advertising-2-e1490219022604.jpg" alt="BCIT"></a></div>
         </div>
     </div>
-
     <script>
         // usage: elm("div", document.body, "myID", "myClass");
         function elm(tag, parent, id, cssClass) {
@@ -173,6 +176,7 @@
             var ageMinVal = snap.child("Age_Min").val();
             var picturePath = snap.child("Picture").val();
             var descriptionVal = snap.child("Description").val();
+            var dateVal = snap.child("Date").val();
 
             // Create the html that will contain out listing and all it's information
             var thisListing = elm("div", listingsContainer, "", "toyListing ageOk priceOk searchOk");
@@ -180,6 +184,7 @@
             var price = elm("div", thisListing, "", "listingPrice");
             var ageRange = elm("div", thisListing, "", "listingAgeRange");
             var description = elm("div", thisListing, "", "description");
+            var date = elm("div", thisListing, "", "date");
 
             // create the picture for the listing
             var picture = $('<img/>', {
@@ -213,6 +218,12 @@
                 description.innerHTML = "Description: <br>" + descriptionVal;
             } else {
                 description.innerHTML = "Description: <br>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.";
+            }
+
+            if (dateVal) {
+                date.innerHTML = "Date Posted: " + dateVal;
+            } else {
+                date.innerHTML = "Date Posted: 2019 - 04 - 06"
             }
 
             console.log(picturePath);
