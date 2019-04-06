@@ -23,6 +23,7 @@
                 "bar bar bar";
             position: fixed;
             z-index: 1;
+            border-bottom: 1px solid #e6e6e6;
         }
 
         #left {
@@ -56,7 +57,7 @@
             /* The 400 needs to be max-width or we get horizontal scrolling */
             /* not neccessary at all because grid-template-columns of parent limits this to 400px now, anyways */
             height: 13px;
-            background-color: #f1f2f5;
+            background-color: #f5f5f5;
             border: 1px solid #cfcfcf;
             border-radius: 3px;
             margin: auto auto auto auto;
@@ -163,7 +164,7 @@
             grid-area: bar;
             padding-left: 20px;
             padding-top: 3px;
-            border-top: 1px solid rgb(230, 230, 230);
+            border-top: 1px solid #e6e6e6;
         }
 
         #banner {
@@ -175,19 +176,45 @@
             font-family: Arial, Helvetica, sans-serif;
         }
 
-        #banner h1 {
-           color: white;
-           text-align: center;
-           margin-top: 200px;
-           font-size: 50pt;
-           text-shadow: 0 0 5px black;
+        #bannerDiv {
+            width: 100%;
+            height: 300px;
+            margin: 150px auto auto auto;
+            background-color: rgba(0, 0, 0, 0.3);
+            border-radius: 5px;
+            padding-top: 1px;
         }
 
-        #banner p {
+        #bannerDiv h1 {
+           color: white;
+           text-align: center;
+           font-size: 45pt;
+           text-shadow: 0 0 1px #5a5a5a;
+        }
+
+        #bannerDiv p {
             color: white;
             text-align: center;
             font-size: 15pt;
-            text-shadow: 0 0 5px black;
+            text-shadow: 0 0 1px #5a5a5a;
+        }
+
+        #signUpButton {
+            width: 100px;
+            height: 40px;
+            text-align: center;
+            margin: 40px auto auto auto;
+            background-color: #d40000;
+            line-height: 40px;
+            vertical-align: middle;
+            border: 1px solid #d40000;
+            border-radius: 3px;
+            color: white;
+        }
+
+        #signUpButton:hover {
+            opacity: 0.8;
+            cursor: pointer;
         }
 
         #filtersContainer {
