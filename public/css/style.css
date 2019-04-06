@@ -15,7 +15,7 @@
             width: 100%;
             background-color: #ffffff;
             display: grid;
-            grid-template-rows: 55px 40px; 
+            grid-template-rows: 55px 43px; 
             grid-template-columns: 33% 33% 33%;
             justify-content: space-between;
             grid-template-areas:
@@ -71,6 +71,7 @@
 
         .searchBar:hover {
             border: 1px solid #0079d3;
+            background-color: white;
         }
         
         #right {
@@ -160,7 +161,9 @@
 
         .barDiv {
             grid-area: bar;
-            border-top: 0px solid #eeeeee;
+            padding-left: 20px;
+            padding-top: 3px;
+            border-top: 1px solid rgb(230, 230, 230);
         }
 
         #banner {
@@ -197,14 +200,13 @@
             font-size: 8pt;
             background-color: #ffffff;
             font-family: arial;
-            border: 1px solid #dad9d9;
             width: 100%;
             display: inline-block;
         }
 
         .filter {
             display: inline-block;
-            padding: 0px 50px 0px 50px;
+            padding: 0px 0px 0px 50px;
         }
 
         .sliderTitle {
@@ -215,7 +217,7 @@
         .asRange {
             width: 200px;
             display: inline-block;
-            margin-left: 10px;
+            margin-left: 15px;
         }
 
         .asRange .asRange-selected {
@@ -223,10 +225,14 @@
         }
 
         .asRange .asRange-pointer .asRange-tip {
-            color: #FBF5F3;
+            color: white;
             background-color: #0079d3;
             border: 1px solid #0079d3;
         }
+
+        .asRange .asRange-pointer .asRange-tip:hover {
+            cursor: pointer;
+        }    
 
         .asRange .asRange-pointer .asRange-tip:before {
             background-color: #0079d3;
