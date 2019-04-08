@@ -71,6 +71,7 @@
             <h1>Welcome to ToyShare</h1>
             <p>Canada's No.1 Toy Donation/Sell Center<br>With your support, together we can reduce plastic waste and help save the world.</p>
             <div id="signUpButton" onclick="location.href='signInPage.html'">Sign Up</div>
+            <div id="signedUpButton"></div>
        </div>
     </div>
     <div id="content">
@@ -484,5 +485,35 @@ function logout(){
   }
 });
   }
+
+  
 </script>
 
+<script>
+ firebase.auth().onAuthStateChanged(function(user) {
+  if (user) {
+    // User is signed in.
+
+    document.getElementById("signedUpButton").style.display = "block";
+    document.getElementById("signUpButton").style.display = "none";
+
+    var user = firebase.auth().currentUser;
+
+    if(user != null){
+
+      var email_id = user.email;
+      document.getElementById("signedUpButton").innerHTML = "Welcome User : " + email_id;
+
+    }
+
+  } else {
+    // No user is signed in.
+
+    document.getElementById("signedUpButton").style.display = "none";
+    document.getElementById("signUpButton").style.display = "block";
+
+  }
+});
+
+
+</script>

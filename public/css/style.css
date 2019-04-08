@@ -212,6 +212,20 @@
             font-size: 14pt;
         }
 
+        #signedUpButton {
+            width: 450px;
+            height: 40px;
+            text-align: center;
+            margin: 40px auto auto auto;
+            background-color: #d40000;
+            line-height: 40px;
+            vertical-align: middle;
+            border: 1px solid #d40000;
+            border-radius: 3px;
+            color: white;
+            font-size: 14pt;
+        }
+
         #signUpButton:hover {
             opacity: 0.8;
             cursor: pointer;
