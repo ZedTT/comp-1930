@@ -64,6 +64,10 @@
                 </div>
             </div>
         </div>
+        <div class="counterDiv">
+            <div id="toyCountMessage">Total Number Of Toys Saved:</div>
+            <div id="toyCount">1,000,023</div>
+        </div>
     </div>
     
     <div id="banner">
@@ -502,7 +506,7 @@ function logout(){
     if(user != null){
 
       var email_id = user.email;
-      document.getElementById("signedUpButton").innerHTML = "Welcome User : " + email_id;
+      document.getElementById("signedUpButton").innerHTML = "Welcome back " + email_id;
 
     }
 
