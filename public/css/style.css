@@ -257,7 +257,7 @@
         #toyCountMessage {
             height: 43px;
             line-height: 43px;
-            margin-left: 75px;
+            margin-left: 55px;
             vertical-align: middle;
             font-family: Arial;
             font-size: 11pt;
@@ -267,14 +267,14 @@
         }
 
         #toyCount {
-            width: 120px;
-            height: 35px;
-            margin-top: 4px;
+            width: 140px;
+            height: 30px;
+            margin-top: 6px;
             margin-right: 23px;
             border: 2px solid black;
             border-radius: 10px;
             float: right;
-            line-height: 30px;
+            line-height: 26px;
             vertical-align: middle;
             font-size: 13pt;
             font-family: Arial, Helvetica, sans-serif;
