@@ -133,9 +133,8 @@
     <script>
         var dbref = firebase.database().ref("/");
         $('#listingsContainer').click(function(){
-            
             dbref.update({
-                "Counter" : output.innerText + 1
+                "Counter" : output.innerText++
             })
         }) 
     </script>
