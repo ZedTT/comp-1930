@@ -5,79 +5,48 @@
         }
 
         body {
-            /* background-image: url("https://d1q8kgt00fn2v8.cloudfront.net/files/uploads/2018/03/kids_playing_with-_blocks-1600x1067.jpg"); */
             margin: 0px;
             padding: 0px;
             background-color: #dae0e6;
-            color: #000022;
+            color: black;
         }
 
-        .header2 {
+        #header {
             width: 100%;
             background-color: #ffffff;
             display: grid;
-            grid-template-rows: 55px;
-            grid-template-columns: min-content minmax(auto, 400px) min-content;
+            grid-template-rows: 55px 43px; 
+            grid-template-columns: 33.3% 33.4% 33.3%;
             justify-content: space-between;
             grid-template-areas:
-                "left middle right";
+                "left middle right"
+                "bar bar counter";
             position: fixed;
             z-index: 1;
+            border-bottom: 1px solid #e6e6e6;
         }
 
         #left {
-            max-width: 250px;
-            width: min-content;
-            text-decoration: none;
+            width: 100%;
+            padding-left: 5%;
         }
 
-        .header2 p {
-            font-family: 'Gloria Hallelujah', cursive;
-            font-size: 25pt;
-            color: #ff4500;
-            margin-left: 1em;
-            margin-right: 1em;
-            line-height: 55px;
-            margin-top: -3px;
-            font-weight: bolder;
-            vertical-align: middle;
+        #toyShareLogo {
+            width: 55px;
+            height: 45px;
+            margin-top: 4px;
         }
 
-        #content {
-            display: grid;
-            transform: translate(0px, 55px);
-            padding-top: 40px;
-            justify-content: space-evenly;
-            justify-items: center;
-            grid-template-columns: 5% 12% 49% 22% 11%;
-            grid-template-areas:
-                "emptyLeft sideBar listings ads emptyRight";
-        }
-
-        /* causes ads to disapear on small screens */
-        @media only screen and (max-width: 1000px) {
-            #content {
-                grid-template-columns: 0% 25% 60%;
-            }
-
-            #ads {
-                display: none;
-            }
-
-            #emptyLeft {
-                display: none;
-            }
-
-            #emptyRight {
-                display: none;
-            }
-        }
-
-        /* causes profile Image to disapear on small screens */
-        @media only screen and (max-width: 1000px) {
-            #right {
-                margin-left: -30px;
-            }
+        #toyShareLogoText {
+            top: 0;
+            left: 0;
+            position: absolute;
+            margin-top: 10px;
+            margin-left: 80px;
+            font-family: 'IBM Plex Sans', sans-serif;
+            font-size: 18pt;
+            font-weight: 800;
+            color: black;
         }
 
         .searchBar {
@@ -88,7 +57,7 @@
             /* The 400 needs to be max-width or we get horizontal scrolling */
             /* not neccessary at all because grid-template-columns of parent limits this to 400px now, anyways */
             height: 13px;
-            background-color: #f7f7f7;
+            background-color: #f5f5f5;
             border: 1px solid #cfcfcf;
             border-radius: 3px;
             margin: auto auto auto auto;
@@ -103,23 +72,22 @@
 
         .searchBar:hover {
             border: 1px solid #0079d3;
+            background-color: white;
         }
-
+        
         #right {
-            max-width: 550px;
-            width: min-content;
+            width: 100%;
             grid-area: right;
             height: 100%;
-            justify-self: center;
-        }
-   
-        #buttons {
-            position: relative;
-            width: 200px;
+            display: grid;
+            grid-template-areas:
+                "empty messenger star facebook loggout paddingRight";
+            grid-template-rows: 100%;
+            grid-template-columns: 35% 15% 15% 15% 15% 5%;
         }
 
         .favouritesButton {
-            display: inline-block;
+            grid-area: star;
             width: 70px;
             height: 30px;
             border-radius: 3px;
@@ -131,29 +99,24 @@
             font-family: 'IBM Plex Sans', sans-serif;
             font-weight: bold;
             font-size: 10pt;
-            padding: 0px 77px 30px 42px;
-            margin-left: 10px;
-            margin-right: 10px;
-            margin-top: 12px;
-            position: absolute;
+            padding: 0px 10px 30px 10px;
+            margin: auto auto auto auto;
         }
 
         .favouritesButton:hover {
             background-color: rgb(51, 148, 220);
             cursor: pointer;
-
         }
 
         .profileButton {
-            margin-left: 145px;
-            margin-top: 13px;
-            position: absolute;
+            grid-area: facebook;
+            margin: 9px 0 0 18px;
         }
         
         img#profileSetting {
+            margin-top: 4px;
             width: 32.5px;
             height: 28.8px;
-            padding: 0;
         }
 
         .profileButton img:hover {
@@ -162,11 +125,11 @@
         }
 
         .messageButton {
-            position: absolute;
-            margin-left: -40px;
-            margin-top: 14px;
+            grid-area: messenger;
+            margin: auto auto auto auto;
         }
         .messageButton img {
+            margin-top: 4px;
             width: 28px;
         }
 
@@ -175,42 +138,165 @@
             cursor: pointer;
         }
 
+        #logOutButton {
+            grid-area: loggout;
+            width: 70px;
+            height: 30px;
+            border-radius: 3px;
+            background-color: rgb(255, 69, 0);
+            border: 1px solid  rgb(255, 69, 0);
+            color: #FBF5F3;
+            text-align: center;
+            line-height: 30px;
+            font-family: 'IBM Plex Sans', sans-serif;
+            font-weight: bold;
+            font-size: 10pt;
+            padding: 0px 10px 30px 10px;
+            margin: auto auto auto auto;
+        }
+
+        #logOutButton:hover {
+            opacity: 0.8;
+            cursor: pointer;
+        }
+
+        .barDiv {
+            grid-area: bar;
+            padding-left: 20px;
+            padding-top: 3px;
+            border-top: 1px solid #e6e6e6;
+        }
+
+        #banner {
+            padding-top: 15px;
+            width: 100%;
+            height: 550px;
+            background-image: url(https://sensationstation.ae/wp-content/uploads/2018/09/Diverse-preschoolers_0.jpg);
+            background-size: 100%;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        #bannerDiv {
+            width: 100%;
+            height: 300px;
+            margin: 150px auto auto auto;
+            background-color: rgba(0, 0, 0, 0.3);
+            padding-top: 1px;
+        }
+
+        #bannerDiv h1 {
+           color: white;
+           text-align: center;
+           font-size: 45pt;
+           text-shadow: 0 0 1px #5a5a5a;
+        }
+
+        #bannerDiv p {
+            color: white;
+            text-align: center;
+            font-size: 15pt;
+            text-shadow: 0 0 1px #5a5a5a;
+        }
+
+        #signUpButton {
+            width: 100px;
+            height: 40px;
+            text-align: center;
+            margin: 40px auto auto auto;
+            background-color: #d40000;
+            line-height: 40px;
+            vertical-align: middle;
+            border: 1px solid #d40000;
+            border-radius: 3px;
+            color: white;
+            font-size: 14pt;
+        }
+
+        #signUpButton:hover {
+            opacity: 0.8;
+            cursor: pointer;
+        }
+
+        #signedUpButton {
+            width: 400px;
+            height: 40px;
+            text-align: center;
+            margin: 40px auto auto auto;
+            background-color: #d40000;
+            line-height: 40px;
+            vertical-align: middle;
+            border: 1px solid #d40000;
+            border-radius: 3px;
+            color: white;
+            font-size: 14pt;
+        }
+
         #filtersContainer {
-            grid-area: sideBar;
-            transition: 0.25s;
+            grid-area: bar;
+            width: 100%;
+        }
+
+        h3 {
+            display: inline-block;
         }
 
         #filters {
-            border-radius: 3px;
-            font-size: 10pt;
-            background-color: #ffffff;
-            padding: 10px;
-            font-family: arial;
-            border: 1px solid #dad9d9;
-            width: 85%;
-            margin: 0 auto;
-        }
-
-        #filters span {
-            text-align: center;
             font-size: 8pt;
+            background-color: #ffffff;
+            font-family: arial;
+            width: 100%;
+            display: inline-block;
         }
 
-        #filters h3 {
-            margin: 0;
+        .counterDiv {
+            grid-area: counter;
+            padding-left: 20px;
+            border-top: 1px solid #e6e6e6;
+        }
+
+        #toyCountMessage {
+            height: 43px;
+            line-height: 43px;
+            margin-left: 55px;
+            vertical-align: middle;
+            font-family: Arial;
+            font-size: 11pt;
+            width: 50%;
+            text-align: center;
+            display: inline-block
+        }
+
+        #toyCount {
+            width: 140px;
+            height: 29px;
+            margin-top: 7px;
+            margin-right: 23px;
+            border: 1px solid black;
+            border-radius: 10px;
+            float: right;
+            line-height: 27px;
+            vertical-align: middle;
+            font-size: 13pt;
+            font-family: Arial, Helvetica, sans-serif;
+            text-align: center;
+            letter-spacing: 3px;
+            background-color: #f5f5f5;
         }
 
         .filter {
-            margin: 1.5rem 0rem;
+            display: inline-block;
+            padding: 0px 0px 0px 50px;
         }
 
         .sliderTitle {
-            margin-bottom: 3rem;
+            margin-bottom: 0;
+            display: inline-block;
         }
 
         .asRange {
-            width: 80%;
-            margin: 0 auto;
+            width: 200px;
+            display: inline-block;
+            margin-left: 20px;
         }
 
         .asRange .asRange-selected {
@@ -218,10 +304,14 @@
         }
 
         .asRange .asRange-pointer .asRange-tip {
-            color: #FBF5F3;
+            color: white;
             background-color: #0079d3;
             border: 1px solid #0079d3;
         }
+
+        .asRange .asRange-pointer .asRange-tip:hover {
+            cursor: pointer;
+        }    
 
         .asRange .asRange-pointer .asRange-tip:before {
             background-color: #0079d3;
@@ -239,6 +329,17 @@
             background: #F3FEFD;
         }
 
+        #content {
+            display: grid;
+            transform: translate(0px, 55px);
+            justify-content: space-evenly;
+            justify-items: center;
+            grid-template-columns: 14% 50% 20% 14%;
+            grid-template-areas:
+                "emptyLeft listings ads emptyRight";
+            margin-top: -45px;
+        }
+
         #listingsContainer {
             grid-area: listings;
             width: 100%;
@@ -251,7 +352,7 @@
             width: 100%;
             /* because of the box-sizing property applied to *, we can ignore padding */
             margin: auto;
-            margin-bottom: 1rem;
+            margin-bottom: 10px;
             background-color: #ffffff;
             font-family: Verdana, Geneva, Tahoma, sans-serif;
             /* If padding is changed width must be changed */
@@ -260,9 +361,10 @@
             grid-template-areas:
                 "img ttl ttl"
                 "img prc age"
-                "img des des";
+                "img des des"
+                "img date saver";
             grid-template-columns: 320px 1fr 1fr;
-            grid-template-rows: 30px 30px 1fr;
+            grid-template-rows: 33px 30px 162px 1fr;
             height: 250px;
             align-content: flex-end;
         }
@@ -278,11 +380,12 @@
 
         .toyListing img {
             grid-area: img;
-            object-fit: contain;
-            max-width: 100%;
+            object-fit: fill;
+            width: 100%;
             height: 100%;
-            padding-left: 30px;
+            padding-left: 10px;
             align-self: flex-start;
+            background-color: #0079d3;
         }
 
         .description {
@@ -292,6 +395,13 @@
             padding-right: 10px;
         }
 
+        .date {
+            grid-area: date;
+            color: black;
+            padding-left: 15px;
+            font-size: 8pt;
+        }
+
         .listingTitle {
             grid-area: ttl;
             background-color: #f1f1f1;
@@ -299,7 +409,7 @@
             font-weight: 500;
             font-size: 10pt;
             font-family: Verdana, Geneva, Tahoma, sans-serif;
-            line-height: 30px;
+            line-height: 33px;
             vertical-align: middle;
             padding-left: 15px;
         }
@@ -329,6 +439,34 @@
             text-decoration: none;
         }
 
+        .fav-btn {
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            right: 460px;
+            transform: translate(0, -34px);
+            background:   url(http://www.capgunmedia.co/favorites-button.png) no-repeat;
+            background-position: 0 0;
+            cursor: pointer;
+            animation: favorites 1s steps(28);
+            grid-area: title;
+            border: 0;
+        }
+
+        .fav-btn:hover {
+            background-position: -2800px 0;
+            transition: background 0s steps(1);
+        }
+
+        @keyframes favorites {
+            0% {
+                background-position: 0 0;
+            }
+            100% {
+                background-position: -2800px 0;
+            }
+        }
+
         #ads {
             grid-area: ads;
             justify-content: center;
@@ -336,9 +474,9 @@
 
         .wasteInfo {
             border: 1px solid #c4c4c4;
-            border-radius: 5px;
+            border-radius: 3px;
             background-color: yellow;
-            margin: 0 auto;
+            margin: 0 auto 20px auto;
             height: 390px;
             width: 90%;
         }
@@ -364,8 +502,8 @@
             font-weight: bold;
             background-color: #991c1c;
             border: 5px solid #991c1c;
-            border-radius: 5px;
-            margin: 20px auto;
+            border-radius: 3px;
+            margin: 0 auto 20px auto;
             font-size: 15pt;
             color: white;
             font-family: Arial;
@@ -383,68 +521,70 @@
         }
 
         .learnMoreButton:hover {
-            border: 4px solid white;
-            font-size: 14pt;
+            border: 3px solid #e9da0e;
+            color: #e9da0e;
         }
 
         .ecoCityAd1 {
             width: 90%;
             height: auto;
-            margin: 0 auto;
+            margin: 0 auto 20px auto;
             background-color: white;
             border: 1px solid white;
-            border-radius: 5px;
+            border-radius: 3px;
         }
 
         .ecoCityAd1 img {
             width: 100%;
             height: auto;
-            border-radius: 5px;
-        }
-        .dropShadow {
-            filter: drop-shadow(0px 0px 5px #EBDDD0);
+            border-radius: 3px;
         }
 
-        #toyShareLogo {
-            width: 55px;
-            height: 45px;
-            margin-top: 3px;
-            margin-left: 14px;
-
-        }
-        #toyShareText {
-            position: absolute;
-            top:0;
-            left: 0;
-            margin-top: 13px;
-            margin-left: 70px;
-            font-family: 'IBM Plex Sans', sans-serif;
-            font-size: 16pt;
-            font-weight: 800;
-        }
-        
-        .fav-btn {
-            width: 100px;
-            height: 100px;
-            position: absolute;
-            right: -30px;
-            transform: translate(0, -37.5px);
-            background:   url(http://www.capgunmedia.co/favorites-button.png) no-repeat;
-            background-position: 0 0;
-            cursor: pointer;
-            animation: favorites 1s steps(28);
+        .redCrossAd {
+            width: 90%;
+            height: auto;
+            margin: 0 auto 20px auto;
         }
 
-        .fav-btn:hover {
-            background-position: -2800px 0;
-            transition: background 0s steps(1);
+        .redCrossAd img {
+            width: 100%;
+            border-radius: 3px;
         }
 
-        @keyframes favorites {
-            0% {
-                background-position: 0 0;
+        .bcitAd {
+            width: 90%;
+            height: auto;
+            margin: 0 auto 20px auto;
+        }
+
+        .bcitAd img {
+            width: 100%;
+            border-radius: 3px;
+        }
+
+        /* causes ads to disapear on small screens */
+        @media only screen and (max-width: 1000px) {
+            #content {
+                grid-template-columns: 0% 25% 60%;
             }
-            100% {
-                background-position: -2800px 0;
+
+            #ads {
+                display: none;
+            }
+
+            #emptyLeft {
+                display: none;
+            }
+
+            #emptyRight {
+                display: none;
             }
         }
+
+        /* causes profile Image to disapear on small screens */
+        @media only screen and (max-width: 1000px) {
+            #right {
+                margin-left: -30px;
+            }
+        }
+
