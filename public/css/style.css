@@ -268,13 +268,13 @@
 
         #toyCount {
             width: 140px;
-            height: 30px;
-            margin-top: 6px;
+            height: 29px;
+            margin-top: 7px;
             margin-right: 23px;
-            border: 2px solid black;
+            border: 1px solid black;
             border-radius: 10px;
             float: right;
-            line-height: 26px;
+            line-height: 27px;
             vertical-align: middle;
             font-size: 13pt;
             font-family: Arial, Helvetica, sans-serif;
