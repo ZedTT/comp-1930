@@ -288,8 +288,12 @@
                 }, 1000);
             }
 
-            var dbref = firebase.database().ref("/");
-            var userRef = dbref.child("users");
+            var target = event.target;
+            var uid = firebase.auth().currentUser.uid;
+            console.log(firebase.auth().currentUser.uid);
+            firebase.database().ref("users/" + uid + "/favorites").update({
+                "fav":"target"
+            });
 
             console.log(event.target);
         }
