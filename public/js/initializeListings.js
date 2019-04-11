@@ -18,6 +18,7 @@ function createListing(snap) {
     var ageMinVal = snap.child("Age_Min").val();
     var picturePath = snap.child("Picture").val();
     var descriptionVal = snap.child("Description").val();
+    var dateVal = snap.child("Date").val();
 
     // Create the html that will contain out listing and all it's information
     var thisListing = elm("div", listingsContainer, "", "toyListing ageOk priceOk searchOk");
@@ -25,6 +26,7 @@ function createListing(snap) {
     var price = elm("div", thisListing, "", "listingPrice");
     var ageRange = elm("div", thisListing, "", "listingAgeRange");
     var description = elm("div", thisListing, "", "description");
+    var date = elm("div", thisListing, "", "date");
 
     // create the picture for the listing
     var picture = $('<img/>', {
@@ -59,6 +61,12 @@ function createListing(snap) {
     } else {
         description.innerHTML =
             "Description: <br>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.";
+    }
+
+    if (dateVal) {
+        date.innerHTML = "Date Posted: " + dateVal;
+    } else {
+        date.innerHTML = "Date: 2 months ago..."
     }
 
     console.log(picturePath);
