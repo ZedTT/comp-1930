@@ -280,11 +280,7 @@
                     $(event.target).removeClass('fav-btn-animating').addClass('fav-btn-faved');
                 }, 1000);
             } else {
-                $(event.target).addClass('fav-btn-reverse-animating')
-
-                setTimeout(function () {
-                    $(event.target).removeClass('fav-btn-reverse-animating').removeClass('fav-btn-faved');
-                }, 1000);
+                    $(event.target).removeClass('fav-btn-faved');
             }
 
             var dbref = firebase.database().ref("/");
