@@ -29,6 +29,7 @@
     </script>
     <link href="https://fonts.googleapis.com/css?family=Gloria+Hallelujah" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="public/css/style.css">
+    <script src="public/js/userinit.js"></script>
     <style></style>
 </head>
 
@@ -93,7 +94,7 @@
                 </div>
             </div>
             <div class="learnMore">Learn more on how to donate at your local ToyShare.
-                <div class="learnMoreButton" onclick="location.href='https://www.reddit.com/'" style="cursor:pointer;">
+                <div class="learnMoreButton" onclick="location.href='EnterToy.html'" style="cursor:pointer;">
                     Learn More</div>
             </div>
             <div class="ecoCityAd1"><a href="http://ecocity2019.com/" target="blank"><img
@@ -283,8 +284,12 @@
                     $(event.target).removeClass('fav-btn-faved');
             }
 
-            var dbref = firebase.database().ref("/");
-            var userRef = dbref.child("users");
+            var target = event.target;
+            var uid = firebase.auth().currentUser.uid;
+            console.log(firebase.auth().currentUser.uid);
+            firebase.database().ref("users/" + uid + "/favorites").update({
+                "fav":"target"
+            });
 
             console.log(event.target);
         }
@@ -305,6 +310,8 @@
         function testFunc() {
             $('.fav-btn').toggleClass('fav-btn-animating');
         };
-
     </script>
-    <script src="public/js/userinit.js"></script>
+
+</body>
+
+</html>
