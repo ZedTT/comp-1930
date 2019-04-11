@@ -281,15 +281,15 @@
                     $(event.target).removeClass('fav-btn-animating').addClass('fav-btn-faved');
                 }, 1000);
             } else {
-                $(event.target).addClass('fav-btn-reverse-animating')
-
-                setTimeout(function () {
-                    $(event.target).removeClass('fav-btn-reverse-animating').removeClass('fav-btn-faved');
-                }, 1000);
+                    $(event.target).removeClass('fav-btn-faved');
             }
 
-            var dbref = firebase.database().ref("/");
-            var userRef = dbref.child("users");
+            var target = event.target;
+            var uid = firebase.auth().currentUser.uid;
+            console.log(firebase.auth().currentUser.uid);
+            firebase.database().ref("users/" + uid + "/favorites").update({
+                "fav":"target"
+            });
 
             console.log(event.target);
         }
