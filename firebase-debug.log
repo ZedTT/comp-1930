@@ -1,0 +1,42 @@
+[debug] [2019-04-11T20:47:15.551Z] ----------------------------------------------------------------------
+[debug] [2019-04-11T20:47:15.556Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\ZackT\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy
+[debug] [2019-04-11T20:47:15.556Z] CLI Version:   6.5.2
+[debug] [2019-04-11T20:47:15.557Z] Platform:      win32
+[debug] [2019-04-11T20:47:15.557Z] Node Version:  v10.15.2
+[debug] [2019-04-11T20:47:15.559Z] Time:          Thu Apr 11 2019 13:47:15 GMT-0700 (Pacific Daylight Time)
+[debug] [2019-04-11T20:47:15.559Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2019-04-11T20:47:15.583Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2019-04-11T20:47:15.585Z] > authorizing via signed-in user
+[debug] [2019-04-11T20:47:15.585Z] [iam] checking project comp1930database for permissions ["firebase.projects.get","firebasedatabase.instances.update","firebasehosting.sites.update"]
+[debug] [2019-04-11T20:47:15.590Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/comp1930database:testIamPermissions  
+
+[debug] [2019-04-11T20:47:15.762Z] <<< HTTP RESPONSE 200
+[debug] [2019-04-11T20:47:15.770Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/comp1930database  
+ 
+[debug] [2019-04-11T20:47:15.950Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Deploying to 'comp1930database'...
+[info] 
+[info] i  deploying database, hosting
+[info] i  database: checking rules syntax...
+[debug] [2019-04-11T20:47:15.982Z] >>> HTTP REQUEST PUT https://comp1930database.firebaseio.com/.settings/rules.json?dryRun=true  
+ {
+  /* Visit https://firebase.google.com/docs/database/security to learn more about security rules. */
+  "rules": {
+    ".read": true,
+    ".write": true
+  }
+}
+[debug] [2019-04-11T20:47:17.052Z] <<< HTTP RESPONSE 200
+[info] +  database: rules syntax for database comp1930database is valid
+[debug] [2019-04-11T20:47:17.057Z] >>> HTTP REQUEST POST https://firebasehosting.googleapis.com/v1beta1/sites/comp1930database/versions  
+
+[debug] [2019-04-11T20:47:17.873Z] <<< HTTP RESPONSE 200
+[info] i  hosting[comp1930database]: beginning deploy...
+[info] i  hosting[comp1930database]: found 799 files in .
+[debug] [2019-04-11T20:47:18.443Z] [hosting] hash cache [] load error: lines is not defined
+[debug] [2019-04-11T20:47:19.856Z] [hosting] hash cache [] stored for 799 files
+[debug] [2019-04-11T20:47:19.857Z] [hosting][hash queue][FINAL]
+[debug] [2019-04-11T20:47:19.858Z] >>> HTTP REQUEST POST https://firebasehosting.googleapis.com/v1beta1/sites/comp1930database/versions/a63aba5a98c5f8e1:populateFiles  
+ <request body omitted>
