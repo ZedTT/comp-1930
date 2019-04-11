@@ -195,11 +195,10 @@
     
     <script>
             var dbref = firebase.database().ref("/");
-            // var toyName = $('#enterName').val();
-            var toyName = "BCIT";
-            var toysRef = dbref.child("Toys/" + toyName);
+            var toysRef = dbref.child("Toys/ZCIT");
             $('#submitInfo').click(function () {
                 toysRef.update({
+                    Name:$('#enterName').val(),
                     Age_Max:$('#enterMax').val(),
                     Age_Min:$('#enterMin').val(),
                     Price:$('#enterPrice').val(),
