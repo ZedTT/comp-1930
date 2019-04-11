@@ -72,7 +72,8 @@ function createListing(snap) {
     });
 
     var star = $("<button/>", {
-        class: "fav-btn"
+        class: "fav-btn",
+        onclick: "favFunc(event);"
     }).html("").appendTo($favContainer).css({
         border: 0,
         outline: 0
