@@ -4,6 +4,20 @@
 <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans" rel="stylesheet">
 <link rel="icon" href="toyShareLogopng.png">
 
+<script src="https://www.gstatic.com/firebasejs/5.8.5/firebase.js"></script>
+<script>
+    // Initialize Firebase
+    var config = {
+        apiKey: "AIzaSyBwSxJojnYNo9ZFKHmO59sKVPdEhCR641A",
+        authDomain: "comp1930database.firebaseapp.com",
+        databaseURL: "https://comp1930database.firebaseio.com",
+        projectId: "comp1930database",
+        storageBucket: "comp1930database.appspot.com",
+        messagingSenderId: "908131063499"
+    };
+    firebase.initializeApp(config);
+</script>
+
     <script src="JQuery.js"></script>
     <title>ToyShare: Canada's No.1 Toy Donation/Sell Center</title>
     <style>
@@ -177,7 +191,23 @@
             <input id="upload" type="button" value="Upload">
 			<input id="submitInfo" type="button" value="Submit">
 		</div>
-	</div>
+    </div>
+    
+    <script>
+            var dbref = firebase.database().ref("/");
+            // var toyName = $('#enterName').val();
+            var toyName = "BCIT";
+            var toysRef = dbref.child("Toys/" + toyName);
+            $('#submitInfo').click(function () {
+                toysRef.update({
+                    Age_Max:$('#enterMax').val(),
+                    Age_Max:$('#enterMax').val(),
+                    Age_Max:$('#enterMax').val(),
+                    Age_Max:$('#enterMax').val()
+                });
+    
+            })
+        </script>
 
 </body>
 </html>
