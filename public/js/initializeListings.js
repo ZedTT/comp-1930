@@ -64,7 +64,7 @@ function createListing(snap) {
     console.log(picturePath);
 
     var $favContainer = $("<div/>", {
-        class: "fav-btn-container"
+        class: "afav-btn"
     }).html("").appendTo(title).css({
         display: "inline-block",
         height: '12pt',

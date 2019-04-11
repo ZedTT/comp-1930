@@ -10,7 +10,6 @@
 		{
             "name":user.displayName, 
             "email":user.email,
-            "test_value":"test string"
         });
     });
-})()
+})();
