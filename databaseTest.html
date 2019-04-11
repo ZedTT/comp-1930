@@ -149,7 +149,7 @@
             }).then(dbref.update({
                 "Counter": count + 1
             }));
-            
+
         })
     </script>
     <script src="public/js/domlibrary.js"></script>
@@ -242,7 +242,7 @@
             firebase.auth().onAuthStateChanged(user => {
                 if (!user) {
                     window.location =
-                    'signInPage.html'; //After successful logout, user will be redirected to signInPage.html
+                        'signInPage.html'; //After successful logout, user will be redirected to signInPage.html
                 }
             });
         }
@@ -256,17 +256,20 @@
                 document.getElementById("signedUpButton").style.display = "block";
                 document.getElementById("signUpButton").style.display = "none";
 
-                var user = firebase.auth().currentUser;
+                var email_id = user.email;
+                document.getElementById("signedUpButton").innerHTML = "Welcome back " + email_id;
+                document.getElementById("logOutButton").innerHTML = "Logout";
+            
 
-                if (user != null) {
+                var email_id = user.email;
+                document.getElementById("signedUpButton").innerHTML = "Welcome back " + email_id;
 
-                    var email_id = user.email;
-                    document.getElementById("signedUpButton").innerHTML = "Welcome back " + email_id;
-
-                }
+                document.getElementById("signedUpButton").style.display = "none";
+                document.getElementById("signUpButton").style.display = "block";
+                document.getElementById("logOutButton").innerHTML = "Sign-In";
 
             } else {
-                // No user is signed in.
+            // No user is signed in.
 
                 document.getElementById("signedUpButton").style.display = "none";
                 document.getElementById("signUpButton").style.display = "block";
