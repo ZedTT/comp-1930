@@ -542,7 +542,7 @@ function logout(){
 
       var email_id = user.email;
       document.getElementById("signedUpButton").innerHTML = "Welcome back " + email_id;
-
+      document.getElementById("logOutButton").innerHTML = "Logout";
     }
 
   } else {
@@ -550,6 +550,7 @@ function logout(){
 
     document.getElementById("signedUpButton").style.display = "none";
     document.getElementById("signUpButton").style.display = "block";
+    document.getElementById("logOutButton").innerHTML = "Sign-In";
 
   }
 });
