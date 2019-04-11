@@ -444,13 +444,25 @@
             height: 100px;
             position: absolute;
             right: 460px;
-            transform: translate(0, -34px);
+            transform: translate(-42px, -34px);
             background:   url(http://www.capgunmedia.co/favorites-button.png) no-repeat;
             background-position: 0 0;
             cursor: pointer;
-            animation: favorites 1s steps(28);
+            
             grid-area: title;
             border: 0;
+        }
+
+        .fav-btn-animating {
+            animation: favorites 1s steps(28);
+        }
+
+        .fav-btn-reverse-animating {
+            animation: favoritesReverse 1s steps(28);
+        }
+
+        .fav-btn-faved {
+            background-position: -2800px 0;
         }
 
         .fav-btn:hover {
@@ -464,6 +476,16 @@
             }
             100% {
                 background-position: -2800px 0;
+            }
+        }
+
+        
+        @keyframes favoritesReverse {
+            0% {
+                background-position: -2800 0;
+            }
+            100% {
+                background-position: 0 0;
             }
         }
 

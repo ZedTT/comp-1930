@@ -259,7 +259,7 @@
                 var email_id = user.email;
                 document.getElementById("signedUpButton").innerHTML = "Welcome back " + email_id;
                 document.getElementById("logOutButton").innerHTML = "Logout";
-            
+
 
                 var email_id = user.email;
                 document.getElementById("signedUpButton").innerHTML = "Welcome back " + email_id;
@@ -269,7 +269,7 @@
                 document.getElementById("logOutButton").innerHTML = "Sign-In";
 
             } else {
-            // No user is signed in.
+                // No user is signed in.
 
                 document.getElementById("signedUpButton").style.display = "none";
                 document.getElementById("signUpButton").style.display = "block";
@@ -277,3 +277,44 @@
             }
         });
     </script>
+    <script>
+        function favFunc(event) {
+            if (!$(event.target).hasClass('fav-btn-faved')) {
+                $(event.target).addClass('fav-btn-animating')
+
+                setTimeout(function () {
+                    $(event.target).removeClass('fav-btn-animating').addClass('fav-btn-faved');
+                }, 1000);
+            } else {
+                $(event.target).addClass('fav-btn-reverse-animating')
+
+                setTimeout(function () {
+                    $(event.target).removeClass('fav-btn-reverse-animating').removeClass('fav-btn-faved');
+                }, 1000);
+            }
+
+            var dbref = firebase.database().ref("/");
+            var userRef = dbref.child("users");
+
+            console.log(event.target);
+        }
+
+        // var dbref = firebase.database().ref("/");
+        // var counterRef = dbref.child("Counter");
+        // var count;
+        // $('#listingsContainer').click(function () {
+        //     counterRef.once("value", function (snap) {
+        //         count = snap.val();
+        //     }).then(dbref.update({
+        //         "Counter": count + 1
+        //     }));
+
+        // })
+
+
+        function testFunc() {
+            $('.fav-btn').toggleClass('fav-btn-animating');
+        };
+
+    </script>
+    <script src="public/js/userinit.js"></script>
