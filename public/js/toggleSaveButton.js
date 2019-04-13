@@ -1,24 +1,29 @@
 function favFunc(event) {
-            if (!$(event.target).hasClass('fav-btn-faved')) {
-                $(event.target).addClass('fav-btn-animating')
+    if (!$(event.target).hasClass('fav-btn-faved')) {
+        $(event.target).addClass('fav-btn-animating').addClass('fav-btn-faved');
 
-                setTimeout(function () {
-                    $(event.target).removeClass('fav-btn-animating').addClass('fav-btn-faved');
-                }, 1000);
-            } else {
-                    $(event.target).removeClass('fav-btn-faved');
-            }
+        setTimeout(function () {
+            $(event.target).removeClass('fav-btn-animating');
+        }, 1000);
+    } else {
+        $(event.target).removeClass('fav-btn-faved');
+        $(event.target).addClass('fav-btn-reverse-animating');
 
-            var target = event.target;
-            var uid = firebase.auth().currentUser.uid;
-            console.log(firebase.auth().currentUser.uid);
-            firebase.database().ref("users/" + uid + "/favorites").update({
-                "fav":"target"
-            });
+        setTimeout(function () {
+            $(event.target).removeClass('fav-btn-reverse-animating');
+        }, 1000);
+    }
 
-            console.log(event.target);
-        }
+    var target = event.target;
+    var uid = firebase.auth().currentUser.uid;
+    console.log(firebase.auth().currentUser.uid);
+    firebase.database().ref("users/" + uid + "/favorites").update({
+        "fav": "target" // TODO: Add to a list in the database to keep track of favorited listings
+    });
 
-        function testFunc() {
-            $('.fav-btn').toggleClass('fav-btn-animating');
-        };
+    console.log(event.target); // Will also need to check which listings are favorited on page load.
+}
+
+function testFunc() {
+    $('.fav-btn').toggleClass('fav-btn-animating');
+};
