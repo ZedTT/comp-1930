@@ -11,6 +11,8 @@
             color: black;
         }
 
+        /* Header css below. */
+
         #header {
             width: 100%;
             background-color: #ffffff;
@@ -52,10 +54,7 @@
         .searchBar {
             grid-area: middle;
             width: 100%;
-            /* Width will fill the grid area if less than max width */
             max-width: 400px;
-            /* The 400 needs to be max-width or we get horizontal scrolling */
-            /* not neccessary at all because grid-template-columns of parent limits this to 400px now, anyways */
             height: 13px;
             background-color: #f5f5f5;
             border: 1px solid #cfcfcf;
@@ -329,6 +328,8 @@
             background: #F3FEFD;
         }
 
+        /* Content including listings css below. */
+
         #content {
             display: grid;
             transform: translate(0px, 55px);
@@ -350,13 +351,10 @@
             border-radius: 3px;
             font-size: 8pt;
             width: 100%;
-            /* because of the box-sizing property applied to *, we can ignore padding */
             margin: auto;
             margin-bottom: 10px;
             background-color: #ffffff;
             font-family: Verdana, Geneva, Tahoma, sans-serif;
-            /* If padding is changed width must be changed */
-            /* we no longer have to worry about padding because of the box-sizing */
             display: grid;
             grid-template-areas:
                 "img ttl ttl"
@@ -487,7 +485,6 @@
                 background-position: -2800px 0;
             }
         }
-
         
         @keyframes favoritesReverse {
             0% {
@@ -497,6 +494,8 @@
                 background-position: 0 0;
             }
         }
+
+        /* Ads section css below. */
 
         #ads {
             grid-area: ads;
@@ -592,30 +591,3 @@
             width: 100%;
             border-radius: 3px;
         }
-
-        /* causes ads to disapear on small screens */
-        @media only screen and (max-width: 1000px) {
-            #content {
-                grid-template-columns: 0% 25% 60%;
-            }
-
-            #ads {
-                display: none;
-            }
-
-            #emptyLeft {
-                display: none;
-            }
-
-            #emptyRight {
-                display: none;
-            }
-        }
-
-        /* causes profile Image to disapear on small screens */
-        @media only screen and (max-width: 1000px) {
-            #right {
-                margin-left: -30px;
-            }
-        }
-

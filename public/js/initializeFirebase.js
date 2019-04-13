@@ -8,3 +8,5 @@ var config = {
     messagingSenderId: "908131063499"
 };
 firebase.initializeApp(config);
+
+var ui = new firebaseui.auth.AuthUI(firebase.auth());
