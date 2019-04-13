@@ -1,28 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans" rel="stylesheet">
-<link rel="icon" href="toyShareLogopng.png">
 
-<script src="https://www.gstatic.com/firebasejs/5.8.5/firebase.js"></script>
-<script src="public/js/initializeFirebase.js"></script>
-<link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
-<link rel="stylesheet" type="text/css" href="public/css/EnterToyCss.css">
+<head>
+    <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans" rel="stylesheet">
+    <link rel="icon" href="toyShareLogopng.png">
+
+    <script src="https://www.gstatic.com/firebasejs/5.8.5/firebase.js"></script>
+    <script src="public/js/initializeFirebase.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
+    <link rel="stylesheet" type="text/css" href="public/css/EnterToyCss.css">
 
     <script src="public/js/JQuery.js"></script>
-    <title>ToyShare: Canada's No.1 Toy Donation/Sell Center</title>		    		
+    <title>ToyShare: Canada's No.1 Toy Donation/Sell Center</title>
 </head>
-<body>
-	<div id="opacityCover">
-	<h1 id="headingText">Welcome to ToyShare.</h1>
-			<h2 id="headingTextDesc">Canada's #1 Toy Donation and Selling Website. <hr>
-			<br> A platform to share toys with your community; <br>dedicated to an	 Ecocity, reducing plastic toy waste. <br> Sign up with no strings attached.</h2>
-	</div>
 
-	<div id="mainContent">
-		<div id="mainContainer">
-			<div>
-			    <img src="toyShareLogopng.png" alt="logoPic" id="logoPic">
+<body>
+    <div id="opacityCover">
+        <h1 id="headingText">Welcome to ToyShare.</h1>
+        <h2 id="headingTextDesc">Canada's #1 Toy Donation and Selling Website.
+            <hr>
+            <br> A platform to share toys with your community; <br>dedicated to an Ecocity, reducing plastic toy waste.
+            <br> Sign up with no strings attached.</h2>
+    </div>
+
+    <div id="mainContent">
+        <div id="mainContainer">
+            <div>
+                <img src="toyShareLogopng.png" alt="logoPic" id="logoPic">
             </div>
             <h4>Enter Toy Name</h4>
             <input id="enterName" type="text" pattern="A-Za-z" placeholder="Toy Name">
@@ -36,11 +40,12 @@
             <input id="enterDescription" type="text" pattern="A-Za-z0-9">
             <h4>Upload A Picture</h4>
             <input id="upload" type="button" value="Upload">
-			<input id="submitInfo" type="button" value="Submit">
-		</div>
+            <input id="submitInfo" type="button" value="Submit">
+        </div>
     </div>
-    
+
     <script src="public/js/writeToDatabase.js"></script>
 
 </body>
+
 </html>

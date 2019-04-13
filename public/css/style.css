@@ -1,593 +1,595 @@
-
-        /* accounts for padding and border when calculating width */
-        html * {
-            box-sizing: border-box;
-        }
-
-        body {
-            margin: 0px;
-            padding: 0px;
-            background-color: #dae0e6;
-            color: black;
-        }
-
-        /* Header css below. */
-
-        #header {
-            width: 100%;
-            background-color: #ffffff;
-            display: grid;
-            grid-template-rows: 55px 43px; 
-            grid-template-columns: 33.3% 33.4% 33.3%;
-            justify-content: space-between;
-            grid-template-areas:
-                "left middle right"
-                "bar bar counter";
-            position: fixed;
-            z-index: 1;
-            border-bottom: 1px solid #e6e6e6;
-        }
-
-        #left {
-            width: 100%;
-            padding-left: 5%;
-        }
-
-        #toyShareLogo {
-            width: 55px;
-            height: 45px;
-            margin-top: 4px;
-        }
-
-        #toyShareLogoText {
-            top: 0;
-            left: 0;
-            position: absolute;
-            margin-top: 10px;
-            margin-left: 80px;
-            font-family: 'IBM Plex Sans', sans-serif;
-            font-size: 18pt;
-            font-weight: 800;
-            color: black;
-        }
-
-        .searchBar {
-            grid-area: middle;
-            width: 100%;
-            max-width: 400px;
-            height: 13px;
-            background-color: #f5f5f5;
-            border: 1px solid #cfcfcf;
-            border-radius: 3px;
-            margin: auto auto auto auto;
-            text-align: center;
-            font-family: Verdana, Geneva, Tahoma, sans-serif;
-            font-weight: 100;
-            color: black;
-            font-size: 10pt;
-            padding: 18px;
-            text-align: left;
-        }
-
-        .searchBar:hover {
-            border: 1px solid #0079d3;
-            background-color: white;
-        }
-        
-        #right {
-            width: 100%;
-            grid-area: right;
-            height: 100%;
-            display: grid;
-            grid-template-areas:
-                "empty messenger star facebook loggout paddingRight";
-            grid-template-rows: 100%;
-            grid-template-columns: 35% 15% 15% 15% 15% 5%;
-        }
-
-        .favouritesButton {
-            grid-area: star;
-            width: 70px;
-            height: 30px;
-            border-radius: 3px;
-            background-color: rgb(0, 121, 211);
-            border: 1px solid rgb(0, 121, 211);
-            color: #FBF5F3;
-            text-align: center;
-            line-height: 30px;
-            font-family: 'IBM Plex Sans', sans-serif;
-            font-weight: bold;
-            font-size: 10pt;
-            padding: 0px 10px 30px 10px;
-            margin: auto auto auto auto;
-        }
-
-        .favouritesButton:hover {
-            background-color: rgb(51, 148, 220);
-            cursor: pointer;
-        }
-
-        .profileButton {
-            grid-area: facebook;
-            margin: 9px 0 0 18px;
-        }
-        
-        img#profileSetting {
-            margin-top: 4px;
-            width: 32.5px;
-            height: 28.8px;
-        }
-
-        .profileButton img:hover {
-            cursor: pointer;
-            opacity: 0.7;
-        }
-
-        .messageButton {
-            grid-area: messenger;
-            margin: auto auto auto auto;
-        }
-        .messageButton img {
-            margin-top: 4px;
-            width: 28px;
-        }
-
-        .messageButton img:hover {
-            opacity: 0.8;
-            cursor: pointer;
-        }
-
-        #logOutButton {
-            grid-area: loggout;
-            width: 70px;
-            height: 30px;
-            border-radius: 3px;
-            background-color: rgb(255, 69, 0);
-            border: 1px solid  rgb(255, 69, 0);
-            color: #FBF5F3;
-            text-align: center;
-            line-height: 30px;
-            font-family: 'IBM Plex Sans', sans-serif;
-            font-weight: bold;
-            font-size: 10pt;
-            padding: 0px 10px 30px 10px;
-            margin: auto auto auto auto;
-        }
-
-        #logOutButton:hover {
-            opacity: 0.8;
-            cursor: pointer;
-        }
-
-        .barDiv {
-            grid-area: bar;
-            padding-left: 20px;
-            padding-top: 3px;
-            border-top: 1px solid #e6e6e6;
-        }
-
-        #banner {
-            padding-top: 15px;
-            width: 100%;
-            height: 550px;
-            background-image: url(https://sensationstation.ae/wp-content/uploads/2018/09/Diverse-preschoolers_0.jpg);
-            background-size: 100%;
-            font-family: Arial, Helvetica, sans-serif;
-        }
-
-        #bannerDiv {
-            width: 100%;
-            height: 300px;
-            margin: 150px auto auto auto;
-            background-color: rgba(0, 0, 0, 0.3);
-            padding-top: 1px;
-        }
-
-        #bannerDiv h1 {
-           color: white;
-           text-align: center;
-           font-size: 45pt;
-           text-shadow: 0 0 1px #5a5a5a;
-        }
-
-        #bannerDiv p {
-            color: white;
-            text-align: center;
-            font-size: 15pt;
-            text-shadow: 0 0 1px #5a5a5a;
-        }
-
-        #signUpButton {
-            width: 100px;
-            height: 40px;
-            text-align: center;
-            margin: 40px auto auto auto;
-            background-color: #d40000;
-            line-height: 40px;
-            vertical-align: middle;
-            border: 1px solid #d40000;
-            border-radius: 3px;
-            color: white;
-            font-size: 14pt;
-        }
-
-        #signUpButton:hover {
-            opacity: 0.8;
-            cursor: pointer;
-        }
-
-        #signedUpButton {
-            width: 400px;
-            height: 40px;
-            text-align: center;
-            margin: 40px auto auto auto;
-            background-color: #d40000;
-            line-height: 40px;
-            vertical-align: middle;
-            border: 1px solid #d40000;
-            border-radius: 3px;
-            color: white;
-            font-size: 14pt;
-        }
-
-        #filtersContainer {
-            grid-area: bar;
-            width: 100%;
-        }
-
-        h3 {
-            display: inline-block;
-        }
-
-        #filters {
-            font-size: 8pt;
-            background-color: #ffffff;
-            font-family: arial;
-            width: 100%;
-            display: inline-block;
-        }
-
-        .counterDiv {
-            grid-area: counter;
-            padding-left: 20px;
-            border-top: 1px solid #e6e6e6;
-        }
-
-        #toyCountMessage {
-            height: 43px;
-            line-height: 43px;
-            margin-left: 55px;
-            vertical-align: middle;
-            font-family: Arial;
-            font-size: 11pt;
-            width: 50%;
-            text-align: center;
-            display: inline-block
-        }
-
-        #toyCount {
-            width: 140px;
-            height: 29px;
-            margin-top: 7px;
-            margin-right: 23px;
-            border: 1px solid black;
-            border-radius: 10px;
-            float: right;
-            line-height: 27px;
-            vertical-align: middle;
-            font-size: 13pt;
-            font-family: Arial, Helvetica, sans-serif;
-            text-align: center;
-            letter-spacing: 3px;
-            background-color: #f5f5f5;
-        }
-
-        .filter {
-            display: inline-block;
-            padding: 0px 0px 0px 50px;
-        }
-
-        .sliderTitle {
-            margin-bottom: 0;
-            display: inline-block;
-        }
-
-        .asRange {
-            width: 200px;
-            display: inline-block;
-            margin-left: 20px;
-        }
-
-        .asRange .asRange-selected {
-            background-color: #0079d3;
-        }
-
-        .asRange .asRange-pointer .asRange-tip {
-            color: white;
-            background-color: #0079d3;
-            border: 1px solid #0079d3;
-        }
-
-        .asRange .asRange-pointer .asRange-tip:hover {
-            cursor: pointer;
-        }    
-
-        .asRange .asRange-pointer .asRange-tip:before {
-            background-color: #0079d3;
-        }
-
-        .asRange .asRange-pointer {
-            background-color: #ffffff;
-        }
-
-        .asRange .asRange-pointer:before {
-            background: #0079d3;
-        }
-
-        .asRange .asRange-pointer:after {
-            background: #F3FEFD;
-        }
-
-        /* Content including listings css below. */
-
-        #content {
-            display: grid;
-            transform: translate(0px, 55px);
-            justify-content: space-evenly;
-            justify-items: center;
-            grid-template-columns: 14% 50% 20% 14%;
-            grid-template-areas:
-                "emptyLeft listings ads emptyRight";
-            margin-top: -45px;
-        }
-
-        #listingsContainer {
-            grid-area: listings;
-            width: 100%;
-        }
-
-        .toyListing {
-            border: 1px solid #dad9d9;
-            border-radius: 3px;
-            font-size: 8pt;
-            width: 100%;
-            margin: auto;
-            margin-bottom: 10px;
-            background-color: #ffffff;
-            font-family: Verdana, Geneva, Tahoma, sans-serif;
-            display: grid;
-            grid-template-areas:
-                "img ttl ttl"
-                "img prc age"
-                "img des des"
-                "img date saver";
-            grid-template-columns: 320px 1fr 1fr;
-            grid-template-rows: 33px 30px 162px 1fr;
-            height: 250px;
-            align-content: flex-end;
-        }
-
-        .toyListing:hover {
-            border: 1px solid #acacac;
-            cursor: pointer;
-        }
-
-        .toyImage {
-            grid-area: img;
-        }
-
-        .toyListing img {
-            grid-area: img;
-            object-fit: fill;
-            width: 100%;
-            height: 100%;
-            padding-left: 10px;
-            align-self: flex-start;
-            background-color: #0079d3;
-        }
-
-        .description {
-            grid-area: des;
-            padding-left: 15px;
-            padding-top: 30px;
-            padding-right: 10px;
-        }
-
-        .date {
-            grid-area: date;
-            color: black;
-            padding-left: 15px;
-            font-size: 8pt;
-        }
-
-        .listingTitle {
-            grid-area: ttl;
-            background-color: #f1f1f1;
-            width: 100%;
-            font-weight: 500;
-            font-size: 10pt;
-            font-family: Verdana, Geneva, Tahoma, sans-serif;
-            line-height: 33px;
-            vertical-align: middle;
-            padding-left: 15px;
-        }
-
-        .listingAgeRange {
-            grid-area: age;
-            padding-left: 15px;
-            line-height: 30px;
-            vertical-align: middle;
-        }
-
-        .listingPrice {
-            grid-area: prc;
-            padding-left: 15px;
-            line-height: 30px;
-            vertical-align: middle;
-        }
-
-        .listingPrice span {
-            grid-area: prc;
-            font-size: 3pt;
-        }
-
-        .listingAgeRange span {
-            grid-area: age;
-            font-size: 3pt;
-            text-decoration: none;
-        }
-
-        .fav-btn {
-            width: 100px;
-            height: 100px;
-            position: absolute;
-            right: 460px;
-            transform: translate(-42px, -34px);
-            background:   url(http://www.capgunmedia.co/favorites-button.png) no-repeat;
-            background-position: 0 0;
-            cursor: pointer;
-            
-            grid-area: title;
-            border: 0;
-        }
-
-        .fav-btn-animating {
-            animation: favorites 1s steps(28);
-        }
-
-        .fav-btn-reverse-animating {
-            animation: favoritesReverse 1s steps(28);
-        }
-
-        .fav-btn-faved {
-            background-position: -2800px 0;
-        }
-
-        .fav-btn:hover {
-            background-position: -2800px 0;
-            transition: background 0s steps(1);
-            filter: hue-rotate(310deg);
-        }
-
-        .fav-btn-faved:hover {
-            filter: hue-rotate(0deg);
-        }
-
-        .fav-btn-reverse-animating:hover {
-            filter: hue-rotate(0deg);
-        }
-
-        @keyframes favorites {
-            0% {
-                background-position: 0 0;
-            }
-            100% {
-                background-position: -2800px 0;
-            }
-        }
-        
-        @keyframes favoritesReverse {
-            0% {
-                background-position: -2800 0;
-            }
-            100% {
-                background-position: 0 0;
-            }
-        }
-
-        /* Ads section css below. */
-
-        #ads {
-            grid-area: ads;
-            justify-content: center;
-        }
-
-        .wasteInfo {
-            border: 1px solid #c4c4c4;
-            border-radius: 3px;
-            background-color: yellow;
-            margin: 0 auto 20px auto;
-            height: 390px;
-            width: 90%;
-        }
-
-        .wasteInfo p {
-            font-size: 15pt;
-            font-weight: bold;
-            text-align: left;
-            padding: 10px;
-            font-family: Arial, Helvetica, sans-serif;
-            margin: 0;
-        }
-
-        .wasteInfo img {
-            width: 100%;
-            height: auto;
-        }
-
-        .learnMore {
-            width: 90%;
-            padding: 10px;
-            text-align: center;
-            font-weight: bold;
-            background-color: #991c1c;
-            border: 5px solid #991c1c;
-            border-radius: 3px;
-            margin: 0 auto 20px auto;
-            font-size: 15pt;
-            color: white;
-            font-family: Arial;
-        }
-
-        .learnMoreButton {
-            width: 120px;
-            border: 3px solid white;
-            border-radius: 50px;
-            margin: 0 auto;
-            font-size: 13pt;
-            vertical-align: middle;
-            line-height: 30px;
-            margin-top: 20px;
-        }
-
-        .learnMoreButton:hover {
-            border: 3px solid #e9da0e;
-            color: #e9da0e;
-        }
-
-        .ecoCityAd1 {
-            width: 90%;
-            height: auto;
-            margin: 0 auto 20px auto;
-            background-color: white;
-            border: 1px solid white;
-            border-radius: 3px;
-        }
-
-        .ecoCityAd1 img {
-            width: 100%;
-            height: auto;
-            border-radius: 3px;
-        }
-
-        .redCrossAd {
-            width: 90%;
-            height: auto;
-            margin: 0 auto 20px auto;
-        }
-
-        .redCrossAd img {
-            width: 100%;
-            border-radius: 3px;
-        }
-
-        .bcitAd {
-            width: 90%;
-            height: auto;
-            margin: 0 auto 20px auto;
-        }
-
-        .bcitAd img {
-            width: 100%;
-            border-radius: 3px;
-        }
+/* accounts for padding and border when calculating width */
+html * {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0px;
+    padding: 0px;
+    background-color: #dae0e6;
+    color: black;
+}
+
+/* Header css below. */
+
+#header {
+    width: 100%;
+    background-color: #ffffff;
+    display: grid;
+    grid-template-rows: 55px 43px;
+    grid-template-columns: 33.3% 33.4% 33.3%;
+    justify-content: space-between;
+    grid-template-areas:
+        "left middle right"
+        "bar bar counter";
+    position: fixed;
+    z-index: 1;
+    border-bottom: 1px solid #e6e6e6;
+}
+
+#left {
+    width: 100%;
+    padding-left: 5%;
+}
+
+#toyShareLogo {
+    width: 55px;
+    height: 45px;
+    margin-top: 4px;
+}
+
+#toyShareLogoText {
+    top: 0;
+    left: 0;
+    position: absolute;
+    margin-top: 10px;
+    margin-left: 80px;
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 18pt;
+    font-weight: 800;
+    color: black;
+}
+
+.searchBar {
+    grid-area: middle;
+    width: 100%;
+    max-width: 400px;
+    height: 13px;
+    background-color: #f5f5f5;
+    border: 1px solid #cfcfcf;
+    border-radius: 3px;
+    margin: auto auto auto auto;
+    text-align: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: 100;
+    color: black;
+    font-size: 10pt;
+    padding: 18px;
+    text-align: left;
+}
+
+.searchBar:hover {
+    border: 1px solid #0079d3;
+    background-color: white;
+}
+
+#right {
+    width: 100%;
+    grid-area: right;
+    height: 100%;
+    display: grid;
+    grid-template-areas:
+        "empty messenger star facebook loggout paddingRight";
+    grid-template-rows: 100%;
+    grid-template-columns: 35% 15% 15% 15% 15% 5%;
+}
+
+.favouritesButton {
+    grid-area: star;
+    width: 70px;
+    height: 30px;
+    border-radius: 3px;
+    background-color: rgb(0, 121, 211);
+    border: 1px solid rgb(0, 121, 211);
+    color: #FBF5F3;
+    text-align: center;
+    line-height: 30px;
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-weight: bold;
+    font-size: 10pt;
+    padding: 0px 10px 30px 10px;
+    margin: auto auto auto auto;
+}
+
+.favouritesButton:hover {
+    background-color: rgb(51, 148, 220);
+    cursor: pointer;
+}
+
+.profileButton {
+    grid-area: facebook;
+    margin: 9px 0 0 18px;
+}
+
+img#profileSetting {
+    margin-top: 4px;
+    width: 32.5px;
+    height: 28.8px;
+}
+
+.profileButton img:hover {
+    cursor: pointer;
+    opacity: 0.7;
+}
+
+.messageButton {
+    grid-area: messenger;
+    margin: auto auto auto auto;
+}
+
+.messageButton img {
+    margin-top: 4px;
+    width: 28px;
+}
+
+.messageButton img:hover {
+    opacity: 0.8;
+    cursor: pointer;
+}
+
+#logOutButton {
+    grid-area: loggout;
+    width: 70px;
+    height: 30px;
+    border-radius: 3px;
+    background-color: rgb(255, 69, 0);
+    border: 1px solid rgb(255, 69, 0);
+    color: #FBF5F3;
+    text-align: center;
+    line-height: 30px;
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-weight: bold;
+    font-size: 10pt;
+    padding: 0px 10px 30px 10px;
+    margin: auto auto auto auto;
+}
+
+#logOutButton:hover {
+    opacity: 0.8;
+    cursor: pointer;
+}
+
+.barDiv {
+    grid-area: bar;
+    padding-left: 20px;
+    padding-top: 3px;
+    border-top: 1px solid #e6e6e6;
+}
+
+#banner {
+    padding-top: 15px;
+    width: 100%;
+    height: 550px;
+    background-image: url(https://sensationstation.ae/wp-content/uploads/2018/09/Diverse-preschoolers_0.jpg);
+    background-size: 100%;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#bannerDiv {
+    width: 100%;
+    height: 300px;
+    margin: 150px auto auto auto;
+    background-color: rgba(0, 0, 0, 0.3);
+    padding-top: 1px;
+}
+
+#bannerDiv h1 {
+    color: white;
+    text-align: center;
+    font-size: 45pt;
+    text-shadow: 0 0 1px #5a5a5a;
+}
+
+#bannerDiv p {
+    color: white;
+    text-align: center;
+    font-size: 15pt;
+    text-shadow: 0 0 1px #5a5a5a;
+}
+
+#signUpButton {
+    width: 100px;
+    height: 40px;
+    text-align: center;
+    margin: 40px auto auto auto;
+    background-color: #d40000;
+    line-height: 40px;
+    vertical-align: middle;
+    border: 1px solid #d40000;
+    border-radius: 3px;
+    color: white;
+    font-size: 14pt;
+}
+
+#signUpButton:hover {
+    opacity: 0.8;
+    cursor: pointer;
+}
+
+#signedUpButton {
+    width: 400px;
+    height: 40px;
+    text-align: center;
+    margin: 40px auto auto auto;
+    background-color: #d40000;
+    line-height: 40px;
+    vertical-align: middle;
+    border: 1px solid #d40000;
+    border-radius: 3px;
+    color: white;
+    font-size: 14pt;
+}
+
+#filtersContainer {
+    grid-area: bar;
+    width: 100%;
+}
+
+h3 {
+    display: inline-block;
+}
+
+#filters {
+    font-size: 8pt;
+    background-color: #ffffff;
+    font-family: arial;
+    width: 100%;
+    display: inline-block;
+}
+
+.counterDiv {
+    grid-area: counter;
+    padding-left: 20px;
+    border-top: 1px solid #e6e6e6;
+}
+
+#toyCountMessage {
+    height: 43px;
+    line-height: 43px;
+    margin-left: 55px;
+    vertical-align: middle;
+    font-family: Arial;
+    font-size: 11pt;
+    width: 50%;
+    text-align: center;
+    display: inline-block
+}
+
+#toyCount {
+    width: 140px;
+    height: 29px;
+    margin-top: 7px;
+    margin-right: 23px;
+    border: 1px solid black;
+    border-radius: 10px;
+    float: right;
+    line-height: 27px;
+    vertical-align: middle;
+    font-size: 13pt;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    letter-spacing: 3px;
+    background-color: #f5f5f5;
+}
+
+.filter {
+    display: inline-block;
+    padding: 0px 0px 0px 50px;
+}
+
+.sliderTitle {
+    margin-bottom: 0;
+    display: inline-block;
+}
+
+.asRange {
+    width: 200px;
+    display: inline-block;
+    margin-left: 20px;
+}
+
+.asRange .asRange-selected {
+    background-color: #0079d3;
+}
+
+.asRange .asRange-pointer .asRange-tip {
+    color: white;
+    background-color: #0079d3;
+    border: 1px solid #0079d3;
+}
+
+.asRange .asRange-pointer .asRange-tip:hover {
+    cursor: pointer;
+}
+
+.asRange .asRange-pointer .asRange-tip:before {
+    background-color: #0079d3;
+}
+
+.asRange .asRange-pointer {
+    background-color: #ffffff;
+}
+
+.asRange .asRange-pointer:before {
+    background: #0079d3;
+}
+
+.asRange .asRange-pointer:after {
+    background: #F3FEFD;
+}
+
+/* Content including listings css below. */
+
+#content {
+    display: grid;
+    transform: translate(0px, 55px);
+    justify-content: space-evenly;
+    justify-items: center;
+    grid-template-columns: 14% 50% 20% 14%;
+    grid-template-areas:
+        "emptyLeft listings ads emptyRight";
+    margin-top: -45px;
+}
+
+#listingsContainer {
+    grid-area: listings;
+    width: 100%;
+}
+
+.toyListing {
+    border: 1px solid #dad9d9;
+    border-radius: 3px;
+    font-size: 8pt;
+    width: 100%;
+    margin: auto;
+    margin-bottom: 10px;
+    background-color: #ffffff;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    display: grid;
+    grid-template-areas:
+        "img ttl ttl"
+        "img prc age"
+        "img des des"
+        "img date saver";
+    grid-template-columns: 320px 1fr 1fr;
+    grid-template-rows: 33px 30px 162px 1fr;
+    height: 250px;
+    align-content: flex-end;
+}
+
+.toyListing:hover {
+    border: 1px solid #acacac;
+    cursor: pointer;
+}
+
+.toyImage {
+    grid-area: img;
+}
+
+.toyListing img {
+    grid-area: img;
+    object-fit: fill;
+    width: 100%;
+    height: 100%;
+    padding-left: 10px;
+    align-self: flex-start;
+    background-color: #0079d3;
+}
+
+.description {
+    grid-area: des;
+    padding-left: 15px;
+    padding-top: 30px;
+    padding-right: 10px;
+}
+
+.date {
+    grid-area: date;
+    color: black;
+    padding-left: 15px;
+    font-size: 8pt;
+}
+
+.listingTitle {
+    grid-area: ttl;
+    background-color: #f1f1f1;
+    width: 100%;
+    font-weight: 500;
+    font-size: 10pt;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    line-height: 33px;
+    vertical-align: middle;
+    padding-left: 15px;
+}
+
+.listingAgeRange {
+    grid-area: age;
+    padding-left: 15px;
+    line-height: 30px;
+    vertical-align: middle;
+}
+
+.listingPrice {
+    grid-area: prc;
+    padding-left: 15px;
+    line-height: 30px;
+    vertical-align: middle;
+}
+
+.listingPrice span {
+    grid-area: prc;
+    font-size: 3pt;
+}
+
+.listingAgeRange span {
+    grid-area: age;
+    font-size: 3pt;
+    text-decoration: none;
+}
+
+.fav-btn {
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    right: 460px;
+    transform: translate(-42px, -34px);
+    background: url(http://www.capgunmedia.co/favorites-button.png) no-repeat;
+    background-position: 0 0;
+    cursor: pointer;
+
+    grid-area: title;
+    border: 0;
+}
+
+.fav-btn-animating {
+    animation: favorites 1s steps(28);
+}
+
+.fav-btn-reverse-animating {
+    animation: favoritesReverse 1s steps(28);
+}
+
+.fav-btn-faved {
+    background-position: -2800px 0;
+}
+
+.fav-btn:hover {
+    background-position: -2800px 0;
+    transition: background 0s steps(1);
+    filter: hue-rotate(310deg);
+}
+
+.fav-btn-faved:hover {
+    filter: hue-rotate(0deg);
+}
+
+.fav-btn-reverse-animating:hover {
+    filter: hue-rotate(0deg);
+}
+
+@keyframes favorites {
+    0% {
+        background-position: 0 0;
+    }
+
+    100% {
+        background-position: -2800px 0;
+    }
+}
+
+@keyframes favoritesReverse {
+    0% {
+        background-position: -2800 0;
+    }
+
+    100% {
+        background-position: 0 0;
+    }
+}
+
+/* Ads section css below. */
+
+#ads {
+    grid-area: ads;
+    justify-content: center;
+}
+
+.wasteInfo {
+    border: 1px solid #c4c4c4;
+    border-radius: 3px;
+    background-color: yellow;
+    margin: 0 auto 20px auto;
+    height: 390px;
+    width: 90%;
+}
+
+.wasteInfo p {
+    font-size: 15pt;
+    font-weight: bold;
+    text-align: left;
+    padding: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+}
+
+.wasteInfo img {
+    width: 100%;
+    height: auto;
+}
+
+.learnMore {
+    width: 90%;
+    padding: 10px;
+    text-align: center;
+    font-weight: bold;
+    background-color: #991c1c;
+    border: 5px solid #991c1c;
+    border-radius: 3px;
+    margin: 0 auto 20px auto;
+    font-size: 15pt;
+    color: white;
+    font-family: Arial;
+}
+
+.learnMoreButton {
+    width: 120px;
+    border: 3px solid white;
+    border-radius: 50px;
+    margin: 0 auto;
+    font-size: 13pt;
+    vertical-align: middle;
+    line-height: 30px;
+    margin-top: 20px;
+}
+
+.learnMoreButton:hover {
+    border: 3px solid #e9da0e;
+    color: #e9da0e;
+}
+
+.ecoCityAd1 {
+    width: 90%;
+    height: auto;
+    margin: 0 auto 20px auto;
+    background-color: white;
+    border: 1px solid white;
+    border-radius: 3px;
+}
+
+.ecoCityAd1 img {
+    width: 100%;
+    height: auto;
+    border-radius: 3px;
+}
+
+.redCrossAd {
+    width: 90%;
+    height: auto;
+    margin: 0 auto 20px auto;
+}
+
+.redCrossAd img {
+    width: 100%;
+    border-radius: 3px;
+}
+
+.bcitAd {
+    width: 90%;
+    height: auto;
+    margin: 0 auto 20px auto;
+}
+
+.bcitAd img {
+    width: 100%;
+    border-radius: 3px;
+}
