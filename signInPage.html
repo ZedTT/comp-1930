@@ -1,230 +1,255 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-<link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans" rel="stylesheet">
-<link rel="icon" href="toyShareLogopng.png">
 
-    <script src="public/js/JQuery.js"></script>
-    <title>ToyShare Sign-in Page</title>
-    <style>
-			html {
-					background: url(https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Lego_dublo_arto_alanenpaa_5.JPG/1280px-Lego_dublo_arto_alanenpaa_5.JPG) no-repeat center center fixed;
-					-webkit-background-size: cover;
-					-moz-background-size: cover;
-					-o-background-size: cover;
-					background-size: cover;
-					}
-          
-			body {
-				padding: 0;
-				margin: 0;
-        font-family: 'IBM Plex Sans', sans-serif;
-				
-			}
-			#mainContent {
-				background-color: white;
-				width: 70%;
-				height: 100vh;
-				float: right;
-				
-			}
-			
-			#headingText {
-				font-size: 17pt;
-				font-weight: 1000;
-				margin-top: 59%;
-				margin-left: 13.3%;
-				line-height: 22px;
-			}
-			
-			#headingTextDesc {
-				margin-top: 5%;
-				margin-left: 13.3%;
-				font-size: 10.5pt;
-				line-height: 21px;
-				font-weight: 400;
-			}
-			
-			#opacityCover {
-				background-color: white;
-				float: left;
-				width: 30%;
-				height: 100vh;
-				background-color:rgba(255,255,255, 0.7);
+<head>
+  <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans" rel="stylesheet">
+  <link rel="icon" href="toyShareLogopng.png">
 
-			}
-			
-			#logoPic {
-				width: 55px;
-				height: 48px;
-				margin-top: 20%;
-				margin-left: 18px;
-				margin-bottom: 5px;
-			}
-			
-			#signUp {
-				text-decoration: none;
-				color: white;
-				font-size: 9pt;
-				line-height: 7px;
-				padding: 10px 45px 10px 45px;
-				background-color: rgb(0, 121, 211);
-				border-radius: 4px;
-				letter-spacing: 0.5px;
-			}
-			
-			#signUp:hover {
-				background-color: rgb(51, 148, 220);
-				cursor: pointer;
-			}
-			
-			#login {
-				text-decoration: none;
-				color: white;
-				font-size: 9pt;
-				line-height: 7px;
-				padding: 15px 52px 15px 52px;
-				background-color: rgb(0, 121, 211);
-				border-radius: 4px;
-				letter-spacing: 0.5px;
-				font-weight: 400;
-			}
-			
-			#login:hover {
-        background-color: rgb(51, 148, 220);
-        cursor: pointer;
-			}
-			
-			#signUpMargin {
-				margin-left: 25px;
-				margin-bottom: 55px;
-			}
-			
-			#loginMargin {
-        margin-left: 25px;
-			}
-      
-      div input {
-        display: block;
-        padding: 14px 205px 14px 15px;
-        margin-bottom: 10px;
-        border-radius: 4px;
-        border: 1px solid lightgrey;;
-      }
-			#signUpText {
-				font-size: 15pt;
-				margin-left: 25px;
-				margin-bottom: 25px;
-				font-weight: 500;
-			}
-			
-			#loginText {
-				font-size: 15pt;
-				margin-left: 25px;
-				margin-bottom: 25px;
-				font-weight: 500;
-			}
-			
-			/* The Modal (background) */
-      .modal {
-      display: none; /* Hidden by default */
-      position: fixed; /* Stay in place */
-      z-index: 1; /* Sit on top */
+  <script src="public/js/JQuery.js"></script>
+  <title>ToyShare Sign-in Page</title>
+  <style>
+    html {
+      background: url(https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Lego_dublo_arto_alanenpaa_5.JPG/1280px-Lego_dublo_arto_alanenpaa_5.JPG) no-repeat center center fixed;
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover;
+    }
+
+    body {
+      padding: 0;
+      margin: 0;
+      font-family: 'IBM Plex Sans', sans-serif;
+
+    }
+
+    #mainContent {
+      background-color: white;
+      width: 70%;
+      height: 100vh;
+      float: right;
+
+    }
+
+    #headingText {
+      font-size: 17pt;
+      font-weight: 1000;
+      margin-top: 59%;
+      margin-left: 13.3%;
+      line-height: 22px;
+    }
+
+    #headingTextDesc {
+      margin-top: 5%;
+      margin-left: 13.3%;
+      font-size: 10.5pt;
+      line-height: 21px;
+      font-weight: 400;
+    }
+
+    #opacityCover {
+      background-color: white;
+      float: left;
+      width: 30%;
+      height: 100vh;
+      background-color: rgba(255, 255, 255, 0.7);
+
+    }
+
+    #logoPic {
+      width: 55px;
+      height: 48px;
+      margin-top: 20%;
+      margin-left: 18px;
+      margin-bottom: 5px;
+    }
+
+    #signUp {
+      text-decoration: none;
+      color: white;
+      font-size: 9pt;
+      line-height: 7px;
+      padding: 10px 45px 10px 45px;
+      background-color: rgb(0, 121, 211);
+      border-radius: 4px;
+      letter-spacing: 0.5px;
+    }
+
+    #signUp:hover {
+      background-color: rgb(51, 148, 220);
+      cursor: pointer;
+    }
+
+    #login {
+      text-decoration: none;
+      color: white;
+      font-size: 9pt;
+      line-height: 7px;
+      padding: 15px 52px 15px 52px;
+      background-color: rgb(0, 121, 211);
+      border-radius: 4px;
+      letter-spacing: 0.5px;
+      font-weight: 400;
+    }
+
+    #login:hover {
+      background-color: rgb(51, 148, 220);
+      cursor: pointer;
+    }
+
+    #signUpMargin {
+      margin-left: 25px;
+      margin-bottom: 55px;
+    }
+
+    #loginMargin {
+      margin-left: 25px;
+    }
+
+    div input {
+      display: block;
+      padding: 14px 205px 14px 15px;
+      margin-bottom: 10px;
+      border-radius: 4px;
+      border: 1px solid lightgrey;
+      ;
+    }
+
+    #signUpText {
+      font-size: 15pt;
+      margin-left: 25px;
+      margin-bottom: 25px;
+      font-weight: 500;
+    }
+
+    #loginText {
+      font-size: 15pt;
+      margin-left: 25px;
+      margin-bottom: 25px;
+      font-weight: 500;
+    }
+
+    /* The Modal (background) */
+    .modal {
+      display: none;
+      /* Hidden by default */
+      position: fixed;
+      /* Stay in place */
+      z-index: 1;
+      /* Sit on top */
       left: 0;
       top: 0;
-      width: 100%; /* Full width */
-      height: 100%; /* Full height */
-      overflow: auto; /* Enable scroll if needed */
-      background-color: rgb(0,0,0); /* Fallback color */
-      background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-      }
-      /* Modal Content */
-      #firebaseui-auth-container{
+      width: 100%;
+      /* Full width */
+      height: 100%;
+      /* Full height */
+      overflow: auto;
+      /* Enable scroll if needed */
+      background-color: rgb(0, 0, 0);
+      /* Fallback color */
+      background-color: rgba(0, 0, 0, 0.4);
+      /* Black w/ opacity */
+    }
+
+    /* Modal Content */
+    #firebaseui-auth-container {
       position: absolute;
       background-color: #fefefe;
       margin-top: 220px;
-      margin-left:35%;
+      margin-left: 35%;
       padding: 0;
       border: 1px solid #888;
       width: 30%;
-      box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
       animation-name: animatetop;
       animation-duration: 0.4s
-      }
-      /* Add Animation */
-      @keyframes animatetop {
-      from {top: -300px; opacity: 0}
-      to {top: 0; opacity: 1}
-      }
-			
-			#date_time {
-				font-size: 10pt;
-				position: fixed;
-				bottom: 0;
-				right: 0;
-      }
-      
-      #user_div{
-        margin-left: 25px;
-      }
-    </style>
-		
-		
-		<script src="https://www.gstatic.com/firebasejs/5.8.4/firebase.js"></script>
-    <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
-    <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
-    <script src="public/js/initializeFirebase.js"></script>
-		
-    </head>
-<body>
-	<div id="opacityCover">
-	<h1 id="headingText">Welcome to ToyShare.</h1>
-			<h2 id="headingTextDesc">Canada's #1 Toy Donation and Selling Website. <hr>
-			<br> A platform to share toys with your community; <br>dedicated to an	 Ecocity, reducing plastic toy waste. <br> Sign up with no strings attached.</h2>
-	</div>
+    }
 
-	<div id="mainContent">
-		<div id="mainContainer">
-			<div>
-			<img src="toyShareLogopng.png" alt="logoPic" id="logoPic">
-				</div>
-			
-			<h1 id="signUpText">Sign Up</h1>
-			<div id="signUpMargin">
-				<a id="signUp">SIGN UP</a>
-				<div id="myModal" class="modal">
+    /* Add Animation */
+    @keyframes animatetop {
+      from {
+        top: -300px;
+        opacity: 0
+      }
+
+      to {
+        top: 0;
+        opacity: 1
+      }
+    }
+
+    #date_time {
+      font-size: 10pt;
+      position: fixed;
+      bottom: 0;
+      right: 0;
+    }
+
+    #user_div {
+      margin-left: 25px;
+    }
+  </style>
+
+
+  <script src="https://www.gstatic.com/firebasejs/5.8.4/firebase.js"></script>
+  <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
+  <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
+  <script src="public/js/initializeFirebase.js"></script>
+
+</head>
+
+<body>
+  <div id="opacityCover">
+    <h1 id="headingText">Welcome to ToyShare.</h1>
+    <h2 id="headingTextDesc">Canada's #1 Toy Donation and Selling Website.
+      <hr>
+      <br> A platform to share toys with your community; <br>dedicated to an Ecocity, reducing plastic toy waste. <br>
+      Sign up with no strings attached.</h2>
+  </div>
+
+  <div id="mainContent">
+    <div id="mainContainer">
+      <div>
+        <img src="toyShareLogopng.png" alt="logoPic" id="logoPic">
+      </div>
+
+      <h1 id="signUpText">Sign Up</h1>
+      <div id="signUpMargin">
+        <a id="signUp">SIGN UP</a>
+        <div id="myModal" class="modal">
           <!-- Modal content -->
-          <div id = "firebaseui-auth-container">
+          <div id="firebaseui-auth-container">
           </div>
         </div>
-				<div id="loader">Loading...</div>
-			</div>
-			
+        <div id="loader">Loading...</div>
+      </div>
+
       <h1 id="loginText">Login</h1>
       <div id="loginMargin">
-      <div id="login_div" class="main-div">
-          <input type="email" placeholder="Email..." id="email_field"> 
-        <input type="password" placeholder="Password..." id="password_field">
-        <button id="login" onclick="login()">LOGIN</button>
-      </div>
-    </div>
-      <div id="user_div" class="loggedin-div">
-          <h3>Welcome User</h3>
-          <p id="user_para">Welcome to ToyShare. You're currently logged in.</p>
-          <button onclick="logout()">Logout</button>
+        <div id="login_div" class="main-div">
+          <input type="email" placeholder="Email..." id="email_field">
+          <input type="password" placeholder="Password..." id="password_field">
+          <button id="login" onclick="login()">LOGIN</button>
         </div>
+      </div>
+      <div id="user_div" class="loggedin-div">
+        <h3>Welcome User</h3>
+        <p id="user_para">Welcome to ToyShare. You're currently logged in.</p>
+        <button onclick="logout()">Logout</button>
+      </div>
 
-        
-			<div id="date_time"></div>
-			
-		</div>
-	</div>
 
-      <script src="public/js/signInAuth.js"></script>
-      <script src="public/js/getModal.js"></script>
-      <script src="public/js/realTimeDate.js"></script>
-      <script src="public/js/LogIn.js"></script>
-      <script src="public/js/userinit.js"></script>
+      <div id="date_time"></div>
+
+    </div>
+  </div>
+
+  <script src="public/js/signInAuth.js"></script>
+  <script src="public/js/getModal.js"></script>
+  <script src="public/js/realTimeDate.js"></script>
+  <script src="public/js/LogIn.js"></script>
+  <script src="public/js/userinit.js"></script>
 
 </body>
+
 </html>
