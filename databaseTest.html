@@ -15,20 +15,11 @@
     <script src="jquery-asRange.js"></script>
 
     <script src="https://www.gstatic.com/firebasejs/5.8.5/firebase.js"></script>
-    <script>
-        // Initialize Firebase
-        var config = {
-            apiKey: "AIzaSyBwSxJojnYNo9ZFKHmO59sKVPdEhCR641A",
-            authDomain: "comp1930database.firebaseapp.com",
-            databaseURL: "https://comp1930database.firebaseio.com",
-            projectId: "comp1930database",
-            storageBucket: "comp1930database.appspot.com",
-            messagingSenderId: "908131063499"
-        };
-        firebase.initializeApp(config);
-    </script>
+    <script src="public/js/initializeFirebase.js"></script>
+
     <link href="https://fonts.googleapis.com/css?family=Gloria+Hallelujah" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="public/css/style.css">
+    
     <script src="public/js/userinit.js"></script>
     <style></style>
 </head>
@@ -113,205 +104,16 @@
                         alt="BCIT"></a></div>
         </div>
     </div>
-    <script>
-        // Read
-        var output = document.getElementById("toyCount");
-        var dbRef = firebase.database().ref().child("Counter");
-        dbRef.on("value", function (snap) {
-            output.innerText = snap.val();
-        });
-    </script>
-    <!-- WRITE -->
-    <!-- button script -->
-    <script>
-        /** function myFunction() { 	
-                var name = document.getElementById("toyCount").value;
-                var dbref = firebase.database().ref("/");
-                
-                dbref.once("value", function(snap){
-                    var {AddedCount} = snap.val();
-                    var {Count} = snap.val();
-                    Count += AddedCount;
-                    console.log(Count);
-                    dbref.update({
-                    "Counter" : Count
-                    });
-                    window.location.href="./about.html";
-                });
-            } */
-    </script>
-    <script>
-        var dbref = firebase.database().ref("/");
-        var counterRef = dbref.child("Counter");
-        var count;
-        $('#listingsContainer').click(function () {
-            counterRef.once("value", function (snap) {
-                count = snap.val();
-            }).then(dbref.update({
-                "Counter": count + 1
-            }));
-
-        })
-    </script>
+    
     <script src="public/js/domlibrary.js"></script>
     <script src="public/js/initializeListings.js"></script>
-
-    <script>
-        // Favorite Button - Heart
-        $('.favme').click(function () {
-            $(this).toggleClass('active');
-        });
-
-        /* when a user clicks, toggle the 'is-animating' class */
-        $(".favme").on('click touchstart', function () {
-            $(this).toggleClass('is_animating');
-        });
-
-        /*when the animation is over, remove the class*/
-        $(".favme").on('animationend', function () {
-            $(this).toggleClass('is_animating');
-        });
-    </script>
-
-    <script>
-        // unused right now because it called the database too often
-        // this is the function that filters the page
-        function filterPlus(minPrice, maxPrice, minAge, maxAge) {
-            // this is the reference to our database, specifically the toys
-            dbRef = firebase.database().ref().child("Toys");
-            // this function runs every time the database has a change
-            dbRef.on('value', function (snapshot) {
-                // IMPORTANT: clear the old listings before adding updated ones 
-                listingsContainer.innerHTML = "";
-                // a loop for each toy
-                snapshot.forEach(function (snap) {
-                    // grabbing values from the database
-                    priceVal = snap.child("Price").val();
-                    ageMaxVal = snap.child("Age_Max").val();
-                    ageMinVal = snap.child("Age_Min").val();
-                    // the actual filters, if any of these pass, it means the filter failed, return ends the loop
-                    if (priceVal < minPrice || priceVal > maxPrice) {
-                        return;
-                    }
-                    if (maxAge < ageMinVal || minAge > ageMaxVal) {
-                        return;
-                    }
-                    // Calls the create listing function with a single toys data. We only get to this point if both filters pass
-                    createListing(snap);
-                });
-            });
-        };
-    </script>
-
+    <script src="public/js/toggleSaveButton.js"></script>
     <script src="public/js/sliderFilters.js"></script>
-
     <script src="public/js/offlinetest.js"></script>
-
-    <script>
-        /** 
-        // Commented out for prototype header storing the filters
-        // make the filters move along with us as we scroll
-        // avoids "position: fixed;"
-
-        // When we scroll, call scroll function (below)
-        $(() => {
-            window.onscroll = () => {
-                scrollFunction();
-            };
-
-            function scrollFunction() {
-                // get chrome and edge to play along nicely with each other
-                var scrollVal = Math.max($('html, body').scrollTop(), ($('body').scrollTop()));
-
-                // transform the filters down by the scroll value.
-                $('#filtersContainer').css({
-                    transform: 'translate(0, ' + scrollVal + 'px)',
-                })
-
-                // console.log(scrollVal);
-
-            };
-
-        });
-        */
-    </script>
-
     <script src="public/js/changetext.js"></script>
-    <script>
-        function logout() {
-            firebase.auth().signOut();
-            firebase.auth().onAuthStateChanged(user => {
-                if (!user) {
-                    window.location =
-                        'signInPage.html'; //After successful logout, user will be redirected to signInPage.html
-                }
-            });
-        }
-    </script>
-
-    <script>
-        firebase.auth().onAuthStateChanged(function (user) {
-            if (user) {
-                // User is signed in.
-                document.getElementById("signedUpButton").style.display = "block";
-                document.getElementById("signUpButton").style.display = "none";
-
-                var email_id = user.email;
-                document.getElementById("signedUpButton").innerHTML = "Welcome Back " + email_id;
-                document.getElementById("logOutButton").innerHTML = "Logout";
-
-            } else {
-                // No user is signed in.
-
-                document.getElementById("signedUpButton").style.display = "none";
-                document.getElementById("signUpButton").style.display = "block";
-
-                document.getElementById("logOutButton").innerHTML = "Sign-In";
-                document.getElementById("signedUpButton").innerHTML = "Sign-Up";
-
-            }
-        });
-    </script>
-    <script>
-        function favFunc(event) {
-            if (!$(event.target).hasClass('fav-btn-faved')) {
-                $(event.target).addClass('fav-btn-animating')
-
-                setTimeout(function () {
-                    $(event.target).removeClass('fav-btn-animating').addClass('fav-btn-faved');
-                }, 1000);
-            } else {
-                    $(event.target).removeClass('fav-btn-faved');
-            }
-
-            var target = event.target;
-            var uid = firebase.auth().currentUser.uid;
-            console.log(firebase.auth().currentUser.uid);
-            firebase.database().ref("users/" + uid + "/favorites").update({
-                "fav":"target"
-            });
-
-            console.log(event.target);
-        }
-
-        // var dbref = firebase.database().ref("/");
-        // var counterRef = dbref.child("Counter");
-        // var count;
-        // $('#listingsContainer').click(function () {
-        //     counterRef.once("value", function (snap) {
-        //         count = snap.val();
-        //     }).then(dbref.update({
-        //         "Counter": count + 1
-        //     }));
-
-        // })
-
-
-        function testFunc() {
-            $('.fav-btn').toggleClass('fav-btn-animating');
-        };
-    </script>
-
+    <script src="public/js/logoutfunction.js"></script>
+    <script src="public/js/firebaseAuthentication.js"></script>
+    <script src="public/js/toyCounterDatabase.js"></script>
 </body>
 
 </html>
