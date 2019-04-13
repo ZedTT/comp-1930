@@ -1,16 +1,16 @@
 function favFunc(event) {
     if (!$(event.target).hasClass('fav-btn-faved')) {
-        $(event.target).addClass('fav-btn-animating')
+        $(event.target).addClass('fav-btn-animating').addClass('fav-btn-faved');
 
         setTimeout(function () {
-            $(event.target).removeClass('fav-btn-animating').addClass('fav-btn-faved');
+            $(event.target).removeClass('fav-btn-animating');
         }, 1000);
     } else {
         $(event.target).removeClass('fav-btn-faved');
         $(event.target).addClass('fav-btn-reverse-animating');
 
         setTimeout(function () {
-            $(event.target).removeClass('fav-btn-reverse-animating').removeClass('fav-btn-faved');
+            $(event.target).removeClass('fav-btn-reverse-animating');
         }, 1000);
     }
 
