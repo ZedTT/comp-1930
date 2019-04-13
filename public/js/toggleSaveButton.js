@@ -7,7 +7,7 @@ function favFunc(event) {
         }, 1000);
     } else {
         $(event.target).removeClass('fav-btn-faved');
-
+        $(event.target).addClass('fav-btn-reverse-animating');
 
         setTimeout(function () {
             $(event.target).removeClass('fav-btn-reverse-animating').removeClass('fav-btn-faved');
