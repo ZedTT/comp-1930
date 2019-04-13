@@ -11,6 +11,12 @@ function createListing(snap) {
 
     // The key of the toy, used only as a back up if the name field is missing
     var thisToy = snap.key;
+
+    // Do not display the error dump
+    if (thisToy == "DefaultListingNameError") {
+        return;
+    }
+
     // Grabbbing values from the snap
     var nameVal = snap.child("Name").val();
     var priceVal = snap.child("Price").val();
