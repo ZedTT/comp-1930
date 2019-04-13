@@ -468,6 +468,15 @@
         .fav-btn:hover {
             background-position: -2800px 0;
             transition: background 0s steps(1);
+            filter: hue-rotate(310deg);
+        }
+
+        .fav-btn-faved:hover {
+            filter: hue-rotate(0deg);
+        }
+
+        .fav-btn-reverse-animating:hover {
+            filter: hue-rotate(0deg);
         }
 
         @keyframes favorites {
